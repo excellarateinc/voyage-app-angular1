@@ -1,4 +1,4 @@
-My fork of @alamgird's angular-starter project.  
+Fork of https://github.com/sJhonny-e/extended-angular-starter
 
 **Things I've added / changed:**
 
