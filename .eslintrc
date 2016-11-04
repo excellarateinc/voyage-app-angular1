@@ -1,0 +1,34 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "sourceType": "module"
+  },
+
+  "env": {
+    "es6": true,
+    "node": true,
+    "jasmine": true
+  },
+
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+
+  "globals": {
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+
+  "rules": {
+
+  },
+
+  "extends": [
+    "eslint:recommended"
+  ]
+}
