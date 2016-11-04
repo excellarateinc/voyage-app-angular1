@@ -4,4 +4,21 @@
             <h1>Dashboard</h1>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Your Claims</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <th>Claim Type</th>
+                    <th>Claim Value</th>
+                </thead>
+                <tr ng-repeat="claim in vm.claims">
+                    <td>{{claim.claimType}}</td>
+                    <td>{{claim.claimValue}}</td>    
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

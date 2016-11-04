@@ -4,13 +4,13 @@
         this.accountService = accountService;
         this.$state = $state;
 
-        this.username = 'fred@fred.com';
+        this.username = 'admin@admin.com';
         this.password = 'Hello123!';
     }
 
     login() {
-        
-        this.accountService.login(this.username, this.password).then(function(){
+     
+        this.accountService.login(this.username, this.password).then(() => {
             this.$state.go('dashboard');
         });
     }    

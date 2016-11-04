@@ -7,6 +7,9 @@ import ErrorService from './error.service';
 const coreModule = 
 	angular
 	.module('core.module', [])
+	.constant('coreConstants', {
+		apiUrl: 'http://localhost:52431/api'
+	})
 	.service('authorizationInterceptor', AuthorizationInterceptor)
 	.service('authorizationService', AuthorizationService)
 	.service('errorService', ErrorService).name;

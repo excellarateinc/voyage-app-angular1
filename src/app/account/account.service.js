@@ -1,22 +1,33 @@
 class AccountService {
     /*@ngInject*/
-    constructor($q, $http, authorizationService) {
+    constructor($q, $http, authorizationService, coreConstants) {
         this.$q = $q;
         this.$http = $http;
         this.authorizationService = authorizationService;   
+        this.constants = coreConstants
     }
 
     login(username, password) { 
         let deferred = this.$q.defer();
 
-        let content = "grant_type=password&username=" + username + "&password=" + password;  
+        let content = 'grant_type=password&username=' + username + '&password=' + password;  
      
-        this.$http.post("/Token", content, {
+        this.$http.post(this.constants.apiUrl + '/Token', content, {
+            
             headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
         })
-        .success(function(response){
+        .success((response) => {
             this.authorizationService.setToken(response.access_token);
             deferred.resolve(true);
+        });
+        return deferred.promise;
+    }
+
+    getClaims(){
+        let deferred = this.$q.defer();
+        this.$http.get(this.constants.apiUrl + '/v1/user/claims')
+            .then( (response) => {
+            deferred.resolve(response.data);
         });
         return deferred.promise;
     }
@@ -30,11 +41,11 @@ class AccountService {
             confirmPassword: password
         };
 
-        this.$http.post("/api/account/register", user)
-            .then(function(response){
+        this.$http.post(this.constants.apiUrl + '/v1/account/register', user)
+            .then((response) => {
                 deferred.resolve(response.data);
             }, 
-            function(response){
+            (response) => {
                 deferred.reject(response.data);
             });
 
