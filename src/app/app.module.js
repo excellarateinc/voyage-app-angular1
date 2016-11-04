@@ -4,7 +4,7 @@ import 'angular-sanitize';
 
 import '../scss/app.scss';
 
-import appComponent from './application.component';
+import appComponent from './app.component';
 import appConfig from './app.config';
 
 import dashboardModule from 'dashboard/dashboard.module';
