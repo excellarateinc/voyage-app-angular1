@@ -1,17 +1,18 @@
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-           
-            <span class="navbar-brand">Launchpad</span>
-            
-            <ul class="nav navbar-nav">
-                <li ng-if="!vm.authToken">
-                	<a ui-sref="register">Register</a>
-            	</li>
-                <button ng-if="vm.authToken" type="button" class="btn btn-default navbar-btn" ng-click="vm.logout()">
-                	Logout
-                </button>
-            </ul>
-        </div>
-    </div>
-</div>
+<header class="topnavbar-wrapper">
+   <nav class="navbar topnavbar" role="navigation">   
+      <div class="navbar-header">
+         <a class="navbar-brand" href="#/">
+            <div class="brand-logo">
+               <img class="img-responsive" src="http://lssinc.com/_img/main-logo.png" alt="App Logo" />
+            </div>
+            <div class="brand-logo-collapsed">
+               <img class="img-responsive" src="img/logo-single.png" alt="App Logo" />
+            </div>
+         </a>
+      </div>
+
+      <div class="nav-wrapper">
+
+      </div>
+   </nav>
+</header>
