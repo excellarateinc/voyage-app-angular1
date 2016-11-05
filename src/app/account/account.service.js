@@ -4,41 +4,30 @@ class AccountService {
         this.$q = $q;
         this.$http = $http;
         this.authorizationService = authorizationService;   
+        this.baseApi = "http://localhost:52431/api";
     }
-
+ 
     login(username, password) { 
-        let deferred = this.$q.defer();
-
-        let content = "grant_type=password&username=" + username + "&password=" + password;  
+        const content = "grant_type=password&username=" + username + "&password=" + password;  
      
-        this.$http.post("/Token", content, {
+        return this.$http.post(`${this.baseApi}/Token`, content, {
             headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
-        })
-        .success(function(response){
-            this.authorizationService.setToken(response.access_token);
-            deferred.resolve(true);
+        }).then(response => {
+            this.authorizationService.setToken(response.data.access_token);
         });
-        return deferred.promise;
     }
 
     register(username, password) {
-        let deferred = this.$q.defer();
-
-        let user = {
+        const user = {
             email: username,
             password: password,
             confirmPassword: password
         };
 
-        this.$http.post("/api/account/register", user)
-            .then(function(response){
-                deferred.resolve(response.data);
-            }, 
-            function(response){
-                deferred.reject(response.data);
-            });
-
-        return deferred.promise;
+        return this.$http.post(`${this.baseApi}/v1/account/register`, user)
+            .then((response) => {
+                return response.data;
+            });       
     }    
 }
 

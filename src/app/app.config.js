@@ -1,8 +1,7 @@
 import 'angular-ui-router';
-
 import 'core/authorization.interceptor';
 import 'dashboard/dashboard.component';
-import 'header/header.component';
+import 'layout/header.component';
 import 'account/login.component'
 import 'account/register.component'
 
@@ -51,7 +50,7 @@ function appConfig($stateProvider, $urlRouterProvider, $httpProvider){
                 component: 'dashboardComponent'
             },
             header: {
-                component: 'secureHeaderComponent'
+                component: 'headerComponent'
             }
         }
     }];

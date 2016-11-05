@@ -8,12 +8,12 @@ import appComponent from './app.component';
 import appConfig from './app.config';
 
 import dashboardModule from 'dashboard/dashboard.module';
-import headerModule from 'header/header.module';
+import layoutModule from 'layout/layout.module';
 import coreModule from 'core/core.module';
 import accountModule from 'account/account.module';
 
 angular
-  .module('lss-launchpad', ['ui.router', dashboardModule, headerModule, coreModule, accountModule])
+  .module('lss-launchpad', ['ui.router', dashboardModule, layoutModule, coreModule, accountModule])
   .config(appConfig)
   .component('app', appComponent);
 
