@@ -1,7 +1,6 @@
 class AccountService {
     /*@ngInject*/
-    constructor($q, $http, authorizationService) {
-        this.$q = $q;
+    constructor($http, authorizationService) {
         this.$http = $http;
         this.authorizationService = authorizationService;   
         this.baseApi = "http://localhost:52431/api";
