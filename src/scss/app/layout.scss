@@ -499,7 +499,9 @@ html, body {
       }
     }
     > section {
+      margin-top: ($navbar-hg + 2) * 2;
       @media only screen and (min-width: $mq-tablet) {
+        margin-top: $navbar-hg;
       }
     }
   }
