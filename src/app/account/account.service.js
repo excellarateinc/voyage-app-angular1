@@ -1,8 +1,9 @@
 class AccountService {
     /*@ngInject*/
-    constructor($http, authorizationService) {
+    constructor($http, authorizationService, $q) {
         this.$http = $http;
         this.authorizationService = authorizationService;   
+        this.$q = $q;
         this.baseApi = "http://localhost:52431/api";
     }
  
@@ -11,7 +12,8 @@ class AccountService {
      
         return this.$http.post(`${this.baseApi}/Token`, content, {
             headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
-        }).then(response => {
+        })
+        .then(response => {
             this.authorizationService.setToken(response.data.access_token);
         });
     }
@@ -24,9 +26,10 @@ class AccountService {
         };
 
         return this.$http.post(`${this.baseApi}/v1/account/register`, user)
-            .then((response) => {
-                return response.data;
-            });       
+            .then(response => response.data)
+            .catch(failure => { 
+                return this.$q.reject(failure.data);
+            });
     }    
 }
 

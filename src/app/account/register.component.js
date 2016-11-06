@@ -8,12 +8,12 @@ class RegisterController {
 
     register(){
         if(this.password === this.confirmPassword){
-            this.accountService.register(this.username, this.password).then(
-                () => {
+            this.accountService.register(this.username, this.password)
+                .then(() => {
                     this.registrationErrors = [];
                     this.$state.go('login');
-                },
-                (failure) => {
+                })
+                .catch(failure => {
                     var errors = this.errorService.getModelStateErrors(failure);
                     this.registrationErrors = errors;
                 }

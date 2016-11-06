@@ -9,9 +9,10 @@
     }
 
     login() {        
-        this.accountService.login(this.username, this.password).then(() => {
-            this.$state.go('dashboard');
-        });
+        this.accountService.login(this.username, this.password)
+            .then(() => {
+                this.$state.go('dashboard');
+            });
     }    
 }
 

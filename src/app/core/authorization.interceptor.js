@@ -1,9 +1,10 @@
 
 class AuthorizationInterceptor {
     /*@ngInject*/
-    constructor(authorizationService, $state) {           
+    constructor(authorizationService, $state, $q) {           
         this.authorizationService = authorizationService;
         this.$state = $state;   
+        this.$q = $q;
 
         /* This fixes the issue that Angular doesn't like an interceptor 
            bound to a class when it's expecting a function. */
@@ -24,7 +25,8 @@ class AuthorizationInterceptor {
     responseError(response) {        
         if(response.status === 401){
             this.$state.go('login');
-        }        
+        }
+        return this.$q.reject(response);       
     }
 }
 
