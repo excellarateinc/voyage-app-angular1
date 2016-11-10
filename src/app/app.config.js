@@ -1,9 +1,4 @@
-import 'angular-ui-router';
-import 'core/authorization.interceptor';
-import 'dashboard/dashboard.component';
-import 'layout/header.component';
-import 'account/login.component'
-import 'account/register.component'
+
 
 function appConfig($stateProvider, $urlRouterProvider, $httpProvider){
 	/*@ngInject*/
@@ -60,5 +55,3 @@ function appConfig($stateProvider, $urlRouterProvider, $httpProvider){
         $stateProvider.state(state);
     });
 }
-
-export default appConfig;

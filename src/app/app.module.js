@@ -1,23 +1,18 @@
-import angular from 'angular';
-import 'angular-ui-router';
-import 'angular-sanitize';
+(function() {
+	'use strict';
 
-import '../scss/app.scss';
+	angular
+	  .module('launchpadApp', ['ui.router', 'launchpadApp.dashboard', 'launchpadApp.layout', 'launchpadApp.core', 'launchpadApp.account'])
+	  .config(appConfig);
 
-import appComponent from './app.component';
-import appConfig from './app.config';
+	appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 
-import dashboardModule from 'dashboard/dashboard.module';
-import layoutModule from 'layout/layout.module';
-import coreModule from 'core/core.module';
-import accountModule from 'account/account.module';
+	function appConfig($stateProvider, $urlRouterProvider, $httpProvider) {
+	    //Configure http interceptors
+	    $httpProvider.interceptors.push('authorizationInterceptor');
 
-angular
-  .module('lss-launchpad', ['ui.router', dashboardModule, layoutModule, coreModule, accountModule])
-  .config(appConfig)
-  .component('app', appComponent);
-
-angular
-  .element(document)
-  .ready(() => angular.bootstrap(document, ['lss-launchpad']));
+	    //Configure default route
+	    $urlRouterProvider.otherwise('/login');
+	}
+})();
 

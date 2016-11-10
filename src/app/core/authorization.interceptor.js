@@ -1,33 +1,35 @@
+(function() {
+    'use strict';
 
-class AuthorizationInterceptor {
-    /*@ngInject*/
-    constructor(authorizationService, $state, $q) {           
-        this.authorizationService = authorizationService;
-        this.$state = $state;   
-        this.$q = $q;
+    angular
+        .module('launchpadApp.core')
+        .factory('authorizationInterceptor', authorizationInterceptor)
 
-        /* This fixes the issue that Angular doesn't like an interceptor 
-           bound to a class when it's expecting a function. */
+    authorizationInterceptor.$inject = ['authorizationService', '$state', '$q'];
+
+    function authorizationInterceptor(authorizationService, $state, $q) {
+
         return {
-            request: this.request.bind(this),
-            responseError: this.responseError.bind(this)
-        }  
-    }
+            request,
+            responseError
+        };        
 
-    request(config) {
-        const token = this.authorizationService.getToken();
-        if(token){
-            config.headers.Authorization = `bearer ${token}`;
+        function request(config) {
+            const token = authorizationService.getToken();
+            if(token){
+                config.headers.Authorization = `bearer ${token}`;
+            }
+            return config;
         }
-        return config;
-    }
 
-    responseError(response) {        
-        if(response.status === 401){
-            this.$state.go('login');
+        function responseError(response) {        
+            if(response.status === 401){
+                $state.go('login');
+            }
+            return $q.reject(response);       
         }
-        return this.$q.reject(response);       
-    }
-}
+    }    
+})();
 
-export default AuthorizationInterceptor;
+
+

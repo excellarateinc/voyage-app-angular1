@@ -1,22 +1,24 @@
+(function() {
+    'use strict';
 
-class HeaderController { 
-	/*@ngInject*/
-	constructor(authorizationService, $state) {
-		this.authorizationService = authorizationService;
-		this.$state = $state;
-		this.authToken = this.authorizationService.getToken();
-	}
+    angular
+        .module('launchpadApp.layout')
+        .component('header', {
+            templateUrl: 'app/layout/header.component.html',
+            controller: headerController,
+            controllerAs: 'vm'            
+        });
 
-    logout() {
-        this.authorizationService.setToken(null);
-        this.$state.go("login");        
-    }	
-}
+        headerController.$inject = ['authorizationService', '$state'];
 
-const headerComponent = {
-    templateUrl: 'app/layout/header.component.html',
-    controller: HeaderController,
-    controllerAs: 'vm'
-};
+        function headerController(authorizationService, $state) { 
+            function logout() {
+                authorizationService.setToken(null);
+                $state.go("login");        
+            }   
+        }
+})();
 
-export default headerComponent;
+
+
+

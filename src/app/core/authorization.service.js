@@ -1,15 +1,24 @@
-class AuthorizationService {
-    constructor() {
-        this.accessToken = null;
-    }
+(function() {
+'use strict';
 
-    setToken(token) {
-        this.accessToken = token;
-    }
+    angular
+        .module('launchpadApp.core')
+        .factory('authorizationService', authorizationService);
 
-    getToken() {
-        return this.accessToken;
-    }
-}
+	function authorizationService() {
 
-export default AuthorizationService;
+		return {
+			setToken,
+			getToken
+		}
+
+		function setToken(token) {
+		    this.accessToken = token;
+		}
+
+		function getToken() {
+		    return this.accessToken;
+		}
+	}
+	
+})();

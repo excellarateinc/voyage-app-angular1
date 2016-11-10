@@ -1,10 +1,7 @@
-import angular from 'angular';
+(function() {
+	'use strict';
 
-import dashboardComponent from './dashboard.component';
-
-const dashboardModule = 
 	angular
-	.module('dashboard.module', [])
-	.component('dashboardComponent', dashboardComponent).name;
+		.module('launchpadApp.dashboard', []);
 
-export default dashboardModule;
+})();

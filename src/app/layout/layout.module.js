@@ -1,10 +1,7 @@
-import angular from 'angular';
+(function() {
+	'use strict';
 
-import headerComponent from './header.component';
-
-const layoutModule = 
 	angular
-	.module('layout.module', [])
-	.component('headerComponent', headerComponent).name;
+		.module('launchpadApp.layout', []);
 
-export default layoutModule;
+})();
