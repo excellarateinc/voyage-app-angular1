@@ -5,11 +5,11 @@
 		.module('launchpadApp.dashboard')
 		.component('dashboard', {
 			templateUrl: 'app/dashboard/dashboard.component.html',
-			controller: dashboardController,
+			controller: DashboardController,
 			controllerAs: 'vm'			
 		});
 
-		function dashboardController() { }
+		function DashboardController() { }
 
 })();
 

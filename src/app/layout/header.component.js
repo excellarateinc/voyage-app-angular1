@@ -5,13 +5,13 @@
         .module('launchpadApp.layout')
         .component('header', {
             templateUrl: 'app/layout/header.component.html',
-            controller: headerController,
+            controller: HeaderController,
             controllerAs: 'vm'            
         });
 
-        headerController.$inject = ['authorizationService', '$state'];
+        HeaderController.$inject = ['authorizationService', '$state'];
 
-        function headerController(authorizationService, $state) { 
+        function HeaderController(authorizationService, $state) { 
             const vm = this;
             vm.logout = logout;
             vm.authToken = authorizationService.getToken()

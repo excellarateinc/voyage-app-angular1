@@ -5,13 +5,13 @@
         .module('launchpadApp.account')
         .component('login', {
             templateUrl: 'app/account/login.component.html',
-            controller: loginController,
+            controller: LoginController,
             controllerAs: 'vm'
         });
 
-    loginController.$inject = ['accountService', '$state'];
+    LoginController.$inject = ['accountService', '$state'];
 
-    function loginController(accountService, $state) {
+    function LoginController(accountService, $state) {
         const vm = this;
         vm.login = login;
 
