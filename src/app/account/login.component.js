@@ -1,25 +1,25 @@
-﻿class LoginController {
-    /*@ngInject*/ 
-    constructor(accountService, $state) {
-        this.accountService = accountService;
-        this.$state = $state;
+﻿(function() {
+    'use strict';
 
-        this.username = 'admin@admin.com';
-        this.password = 'Hello123!';
-    }
+    angular
+        .module('launchpadApp.account')
+        .component('login', {
+            templateUrl: 'app/account/login.component.html',
+            controller: loginController,
+            controllerAs: 'vm'
+        });
 
-    login() {        
-        this.accountService.login(this.username, this.password)
-            .then(() => {
-                this.$state.go('dashboard');
-            });
+    loginController.$inject = ['accountService', '$state'];
+
+    function loginController(accountService, $state) {
+
+        function login() {        
+            accountService.login(vm.username, vm.password)
+                .then(() => {
+                    $state.go('dashboard');
+                });
+        }
     }    
-}
+})();
 
-const loginComponent = {
-    templateUrl: 'app/account/login.component.html',
-    controller: LoginController,
-    controllerAs: 'vm'
-};
 
-export default loginComponent;
