@@ -2,7 +2,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Launchpad</title>
-        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">        
+        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">      
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"> 
+        <link href="css/app.css" rel="stylesheet"> 
     </head>
     <body ng-app="launchpadApp">
         <div class="container body-content">
@@ -24,6 +26,7 @@
         <script src="app/account/register.component.js"></script>
 
         <script src="app/core/core.module.js"></script>
+        <script src="app/core/constants.js"></script>
         <script src="app/core/authorization.interceptor.js"></script>
         <script src="app/core/authorization.service.js"></script>
         <script src="app/core/error.service.js"></script>
@@ -33,4 +36,5 @@
 
         <script src="app/layout/layout.module.js"></script>
         <script src="app/layout/header.component.js"></script>
+    </body>
 </html>

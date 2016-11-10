@@ -5,9 +5,9 @@
         .module('launchpadApp.account')
         .factory('accountService', accountService);
 
-    accountService.$inject = ['$http', 'authorizationService', '$q'];
+    accountService.$inject = ['$http', 'authorizationService', '$q', 'API_URL'];
 
-    function accountService($http, authorizationService, $q) {
+    function accountService($http, authorizationService, $q, API_URL) {        
      
          return  {
             login,
@@ -17,11 +17,11 @@
         function login(username, password) { 
             const content = "grant_type=password&username=" + username + "&password=" + password;  
          
-            return this.$http.post(`${this.baseApi}/Token`, content, {
+            return $http.post(`${API_URL}/Token`, content, {
                 headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
             })
             .then(response => {
-                this.authorizationService.setToken(response.data.access_token);
+                authorizationService.setToken(response.data.access_token);
             });
         }
 
@@ -32,10 +32,10 @@
                 confirmPassword: password
             };
 
-            return this.$http.post(`${this.baseApi}/v1/account/register`, user)
+            return $http.post(`${API_URL}/v1/account/register`, user)
                 .then(response => response.data)
                 .catch(failure => { 
-                    return this.$q.reject(failure.data);
+                    return $q.reject(failure.data);
                 });
         }    
     }        

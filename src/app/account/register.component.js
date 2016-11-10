@@ -12,7 +12,9 @@
     registerController.$inject = ['accountService', '$state', 'errorService'];
 
     function registerController(accountService, $state, errorService) {
-
+        const vm = this;    
+        vm.register = register;
+        
         function register() {
             if(vm.password === vm.confirmPassword){
                 accountService.register(vm.username, vm.password)

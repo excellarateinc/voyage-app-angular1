@@ -1,6 +1,7 @@
 (function() {
-'use strict';
+	'use strict';
 
+	// TODO: Move to a view
 	angular
 		.module('launchpadApp')
 		.component('app', {

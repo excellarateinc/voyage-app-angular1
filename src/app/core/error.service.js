@@ -6,6 +6,11 @@
         .factory('errorService', errorService);
 
     function errorService() {
+
+        return {
+            getModelStateErrors
+        }
+
         function getModelStateErrors(failure) {
             let errors = [];
             if(failure.modelState){
