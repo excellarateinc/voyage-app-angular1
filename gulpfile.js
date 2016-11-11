@@ -34,6 +34,7 @@ gulp.task('clean', function (done) {
 gulp.task('babel', ['clean', 'sass'], function(done) {
   return gulp.src(paths.js)
     .pipe(babel())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist/app'));
 });
 
@@ -57,8 +58,7 @@ gulp.task('concat', ["sass", "babel"], function(done) {
           }
           return filePath;
         }
-    }, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
-    .pipe(gulpIf('*.js', uglify()))
+    }, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))    
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('dist'));
 });
