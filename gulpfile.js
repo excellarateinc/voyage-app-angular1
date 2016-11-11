@@ -16,7 +16,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var useref = require('gulp-useref');
 var lazypipe = require('lazypipe');
-var gulpIf = require('gulp-if');
+var gulpif = require('gulp-if');
 
 var paths = {
   html: ['./src/**/*.html'],
@@ -34,7 +34,6 @@ gulp.task('clean', function (done) {
 gulp.task('babel', ['clean', 'sass'], function(done) {
   return gulp.src(paths.js)
     .pipe(babel())
-    .pipe(uglify())
     .pipe(gulp.dest('./dist/app'));
 });
 
@@ -59,6 +58,7 @@ gulp.task('concat', ["sass", "babel"], function(done) {
           return filePath;
         }
     }, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))    
+    .pipe(gulpif('*.js', uglify()))
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('dist'));
 });
