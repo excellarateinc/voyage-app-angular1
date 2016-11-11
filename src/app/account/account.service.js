@@ -15,7 +15,7 @@
          };
 
         function login(username, password) { 
-            const content = "grant_type=password&username=" + username + "&password=" + password;  
+            const content = `grant_type=password&username=${username}&password=${password}`;  
          
             return $http.post(`${API_URL}/Token`, content, {
                 headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
