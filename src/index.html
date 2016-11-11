@@ -1,18 +1,40 @@
-<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Launchpad</title>
-        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">
-        <base href="/">
+        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">      
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"> 
+        <link href="css/app.css" rel="stylesheet"> 
     </head>
-    <body>
+    <body ng-app="launchpadApp">
         <div class="container body-content">
         	<app>Loading</app>
 	        <hr />
-	        <footer>
-	           
-	        </footer>
-    	</div>    	        
+	        <footer></footer>
+    	</div>    	
+
+        <script src="../node_modules/angular/angular.js"></script>        
+        <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script> 
+
+        <script src="app/app.module.js"></script>
+        <script src="app/app.component.js"></script>
+        <script src="app/app.config.js"></script>        
+
+        <script src="app/account/account.module.js"></script>
+        <script src="app/account/account.service.js"></script>
+        <script src="app/account/login.component.js"></script>
+        <script src="app/account/register.component.js"></script>
+
+        <script src="app/core/core.module.js"></script>
+        <script src="app/core/constants.js"></script>
+        <script src="app/core/authorization.interceptor.js"></script>
+        <script src="app/core/authorization.service.js"></script>
+        <script src="app/core/error.service.js"></script>
+
+        <script src="app/dashboard/dashboard.module.js"></script>
+        <script src="app/dashboard/dashboard.component.js"></script>    
+
+        <script src="app/layout/layout.module.js"></script>
+        <script src="app/layout/header.component.js"></script>
     </body>
 </html>

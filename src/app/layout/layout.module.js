@@ -2,5 +2,6 @@
 	'use strict';
 
 	angular
-		.module('launchpadApp.core', []);
+		.module('launchpadApp.layout', []);
+
 })();

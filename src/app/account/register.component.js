@@ -1,43 +1,37 @@
-class RegisterController {
-    /*@ngInject*/ 
-    constructor(accountService, $state, errorService) {
-        this.accountService = accountService;
-        this.$state = $state;
-        this.errorService = errorService;
+(function() {
+    'use strict';
 
-        this.username = '';
-        this.password = '';
-        this.confirmPassword = '';
-        this.registrationErrors = [];
-    }
+    angular
+        .module('launchpadApp.account')
+        .component('register', {
+            templateUrl: 'app/account/register.component.html',
+            controller: RegisterController,
+            controllerAs: 'vm'
+        });
 
-    register(){
-        if(this.password == this.confirmPassword){
-            this.accountService.register(this.username, this.password).then(
-                function(){
-                    this.registrationErrors = [];
-                    this.$state.go('login');
-                },
-                function(failure){
-                    var errors = this.errorService.getModelStateErrors(failure);
-                    this.registrationErrors = errors;
-                }
-            );
-        }
-        else{
-            this.registrationErrors = ['Passwords must match'];
-        }
-    }    
-}
+    RegisterController.$inject = ['accountService', '$state', 'errorService'];
 
-const registerComponent = {
-    templateUrl: 'app/account/register.component.html',
-    controller: RegisterController,
-    controllerAs: 'vm',
-    bindings: {
-        Binding: '='
-    }
-};
+    function RegisterController(accountService, $state, errorService) {
+        const vm = this;    
+        vm.register = register;
+        
+        function register() {
+            if(vm.password === vm.confirmPassword){
+                accountService.register(vm.username, vm.password)
+                    .then(() => {
+                        vm.registrationErrors = [];
+                        $state.go('login');
+                    })
+                    .catch(failure => {
+                        const errors = errorService.getModelStateErrors(failure);
+                        vm.registrationErrors = errors;
+                    }
+                );
+            }
+            else{
+                vm.registrationErrors = ['Passwords must match'];
+            }
+        }    
+    }        
 
-export default registerComponent;
-
+})();

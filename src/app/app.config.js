@@ -1,65 +1,67 @@
-import 'angular-ui-router';
+(function() {
+    'use strict';
 
-import 'core/authorization.interceptor';
-import 'dashboard/dashboard.component';
-import 'header/header.component';
-import 'account/login.component'
-import 'account/register.component'
+    angular
+        .module('launchpadApp')
+        .config(appConfig);
 
-function appConfig($stateProvider, $urlRouterProvider, $httpProvider){
-	/*@ngInject*/
-        
-    //Configure http interceptors
-    $httpProvider.interceptors.push('authorizationInterceptor');
+    appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 
-    //Configure default route
-    $urlRouterProvider.otherwise('/login');
+    function appConfig($stateProvider, $urlRouterProvider, $httpProvider){        
+            
+        //Configure http interceptors
+        $httpProvider.interceptors.push('authorizationInterceptor');
 
-    //Configure ui states
-    var states = [
-    { 
-        name: 'login', 
-        url: '/login',
-        views: {
-            content: {
-                // Using component: instead of template:
-                component: 'loginComponent'
-            },
-            header: {
-                component: 'headerComponent'
+        //Configure default route
+        $urlRouterProvider.otherwise('/login');
+
+        // TODO: Move state configuration to individual modules.
+        //Configure ui states
+        var states = [
+        { 
+            name: 'login', 
+            url: '/login',
+            views: {
+                content: {
+                    // Using component: instead of template:
+                    component: 'login'
+                },
+                header: {
+                    component: 'header'
+                }
+            }         
+        },
+        { 
+            name: 'register', 
+            url: '/register',
+            views: {
+                content: {
+                    // Using component: instead of template:
+                    component: 'register'
+                },
+                header: {
+                    component: 'header'
+                }
+            }         
+        },    
+        {
+            name: 'dashboard',
+            url: '/dashboard',
+            views: {
+                content: {                
+                    component: 'dashboard'
+                },
+                header: {
+                    component: 'header'
+                }
             }
-        }         
-    },
-    { 
-        name: 'register', 
-        url: '/register',
-        views: {
-            content: {
-                // Using component: instead of template:
-                component: 'registerComponent'
-            },
-            header: {
-                component: 'headerComponent'
-            }
-        }         
-    },    
-    {
-        name: 'dashboard',
-        url: '/dashboard',
-        views: {
-            content: {                
-                component: 'dashboardComponent'
-            },
-            header: {
-                component: 'secureHeaderComponent'
-            }
-        }
-    }];
+        }];
 
-    // Loop over the state definitions and register them
-    states.forEach(function(state) {
-        $stateProvider.state(state);
-    });
-}
+        // Loop over the state definitions and register them
+        states.forEach(function(state) {
+            $stateProvider.state(state);
+        });
+    }
 
-export default appConfig;
+})();
+

@@ -1,33 +1,35 @@
+(function() {
+    'use strict';
 
-class AuthorizationInterceptor {
-    /*@ngInject*/
-    constructor($q, authorizationService, $state) {   
-        this.$q = $q;
-        this.authorizationService = authorizationService;
-        this.$state = $state;   
+    angular
+        .module('launchpadApp.core')
+        .factory('authorizationInterceptor', authorizationInterceptor)
+
+    authorizationInterceptor.$inject = ['authorizationService', '$state', '$q'];
+
+    function authorizationInterceptor(authorizationService, $state, $q) {
 
         return {
-            request: this.request.bind(this),
-            responseError: this.responseError.bind(this)
-        }  
-    }
+            request,
+            responseError
+        };        
 
-    request(config) {
-        let token = this.authorizationService.getToken();
-        if(token){
-            config.headers.Authorization = 'bearer ' + token;
+        function request(config) {
+            const token = authorizationService.getToken();
+            if(token){
+                config.headers.Authorization = `bearer ${token}`;
+            }
+            return config;
         }
-        return config;
-    }
 
-    responseError(response) {
-        let deferred = this.$q.defer();
-        if(response.status == 401){
-            this.$state.go('login');
+        function responseError(response) {        
+            if(response.status === 401){
+                $state.go('login');
+            }
+            return $q.reject(response);       
         }
-        deferred.reject(response);
-        return deferred.promise;        
-    }
-}
+    }    
+})();
 
-export default AuthorizationInterceptor;
+
+
