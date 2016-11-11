@@ -1,39 +1,75 @@
-module.exports = function karmaConfig(config) {
+// Karma configuration
+
+module.exports = function(config) {
+  'use strict';
+
   config.set({
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+    // base path, that will be used to resolve files and exclude
+    basePath: './src',
+
+    plugins: [
+     'karma-jasmine',
+     'karma-phantomjs-launcher',
+     'karma-chrome-launcher',
+     'karma-babel-preprocessor'
+    ],
+
+    // testing framework to use (jasmine/mocha/qunit/...)
+    // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
       'jasmine'
     ],
 
-    reporters: [
-      'coverage', 'spec'
-    ],
-
-    files: [
-      'src/tests.webpack.js'
-    ],
-
     preprocessors: {
-      'src/tests.webpack.js': ['webpack', 'sourcemap']
+      'app/**/*.js': ['babel']
     },
 
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015']
+      }
+    },
+
+    // list of files / patterns to load in the browser
+    files: [
+      '../node_modules/angular/angular.js',
+      '../node_modules/angular-ui-router/release/angular-ui-router.js',
+      '../node_modules/angular-mocks/angular-mocks.js',
+      'app/app.module.js',
+      'app/**/*.module.js',
+      'app/**/*.js'
+    ],
+
+    // list of files / patterns to exclude
+    exclude: [
+    ],
+
+    // web server port
+    port: 9876,
+
+    // Start these browsers, currently available:
+    // - Chrome
+    // - ChromeCanary
+    // - Firefox
+    // - Opera
+    // - Safari (only Mac)
+    // - PhantomJS
+    // - IE (only Windows)
     browsers: [
       'PhantomJS'
     ],
 
-    singleRun: true,
+    // Continuous Integration mode
+    // if true, it capture browsers, run tests and exit
+    singleRun: false,
 
-    coverageReporter: {
-      dir: 'coverage/',
-      reporters: [
-        {type: 'text-summary'},
-        {type: 'html'}
-      ]
-    },
+    colors: true,
 
-    webpack: require('./webpack.config'),
-
-    webpackMiddleware: {
-      noInfo: 'errors-only'
-    }
+    // level of logging
+    // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
+    logLevel: config.LOG_INFO
   });
 };
