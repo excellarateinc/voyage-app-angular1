@@ -16,6 +16,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var useref = require('gulp-useref');
 var lazypipe = require('lazypipe');
+var gulpif = require('gulp-if');
 
 var paths = {
   html: ['./src/**/*.html'],
@@ -24,6 +25,12 @@ var paths = {
   js: ['./src/app/**/*.js', '!./src/app/**/*.spec.js'],
   sass: ['./src/scss/**/*.scss']
 };
+
+gulp.task('clean', function (done) {
+  gulp.src('./dist', {read: false})
+    .pipe(clean())
+    .on('end', done);
+});
 
 gulp.task('babel', function(done) {
   gulp.src(paths.js)
@@ -45,17 +52,18 @@ gulp.task('copy-images', function(done) {
     .on('end', done);
 });
 
-gulp.task('concat', function(done) {
+gulp.task('concat', ["babel"], function(done) {
   gulp.src(paths.html)
-    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
-    .pipe(sourcemaps.write('maps'))
-    .pipe(gulp.dest('dist'))
-    .on('end', done);
-});
-
-gulp.task('html', function(done) {
-  gulp.src(paths.html)
-    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
+    .pipe(useref({
+        transformPath: function(filePath) {          
+          if (filePath.indexOf('/src/app') !== -1) {
+            gutil.log(filePath);
+            return filePath.replace('/src/app', '/dist/app')
+          }
+          return filePath;
+        }
+    }, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
+    .pipe(gulpif('*.scss', sass()))
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('dist'))
     .on('end', done);
@@ -69,7 +77,6 @@ gulp.task('sass', function(done) {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./dist/css/'))
     .on('end', done);
 });
@@ -93,4 +100,10 @@ gulp.task('generate-constants', function() {
 	.pipe(gulp.dest('./src/app/environment-constants'))
 });
 
-gulp.task('default', ["copy-images", "copy-fonts", "html", "babel", "sass"]);
+gulp.task('build', function(done) {
+  runSequence("clean", "copy-images", "copy-fonts", "babel", "concat", done);
+});
+
+gulp.task('awesome', ["clean", "copy-images", "copy-fonts", "babel", "concat"]);
+
+gulp.task('default', ['build']);

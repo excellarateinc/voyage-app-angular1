@@ -4,7 +4,8 @@
   "description": "launchpad",
   "scripts": {
     "server": " live-server --open=dist/",
-    "start": "npm run server"
+    "start": "npm run server",
+    "test": "karma start"
   },
   "dependencies": {
     "angular": "^1.5.8",
