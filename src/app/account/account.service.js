@@ -34,9 +34,7 @@
 
             return $http.post(`${API_URL}/v1/account/register`, user)
                 .then(response => response.data)
-                .catch(failure => { 
-                    return $q.reject(failure.data);
-                });
+                .catch(failure => $q.reject(failure.data));
         }    
     }        
 })();
