@@ -1,3 +1,5 @@
 {
-  "presets": ["es2015"]
+  "presets": ["es2015"],
+  "only": ["app/*.js", "app/**/*.js"],
+  "ignore": "node_modules"
 }

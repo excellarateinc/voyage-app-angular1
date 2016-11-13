@@ -3,8 +3,14 @@
         <meta charset="UTF-8">
         <title>Launchpad</title>
         <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">      
+
+        <!-- build:css css/vendor.css -->        
         <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"> 
+        <!-- endbuild -->
+        
+        <!-- build:css css/combined.css -->        
         <link href="css/app.css" rel="stylesheet"> 
+        <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp">
         <div class="container body-content">
@@ -13,9 +19,12 @@
 	        <footer></footer>
     	</div>    	
 
+        <!-- build:js scripts/vendor.js -->
         <script src="../node_modules/angular/angular.js"></script>        
         <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script> 
+        <!-- endbuild -->
 
+        <!-- build:js scripts/combined.js -->
         <script src="app/app.module.js"></script>
         <script src="app/app.component.js"></script>
         <script src="app/app.config.js"></script>        
@@ -36,5 +45,6 @@
 
         <script src="app/layout/layout.module.js"></script>
         <script src="app/layout/header.component.js"></script>
+        <!-- endbuild -->
     </body>
 </html>

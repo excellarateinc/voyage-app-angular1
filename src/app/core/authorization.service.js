@@ -1,5 +1,5 @@
 (function() {
-	'use strict';
+  'use strict';
 
     angular
         .module('launchpadApp.core')
@@ -10,14 +10,14 @@
 		return {
 			setToken,
 			getToken
-		}
+		};
 
 		function setToken(token) {
-		    this.accessToken = token;
+      this.accessToken = token;
 		}
 
 		function getToken() {
-		    return this.accessToken;
+      return this.accessToken;
 		}
 	}
 	
