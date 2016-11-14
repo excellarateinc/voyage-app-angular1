@@ -1,12 +1,19 @@
-# Angular 1 ES2015 Best Practices
+# ES2015 Best Practices
 This style guide combines the best practices from the [Johnpapa Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md) with [AirBnb's ES2015 JavaScript Style Guide](https://github.com/airbnb/javascript/blob/master/README.md). These best practices are actively enforced with ESLint where applicable, with violations that are likely to result in bugs being marked as **error**, and less serious style issues marked as **warning**.
 
 # Table of Contents
 * [Variables](#variables)
-  * [Prefer ```const```](prefer-const)
-  * [Use ```let``` instead of ```var```](use-let-instead-of-var)
-  * [Use the literal syntax for object creation](use-the-literal-syntax-for-object-creation)
-   
+  * [Prefer ```const```](#prefer-const)
+  * [Use ```let``` instead of ```var```](#use-let-instead-of-var)
+* [Objects](#objects)
+  * [Use the literal syntax for object creation](#use-the-literal-syntax-for-object-creation)
+  * [Use computed property names when creating objects with dynamic property names](#use-computed-property-names-when-creating-objects-with-dynamic-property-names)
+  * [Use object method shorthand](#use-object-method-shorthand)
+  * [Use property value shorthand](#use-property-value-shorthand)
+  * [Group shorthand properties at the beginning](#group-shorthand-properties-at-the-beginning)
+  * [Only quote invalid identifiers](#only-quote-invalid-identifiers)
+  * [Do not call `Object.prototype` methods directly](#do-not-call-object-prototype-methods-directly)
+  * [Prefer the object spread operator over `Object.assign`](#prefer-the-object-spread-operator-over-object-assign)
   
 # JavaScript ES6 / ES2015
 
@@ -65,7 +72,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   // good
   const item = {};
   ```
-- Use computed property names when creating objects with dynamic property names.
+#### Use computed property names when creating objects with dynamic property names
 
     > Why? They allow you to define all the properties of an object in one place.
 
@@ -89,7 +96,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
       [getKey('enabled')]: true,
     };
     ```
-- Use object method shorthand.
+#### Use object method shorthand
 
     > Why? It is shorter to write and descriptive.
     
@@ -113,7 +120,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     };
     ```
     
-- Use property value shorthand.
+#### Use property value shorthand
 
     > Why? It is shorter to write and descriptive.
 
@@ -131,7 +138,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     };
     ```
     
-- Group your shorthand properties at the beginning of your object declaration.
+#### Group shorthand properties at the beginning
 
     > Why? It's easier to tell which properties are using the shorthand.
 
@@ -160,7 +167,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     };
     ```
     
-- Only quote properties that are invalid identifiers.
+#### Only quote invalid identifiers
 
   > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -180,7 +187,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   };
   ```
   
-- Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+#### Do not call `Object.prototype` methods directly
 
   > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
@@ -195,7 +202,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
   ```
   
-- Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+- Prefer the object spread operator over `Object.assign`
   
   > Why? Easier to read, more descriptive of what's happening
   
