@@ -93,6 +93,8 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     ```
 - Use object method shorthand.
 
+    > Why? It is shorter to write and descriptive.
+    
     ```javascript
     // bad
     const atom = {
