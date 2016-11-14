@@ -63,7 +63,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
 ### Objects
 #### Use the literal syntax for object creation
 
-  > Why? Keeps consistent syntax when creating whether you're creating an empty object or an object with properties.  Easier to read.
+ > Why? Keeps consistent syntax when creating whether you're creating an empty object or an object with properties.  Easier to read.
   
   ```javascript
   // bad
@@ -74,7 +74,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   ```
 #### Use computed property names when creating objects with dynamic property names
 
-    > Why? They allow you to define all the properties of an object in one place.
+  > Why? They allow you to define all the properties of an object in one place.
 
     ```javascript
 
@@ -98,7 +98,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     ```
 #### Use object method shorthand
 
-    > Why? It is shorter to write and descriptive.
+  > Why? It is shorter to write and descriptive.
     
     ```javascript
     // bad
@@ -122,7 +122,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     
 #### Use property value shorthand
 
-    > Why? It is shorter to write and descriptive.
+  > Why? It is shorter to write and descriptive.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -140,7 +140,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
     
 #### Group shorthand properties at the beginning
 
-    > Why? It's easier to tell which properties are using the shorthand.
+  > Why? It's easier to tell which properties are using the shorthand.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
