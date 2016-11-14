@@ -31,7 +31,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   ```
   
   
-- If you must reassign references, use let instead of ```var```. ```var``` should no longer be used anywhere in our code. 
+- If you must reassign references, use ```let``` instead of ```var```. ```var``` should no longer be used anywhere in our code. 
 
   >Why? ```let``` and ```const``` are block scoped but ```var``` is function scoped (or global if not declared inside a function).  Not using block scoped variables can lead to unexpected behavior and bugs.
 
