@@ -12,8 +12,8 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   * [Use property value shorthand](#use-property-value-shorthand)
   * [Group shorthand properties at the beginning](#group-shorthand-properties-at-the-beginning)
   * [Only quote invalid identifiers](#only-quote-invalid-identifiers)
-  * [Do not call `Object.prototype` methods directly](#do-not-call-object-prototype-methods-directly)
-  * [Prefer the object spread operator over `Object.assign`](#prefer-the-object-spread-operator-over-object-assign)
+  * [Do not call `Object.prototype` methods directly](#do-not-call-objectprototype-methods-directly)
+  * [Prefer the object spread operator over `Object.assign`](#prefer-the-object-spread-operator-over-objectassign)
   
 # JavaScript ES6 / ES2015
 
@@ -202,7 +202,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
   ```
   
-- Prefer the object spread operator over `Object.assign`
+#### Prefer the object spread operator over `Object.assign`
   
   > Why? Easier to read, more descriptive of what's happening
   
