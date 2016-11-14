@@ -75,7 +75,6 @@
     "array-bracket-spacing": "warn",
     "object-curly-spacing": ["warn", "always"],
     "comma-dangle": "warn",
-
     "camelcase": "warn",
     "no-underscore-dangle": "warn",
 
