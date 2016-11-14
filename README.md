@@ -54,7 +54,7 @@ Go to [http://localhost:8080](http://localhost:8080) in your browser.
     * [Running the app](#running-the-app)
     * [Developing](#developing)
     * [Testing](#testing)
-* [Best Practices](./readme_docs/best-practices.md)
+* [JavaScript Best Practices](./readme_docs/JAVASCRIPT.md)
 
 # Getting Started
 
