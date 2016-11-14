@@ -55,7 +55,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   }
   ```
   
-  ### Objects
+### Objects
 - Use the literal syntax for object creation.
 
   > Why? Keeps consistent syntax when creating whether you're creating an empty object or an object with properties.  Easier to read.
