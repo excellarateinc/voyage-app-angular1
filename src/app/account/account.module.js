@@ -1,6 +1,6 @@
-(function() {
-	'use strict';
-	
-	angular
-		.module('launchpadApp.account', []);
-})();
+(function () {
+  'use strict';
+
+  angular
+    .module('launchpadApp.account', []);
+}());

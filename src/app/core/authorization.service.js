@@ -1,24 +1,24 @@
-(function() {
+(function () {
   'use strict';
 
-    angular
-        .module('launchpadApp.core')
-        .factory('authorizationService', authorizationService);
+  angular
+    .module('launchpadApp.core')
+    .factory('authorizationService', authorizationService);
 
-	function authorizationService() {
+  function authorizationService() {
 
-		return {
-			setToken,
-			getToken
-		};
+    return {
+      setToken,
+      getToken
+    };
 
-		function setToken(token) {
+    function setToken(token) {
       this.accessToken = token;
-		}
+    }
 
-		function getToken() {
+    function getToken() {
       return this.accessToken;
-		}
-	}
-	
-})();
+    }
+  }
+
+}());

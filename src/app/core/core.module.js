@@ -1,6 +1,6 @@
-(function() {
-	'use strict';
+(function () {
+  'use strict';
 
-	angular
-		.module('launchpadApp.core', []);
-})();
+  angular
+    .module('launchpadApp.core', []);
+}());

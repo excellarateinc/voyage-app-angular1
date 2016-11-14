@@ -15,7 +15,8 @@
 
   "plugins": [
     "standard",
-    "promise"
+    "promise",
+    "angular"
   ],
 
   "globals": {
@@ -26,10 +27,80 @@
   },
 
   "rules": {
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-loop-func": "error",
+    "semi": "error",
+    "id-length": "error",
+    "space-infix-ops": "error",
+    "no-nested-ternary": "error",
+    "eqeqeq": "error",
+    "no-undef": "error",
+    "no-whitespace-before-property": ["warn"],
+    "no-const-assign": "warn",
+    "no-new-object": "warn",
+    "object-shorthand": "warn",
+    "quote-props": ["warn", "as-needed"],
+    "no-array-constructor": "warn",
+    "prefer-template": "warn",
+    "no-useless-escape": "warn",
+    "wrap-iife": "warn",
+    "prefer-rest-params": "warn",
+    "space-before-function-paren": ["warn", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "ignore"
+    }],
+    "space-before-blocks": "warn",
+    "no-param-reassign": "warn",
+    "prefer-spread": "warn",
+    "prefer-arrow-callback": "warn",
+    "arrow-spacing": "warn",
+    "arrow-parens": ["warn", "as-needed"],
+    "arrow-body-style": "warn",
+    "no-confusing-arrow": "warn",
+    "no-dupe-class-members": "error",
+    "no-iterator": "warn",
+    "no-restricted-syntax": "warn",
+    "dot-notation": "warn",
+    "one-var": "warn",
+    "no-case-declarations": "warn",
+    "no-unneeded-ternary": "warn",
+    "brace-style": "warn",
+    "spaced-comment": "warn",
+    "indent": ["warn", 2],
+    "eol-last": "warn",
+    "newline-per-chained-call": "warn",
+    "space-in-parens": "warn",
+    "array-bracket-spacing": "warn",
+    "object-curly-spacing": ["warn", "always"],
+    "comma-dangle": "warn",
 
+    "camelcase": "warn",
+    "no-underscore-dangle": "warn",
+
+    //Angular Settings
+    "angular/component-limit": "error",
+    "angular/controller-as-route": "error",
+    "angular/controller-as-vm": "error",
+    "angular/controller-as": "error",
+    "angular/angularelement": "error",
+    "angular/no-jquery-angularelement": "error",
+    "angular/file-name": ["warn", {"nameStyle": "dash", "ignoreTypeSuffix": true, "ignorePrefix": "launchpadApp.", "typeSeparator":"dot"}],
+    "angular/di-unused": "warn",
+    "angular/directive-restrict": "warn",
+    "angular/empty-controller": "error",
+    "angular/controller-name": "warn",
+    "angular/directive-name": "warn",
+    "angular/filter-name": "warn",
+    "angular/module-name": "warn",
+    "angular/service-name": "warn",
+    "angular/function-type": [2,"named"],
+    "angular/no-service-method": "warn"
   },
 
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "angular"
   ]
 }
