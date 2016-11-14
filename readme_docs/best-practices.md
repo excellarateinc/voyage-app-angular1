@@ -2,18 +2,16 @@
 This style guide combines the best practices from the [Johnpapa Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md) with [AirBnb's ES2015 JavaScript Style Guide](https://github.com/airbnb/javascript/blob/master/README.md). These best practices are actively enforced with ESLint where applicable, with violations that are likely to result in bugs being marked as **error**, and less serious style issues marked as **warning**.
 
 # Table of Contents
-* JavaScript ES6 / ES2015
-  * Best Practices
-  * Style Guide
-* Angular
-  * Best Practices
-  * Style Guide
+* [Variables](#variables)
+  * [Use ```const``` for all of your references](use-const-for-all-of-your-references)
+  * use ```let``` instead of ```var```. ```var```
+
    
   
 # JavaScript ES6 / ES2015
 
-### References
-- Use ```const``` for all of your references; avoid using ```var```. 
+### Variables
+#### Use ```const``` for all of your references; avoid using ```var```. 
 
   >Why?  Ensures you cannot reassign your references, which can lead to unexpected bugs.  By using ```const``` everywhere a variable isn't reassigned, it makes it very obvious when a variable *will* be reassigned.
   
@@ -31,7 +29,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   ```
   
   
-- If you must reassign references, use ```let``` instead of ```var```. ```var``` should no longer be used anywhere in our code. 
+#### If you must reassign references, use ```let``` instead of ```var```. ```var``` should no longer be used anywhere in our code. 
 
   >Why? ```let``` and ```const``` are block scoped but ```var``` is function scoped (or global if not declared inside a function).  Not using block scoped variables can lead to unexpected behavior and bugs.
 
