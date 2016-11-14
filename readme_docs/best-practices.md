@@ -3,15 +3,15 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
 
 # Table of Contents
 * [Variables](#variables)
-  * [Use ```const``` for all of your references](use-const-for-all-of-your-references)
-  * use ```let``` instead of ```var```. ```var```
-
+  * [Prefer ```const```](prefer-const)
+  * [Use ```let``` instead of ```var```](use-let-instead-of-var)
+  * [Use the literal syntax for object creation](use-the-literal-syntax-for-object-creation)
    
   
 # JavaScript ES6 / ES2015
 
 ### Variables
-#### Use ```const``` for all of your references; avoid using ```var```. 
+#### Prefer ```const```
 
   >Why?  Ensures you cannot reassign your references, which can lead to unexpected bugs.  By using ```const``` everywhere a variable isn't reassigned, it makes it very obvious when a variable *will* be reassigned.
   
@@ -29,7 +29,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   ```
   
   
-#### If you must reassign references, use ```let``` instead of ```var```. ```var``` should no longer be used anywhere in our code. 
+#### Use ```let``` instead of ```var```
 
   >Why? ```let``` and ```const``` are block scoped but ```var``` is function scoped (or global if not declared inside a function).  Not using block scoped variables can lead to unexpected behavior and bugs.
 
@@ -54,7 +54,7 @@ This style guide combines the best practices from the [Johnpapa Angular 1 Style 
   ```
   
 ### Objects
-- Use the literal syntax for object creation.
+#### Use the literal syntax for object creation
 
   > Why? Keeps consistent syntax when creating whether you're creating an empty object or an object with properties.  Easier to read.
   
