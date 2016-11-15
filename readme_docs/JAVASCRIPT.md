@@ -676,7 +676,7 @@ AirBnb ES6 Style Guide
 
   > Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
 
-**Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+Note: ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -884,7 +884,7 @@ AirBnb ES6 Style Guide
 
 #### Use arrow functions for simple function expressions
 
-**Note** If your function is longer than one line, consider moving the logic to a named function
+Note: If your function is longer than one line, consider moving the logic to a named function
 
   > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
 
@@ -1670,7 +1670,7 @@ AirBnb ES6 Style Guide
 
 #### Avoid having lines of code that are longer than 100 characters
 
-**Note:** long strings are exempt from this rule, and should not be broken up
+Note: long strings are exempt from this rule, and should not be broken up
 
   > Why? This ensures readability and maintainability.
 
