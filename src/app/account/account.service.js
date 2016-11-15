@@ -1,44 +1,40 @@
-(function() {
-    'use strict';
-    
-    angular
-        .module('launchpadApp.account')
-        .factory('accountService', accountService);
+(function () {
+  'use strict';
 
-    accountService.$inject = ['$http', 'authorizationService', '$q', 'API_URL'];
+  angular
+    .module('launchpadApp.account')
+    .factory('accountService', accountService);
 
-    function accountService($http, authorizationService, $q, API_URL) {        
-     
-         return  {
-            login,
-            register
-         };
+  accountService.$inject = ['$http', 'authorizationService', '$q', 'API_URL'];
 
-        function login(username, password) { 
-            const content = `grant_type=password&username=${username}&password=${password}`;  
-         
-            return $http.post(`${API_URL}/Token`, content, {
-                headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
-            })
-            .then(response => {
-                authorizationService.setToken(response.data.access_token);
-            });
-        }
+  function accountService($http, authorizationService, $q, API_URL) {
 
-        function register(username, password) {
-            const user = {
-                email: username,
-                password: password,
-                confirmPassword: password
-            };
+    return  {
+      login,
+      register
+    };
 
-            return $http.post(`${API_URL}/v1/account/register`, user)
-                .then(response => response.data)
-                .catch(failure => $q.reject(failure.data));
-        }    
-    }        
-})();
+    function login(username, password) {
+      const content = `grant_type=password&username=${username}&password=${password}`;
 
+      return $http.post(`${API_URL}/Token`, content, {
+        headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
+      })
+        .then(response => {
+          authorizationService.setToken(response.data.access_token);
+        });
+    }
 
+    function register(email, password) {
+      const user = {
+        email,
+        password,
+        confirmPassword: password
+      };
 
-
+      return $http.post(`${API_URL}/v1/account/register`, user)
+        .then(response => response.data)
+        .catch(failure => $q.reject(failure.data));
+    }
+  }
+}());

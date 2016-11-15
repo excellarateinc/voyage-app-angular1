@@ -1,7 +1,7 @@
-(function() {
-	'use strict';
+(function () {
+  'use strict';
 
-	angular
-		.module('launchpadApp.dashboard', []);
+  angular
+    .module('launchpadApp.dashboard', []);
 
-})();
+}());
