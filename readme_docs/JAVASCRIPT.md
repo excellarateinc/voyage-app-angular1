@@ -66,7 +66,7 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
   * [Use dot notation](#use-dot-notation)
   * [Use brackets `[]` when accessing properties with a variable](#use-brackets-when-accessing-properties-with-a-variable)
 * [Comparison Operators & Equality](#comparison-operators-equality)
-  * [Use `===` and `!==` over `==` and `!=`](#use-and-over-and)
+  * [Use `===` and `!==` over `==` and `!=`](#use--and--over--and-)
   * [Truthiness](#truthiness)
   * [Use shortcuts for booleans, but explicit comparisons for strings and numbers](#use-shortcuts-for-booleans-but-explicit-comparisons-for-strings-and-numbers)
   * [Use braces to create blocks in `case` and `default` clauses that contain lexical declarations](#use-braces-to-create-blocks-in-case-and-default-clauses-that-contain-lexical-declarations)
