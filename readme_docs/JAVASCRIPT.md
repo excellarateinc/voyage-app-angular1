@@ -2254,7 +2254,7 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
   ```
 
 #### Using Bluebird with Angular
-  > If you're promise chains have complex interdependence and you need to use Bluebird, you will need to tie it to Angular in your app's run block.  Otherwise Angular will not know when your promise has resolved.
+  > If your promise chains have complex interdependence and you need to use Bluebird, you will need to tie it to Angular in your app's run block.  Otherwise Angular will not know when your promise has resolved.
   
   ```javascript
   .run(() => {
