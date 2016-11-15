@@ -27,7 +27,7 @@
             vm.registrationErrors = errors;
           }
         );
-      } else{
+      } else {
         vm.registrationErrors = ['Passwords must match'];
       }
     }
