@@ -55,6 +55,7 @@ Go to [http://localhost:8080](http://localhost:8080) in your browser.
     * [Developing](#developing)
     * [Testing](#testing)
 * [JavaScript Best Practices](./readme_docs/JAVASCRIPT.md)
+* [Angular Best Practices](./readme_docs/ANGULAR.md)
 
 # Getting Started
 
