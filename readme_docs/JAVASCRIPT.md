@@ -442,6 +442,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
   // or for Angular specifically
   const copy = angular.copy(original);
   ```
+
+**[⬆ back to top](#table-of-contents)**
   
 ## Arrays
 
@@ -544,6 +546,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     });
     ```
     
+**[⬆ back to top](#table-of-contents)**
+    
 ## Destructuring
 
 #### Use object destructuring when accessing multiple properties
@@ -607,7 +611,9 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     // the caller selects only the data they need
     const { left, top } = processInput(input);
     ```
-    
+  
+**[⬆ back to top](#table-of-contents)**
+
 ## Strings
 
 #### Use single quotes `''`
@@ -685,6 +691,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     const foo = '\'this\' is "quoted"';
     const foo = `'this' is "quoted"`;
     ```
+    
+**[⬆ back to top](#table-of-contents)**
     
 ## Functions
 #### Wrap immediately invoked function expressions in parentheses
@@ -905,6 +913,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     // good
     new Date(...[2016, 08, 05]);
     ```
+    
+**[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
 
@@ -1111,6 +1121,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     }
     ```
     
+**[⬆ back to top](#table-of-contents)**
+    
 ## Properties
 
 #### Use dot notation
@@ -1142,6 +1154,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
 
     const isJedi = getProp('jedi');
     ```
+    
+**[⬆ back to top](#table-of-contents)**
 
 ## Comparison Operators & Equality
     
@@ -1278,7 +1292,9 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     const bar = !!c;
     const baz = !c;
     ```
-    
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Blocks
 
 #### Use braces with all multi-line blocks
@@ -1325,7 +1341,9 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
       thing3();
     }
     ```
-    
+   
+**[⬆ back to top](#table-of-contents)**
+   
 ## Comments
 
 #### Use `/** ... */` for multi-line comments
@@ -1438,6 +1456,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
 #### Use FIXME and TODO correctly
 
   > Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  
+**[⬆ back to top](#table-of-contents)**
   
 ## Whitespace
 
@@ -1755,6 +1775,8 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
       .done(() => console.log('Congratulations!'))
       .fail(() => console.log('You have failed this city.'));
     ```
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
@@ -2263,3 +2285,5 @@ Wherever possible these best practices are enforced with ESLint.  Violations tha
     });
   });
   ```
+
+**[⬆ back to top](#table-of-contents)**
