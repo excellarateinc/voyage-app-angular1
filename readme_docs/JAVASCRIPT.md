@@ -1,8 +1,11 @@
 ## ES2015 Best Practices
-Work in progress best practices for writing ES6 / ES2015 JavaScript
+This guide represents best practices when writing ES6 / ES2015 JavaScript, specifically when working with Angular 1.x.  This guide takes heavily from AirBnb's ES6 Style Guide, but with some parts removed or modified, generally when they conflicted with the Johnpapa Angular 1 Style Guide, which takes priority.  Parts were also added as needed, particularly around using Promises.
+
+Wherever possible these best practices are enforced with ESLint.  Violations that are likely to result in bugs are marked as **errors**, and code style / consistency violations are marked as **warnings**.
 
 ## References
-AirBnb ES6 Style Guide
+[AirBnb ES6 Style Guide](https://github.com/airbnb/javascript/blob/master/README.md#table-of-contents)
+[MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 
 ## Table of Contents
 * [Variables](#variables)
@@ -55,6 +58,7 @@ AirBnb ES6 Style Guide
   * [Omit braces and use implicit return for single line functions](#omit-braces-and-use-implicit-return-for-single-line-functions)
   * [Omit the parentheses for single argument](#omit-the-parentheses-for-single-argument)
   * [Avoid arrow function syntax (`=>`) with comparison operators (`<=`, `>=`)](#avoid-arrow-function-syntax-with-comparison-operators)
+  * [When passing callbacks don't wrap direct function calls](#when-passing-callbacks-dont-wrap-direct-function-calls)
 * [Iterators and Generators](#iterators-and-generators)
   * [Don't use iterators](#dont-use-iterators)
   * [If you must use generators, use proper spacing](#if-you-must-use-generators-use-proper-spacing)
@@ -62,7 +66,7 @@ AirBnb ES6 Style Guide
   * [Use dot notation](#use-dot-notation)
   * [Use brackets `[]` when accessing properties with a variable](#use-brackets-when-accessing-properties-with-a-variable)
 * [Comparison Operators & Equality](#comparison-operators-equality)
-  * [Use `===` and `!==` over `==` and `!=`](#use-and-over-and)
+  * [Use `===` and `!==` over `==` and `!=`](#use--and--over--and-)
   * [Truthiness](#truthiness)
   * [Use shortcuts for booleans, but explicit comparisons for strings and numbers](#use-shortcuts-for-booleans-but-explicit-comparisons-for-strings-and-numbers)
   * [Use braces to create blocks in `case` and `default` clauses that contain lexical declarations](#use-braces-to-create-blocks-in-case-and-default-clauses-that-contain-lexical-declarations)
@@ -91,6 +95,28 @@ AirBnb ES6 Style Guide
   * [Do not add spaces inside brackets](#do-not-add-spaces-inside-brackets)
   * [Add spaces inside curly braces](#add-spaces-inside-curly-braces)
   * [Avoid having lines of code that are longer than 100 characters](#avoid-having-lines-of-code-that-are-longer-than-100-characters)
+* [Commas](#commas)
+  * [Leading commas: **Nope.**](#leading-commas-nope)
+  * [Additional trailing comma: Yup.](#additional-trailing-comma-yup)
+* [Semicolons](#semicolons)
+  * [Yup.](#yup)
+* [Type Casting & Coercion](#type-casting-coercion)
+  * [Perform type coercion at the beginning of the statement](#perform-type-coercion-at-the-beginning-of-the-statement)
+* [Naming Conventions](#naming-conventions)
+  * [**NEVER** single letter names. **BE DESCRIPTIVE**](#never-single-letter-names-be-descriptive)
+  * [Use camelCase when naming objects, functions, and instances](#use-camelcase-when-naming-objects-functions-and-instances)
+  * [Do not use trailing or leading underscores](#do-not-use-trailing-or-leading-underscores)
+  * [Acronyms should always be all capitalized, or all lowercased](#acronyms-should-always-be-all-capitalized-or-all-lowercased)
+* [Events](#events)
+  * [When attaching data payloads to events pass a hash instead of a raw value](#when-attaching-data-payloads-to-events-pass-a-hash-instead-of-a-raw-value)
+* [Promises](#promises)
+  * [Always use Promises for async operations, never callbacks](#always-use-promises-for-async-operations-never-callbacks)
+  * [Always use `.then(success)` and `.catch(failure)`, never `.then(success, failure)`](#always-use-thensuccess-and-catchfailure-never-thensuccess-failure)
+  * [Always flatten Promise chains, never nest](#always-flatten-promise-chains-never-nest)
+  * [Never wrap `.then` return values in a Promise](#never-wrap-then-return-values-in-a-promise)
+  * [Try to only `.catch` once where you need it, only rethrow if you can’t recover](#try-to-only-catch-once-where-you-need-it-only-rethrow-if-you-cant-recover)
+  * [Prefer Promise chaining and Promise.all()/$q.all(), but use Bluebird if code becomes too complex](#prefer-promise-chaining-and-promiseallqall-but-use-bluebird-if-code-becomes-too-complex)
+  * [Using Bluebird with Angular](#using-bluebird-with-angular)
 
 ## Variables
 #### Prefer ```const```
@@ -416,6 +442,8 @@ AirBnb ES6 Style Guide
   // or for Angular specifically
   const copy = angular.copy(original);
   ```
+
+**[⬆ back to top](#table-of-contents)**
   
 ## Arrays
 
@@ -518,6 +546,8 @@ AirBnb ES6 Style Guide
     });
     ```
     
+**[⬆ back to top](#table-of-contents)**
+    
 ## Destructuring
 
 #### Use object destructuring when accessing multiple properties
@@ -581,7 +611,9 @@ AirBnb ES6 Style Guide
     // the caller selects only the data they need
     const { left, top } = processInput(input);
     ```
-    
+  
+**[⬆ back to top](#table-of-contents)**
+
 ## Strings
 
 #### Use single quotes `''`
@@ -659,6 +691,8 @@ AirBnb ES6 Style Guide
     const foo = '\'this\' is "quoted"';
     const foo = `'this' is "quoted"`;
     ```
+    
+**[⬆ back to top](#table-of-contents)**
     
 ## Functions
 #### Wrap immediately invoked function expressions in parentheses
@@ -879,6 +913,8 @@ Note: ECMA-262 defines a `block` as a list of statements. A function declaration
     // good
     new Date(...[2016, 08, 05]);
     ```
+    
+**[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
 
@@ -982,6 +1018,37 @@ Note: If your function is longer than one line, consider moving the logic to a n
     };
     ```
     
+#### When passing callbacks don't wrap direct function calls
+
+  > Why?  If you can pass a function in directly, do it, creating an empty wrapper function clutters the code and provides no gain.  Directly passing a well named function greatly increases readability.
+  
+  ```javascript
+  // bad
+  items.map(item => {
+    return Math.sqrt(item);
+  });
+  
+  // bad
+  items.map(item => Math.sqrt(item));
+  
+  // bad
+  getUsernames()
+    .then(usernames => {
+      processUsernames(usernames);
+    });
+  
+  // bad
+  getUsernames()
+    .then(usernames => processUsernames(usernames));
+  
+  // good
+  items.map(Math.sqrt);
+    
+  // good
+  getUsernames()
+    .then(processUsernames);
+  ```
+    
 ## Iterators and Generators
 
 #### Don't use iterators
@@ -1054,6 +1121,8 @@ Note: If your function is longer than one line, consider moving the logic to a n
     }
     ```
     
+**[⬆ back to top](#table-of-contents)**
+    
 ## Properties
 
 #### Use dot notation
@@ -1085,6 +1154,8 @@ Note: If your function is longer than one line, consider moving the logic to a n
 
     const isJedi = getProp('jedi');
     ```
+    
+**[⬆ back to top](#table-of-contents)**
 
 ## Comparison Operators & Equality
     
@@ -1221,7 +1292,9 @@ Note: If your function is longer than one line, consider moving the logic to a n
     const bar = !!c;
     const baz = !c;
     ```
-    
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Blocks
 
 #### Use braces with all multi-line blocks
@@ -1268,7 +1341,9 @@ Note: If your function is longer than one line, consider moving the logic to a n
       thing3();
     }
     ```
-    
+   
+**[⬆ back to top](#table-of-contents)**
+   
 ## Comments
 
 #### Use `/** ... */` for multi-line comments
@@ -1381,6 +1456,8 @@ Note: If your function is longer than one line, consider moving the logic to a n
 #### Use FIXME and TODO correctly
 
   > Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  
+**[⬆ back to top](#table-of-contents)**
   
 ## Whitespace
 
@@ -1699,3 +1776,514 @@ Note: long strings are exempt from this rule, and should not be broken up
       .fail(() => console.log('You have failed this city.'));
     ```
 
+**[⬆ back to top](#table-of-contents)**
+
+## Commas
+
+#### Leading commas: **Nope.**
+
+    ```javascript
+    // bad
+    const story = [
+        once
+      , upon
+      , aTime
+    ];
+
+    // good
+    const story = [
+      once,
+      upon,
+      aTime,
+    ];
+
+    // bad
+    const hero = {
+        firstName: 'Ada'
+      , lastName: 'Lovelace'
+      , birthYear: 1815
+      , superPower: 'computers'
+    };
+
+    // good
+    const hero = {
+      firstName: 'Ada',
+      lastName: 'Lovelace',
+      birthYear: 1815,
+      superPower: 'computers',
+    };
+    ```
+
+#### Additional trailing comma: **Yup.**
+
+  > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the trailing comma problem in legacy browsers.
+
+    ```diff
+    // bad - git diff without trailing comma
+    const hero = {
+         firstName: 'Florence',
+    -    lastName: 'Nightingale'
+    +    lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'modern nursing']
+    };
+
+    // good - git diff with trailing comma
+    const hero = {
+         firstName: 'Florence',
+         lastName: 'Nightingale',
+    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+    };
+    ```
+
+    ```javascript
+    // bad
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully'
+    };
+
+    const heroes = [
+      'Batman',
+      'Superman'
+    ];
+
+    // good
+    const hero = {
+      firstName: 'Dana',
+      lastName: 'Scully',
+    };
+
+    const heroes = [
+      'Batman',
+      'Superman',
+    ];
+
+    // bad
+    function createHero(
+      firstName,
+      lastName,
+      inventorOf
+    ) {
+      // does nothing
+    }
+
+    // good
+    function createHero(
+      firstName,
+      lastName,
+      inventorOf,
+    ) {
+      // does nothing
+    }
+
+    // good (note that a comma must not appear after a "rest" element)
+    function createHero(
+      firstName,
+      lastName,
+      inventorOf,
+      ...heroArgs
+    ) {
+      // does nothing
+    }
+
+    // bad
+    createHero(
+      firstName,
+      lastName,
+      inventorOf
+    );
+
+    // good
+    createHero(
+      firstName,
+      lastName,
+      inventorOf,
+    );
+
+    // good (note that a comma must not appear after a "rest" element)
+    createHero(
+      firstName,
+      lastName,
+      inventorOf,
+      ...heroArgs
+    )
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Semicolons
+
+**Yup.**
+
+    ```javascript
+    // bad
+    (function () {
+      const name = 'Skywalker'
+      return name
+    })()
+
+    // good
+    (function () {
+      const name = 'Skywalker';
+      return name;
+    }());
+
+    // good, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    ;(() => {
+      const name = 'Skywalker';
+      return name;
+    }());
+    ```
+
+    [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
+
+**[⬆ back to top](#table-of-contents)**
+
+## Type Casting & Coercion
+
+#### Perform type coercion at the beginning of the statement
+
+- ##### Strings:
+
+    ```javascript
+    // => this.reviewScore = 9;
+
+    // bad
+    const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+
+    // bad
+    const totalScore = this.reviewScore.toString(); // isn't guaranteed to return a string
+
+    // good
+    const totalScore = String(this.reviewScore);
+    ```
+
+- ##### Numbers: Use `Number` for type casting and `parseInt` always with a radix
+
+    ```javascript
+    const inputValue = '4';
+
+    // bad
+    const val = new Number(inputValue);
+
+    // bad
+    const val = +inputValue;
+
+    // bad
+    const val = inputValue >> 0;
+
+    // bad
+    const val = parseInt(inputValue);
+
+    // good
+    const val = Number(inputValue);
+
+    // good
+    const val = parseInt(inputValue, 10);
+    ```
+
+
+- ##### Booleans:
+
+    ```javascript
+    const age = 0;
+
+    // bad
+    const hasAge = new Boolean(age);
+
+    // good
+    const hasAge = Boolean(age);
+
+    // best
+    const hasAge = !!age;
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Naming Conventions
+
+#### **NEVER** single letter names. **BE DESCRIPTIVE**
+
+    ```javascript
+    // bad
+    function q() {
+      // ...stuff...
+    }
+
+    // good
+    function query() {
+      // ..stuff..
+    }
+    ```
+
+#### Use camelCase when naming objects, functions, and instances
+
+    ```javascript
+    // bad
+    const OBJEcttsssss = {};
+    const this_is_my_object = {};
+    function c() {}
+
+    // good
+    const thisIsMyObject = {};
+    function thisIsMyFunction() {}
+    ```
+
+#### Do not use trailing or leading underscores
+
+  > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+
+    ```javascript
+    // bad
+    this.__firstName__ = 'Panda';
+    this.firstName_ = 'Panda';
+    this._firstName = 'Panda';
+
+    // good
+    this.firstName = 'Panda';
+    ```
+
+
+#### Acronyms should always be all capitalized, or all lowercased
+
+  > Why? Names are for readability, not to appease a computer algorithm.
+
+    ```javascript
+    // bad
+    import SmsContainer from './containers/SmsContainer';
+
+    // bad
+    const HttpRequests = [
+      // ...
+    ];
+
+    // good
+    import SMSContainer from './containers/SMSContainer';
+
+    // good
+    const HTTPRequests = [
+      // ...
+    ];
+
+    // best
+    import TextMessageContainer from './containers/TextMessageContainer';
+
+    // best
+    const Requests = [
+      // ...
+    ];
+    ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## Events
+
+#### When attaching data payloads to events pass a hash instead of a raw value
+
+  > Why? This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+
+    ```javascript
+    // bad
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', (e, listingId) => {
+      // do something with listingId
+    });
+    ```
+
+    prefer:
+
+    ```javascript
+    // good
+    $(this).trigger('listingUpdated', { listingId: listing.id });
+
+    ...
+
+    $(this).on('listingUpdated', (e, data) => {
+      // do something with data.listingId
+    });
+    ```
+    
+**[⬆ back to top](#table-of-contents)**
+
+## Promises
+#### Always use Promises for async operations, never callbacks
+  > This shouldn't be an issue in Angular since $http returns a promise
+
+#### Always use `.then(success)` and `.catch(failure)`, never `.then(success, failure)`
+  > Why?  Using `.then(success, failure)` is effectively treating a Pomise as a callback.  If you're making an async call in a service but want to catch any errors in a controller or directive to show an error message to the user, how will you do it?  You'll have to resort to ugly hacks like passing in a failure callback (again devolving into callback pattern), or rethrow an error from the `.catch` block.  Less importantly, separate `.catch` and `.then` blocks are easier to read and more explicit about what you're doing.
+  
+  ```javascript
+  // in something like test.service.js...
+  
+  // very bad
+  makeAsyncCall(failureCallback) {
+    return $http.get('/test')
+      .then(function (success) {
+        const processedTestResults = processResults(success.data);
+        return processedTestResults;
+      },
+      failureCallback);
+  }
+  
+  // bad
+  makeAsyncCall() {
+    return $http.get('/test')
+      .then(function (success) {
+        const processedTestResults = processResults(success.data);
+        return processedTestResults;
+      },
+      function(failue) {
+        $q.reject(failure);
+      });
+  }
+
+  // Good
+  makeAsyncCall() {
+    return $http.get('/test')
+      .then(success => processResults(success.data))
+  }
+  
+  // Following the good pattern here, we can then later in test.controller.js you can do...
+  testService.makeAsyncCall()
+    .then(putResultsOnVm)
+    .then(showSuccessMessage)
+    .catch(showErrorMessage);
+  ```
+  
+#### Try to only `.catch` where you need it, only rethrow if you can't recover
+
+  > Why? Having multiple catches in multiple places in the app can be confusing, and rethrowing an error could obscure the original cause of the issue.  So try to only catch at the end of a promise chain and in one place.  However if you attempt to recover from an error in a catch block but cannot, rethrow.  Remember that `.catch` and `.reject` are just like synchronous `catch` and `throw`.
+  
+  ```javascript
+  // bad, catches only to rethrow, makes no attempt to recover, this is better caught elsewhere
+  $http.get('/data')
+    .catch(error => $q.reject(error);
+    
+  // good, attempts to deal with the error, and only rejects again if it can't    
+  $http.get('/data')
+    .catch(error => {
+      // data error, but can I handle it here?
+      if (canHandle) {
+        // if so I do, and the promise chain can continue
+        return doSomethingToRecover();
+      }
+      // if not I reject, and the catch chain can continue
+      $q.reject(error);
+    })
+  ```
+  
+#### Always flatten Promise chains, never nest
+
+  > Why? While nesting will work, deep nesting can quickly become difficult to manage if each level has non-trivial logic. Promise chain nesting also requires developers to careful consider how they will manage errors within each of the nested segments, rather than a single catch block in a flat promise chain.
+  
+  ```javascript
+  /*  
+  In this example code, each async data call returns a promise, and all methods after the first one take the result of the previous promise as an argument; i.e. getSomeAsyncData() returns a promise, getMoreAsyncData() takes the value resolved from getSomeAsyncData() and makes another async call
+  */
+  
+  // bad, near impossible to read even with no complex logic, have to catch error at each nested level.
+  getSomeAsyncData()
+    .then(firstAsyncData => {
+      getMoreAsyncData(firstAsyncData)
+        .then(secondAsyncData => {
+          oneMoreAsyncCall(secondAsyncData)
+            .then(moreAsyncData => {
+              return processResults(moreAsyncData);
+            })
+            .catch(innerMostError => {
+              doSomethingWithError(innerMostError);
+            });
+        })
+        .catch(middleError => {
+          doSomethingWithError(innerMostError);
+        });
+    })
+    .catch(outerError => {
+      doSomethingWithError(innerMostError);
+    });
+    
+    // good, functionally equivalent to the above code, any errors break the chain and go to a single catch block
+    getSomeAsyncData()
+      .then(getMoreAsyncData)
+      .then(secondAsyncData)
+      .then(moreAsyncData)
+      .catch(doSomethingWithError);
+    
+  ```
+
+#### Never wrap `.then` return values in a Promise
+
+  > Why? You can return an asynchronous or synchronous value inside `.then`, either way the promise chain will continue.
+  
+  ```javascript
+  // bad
+  $http.get('/data')
+    .then(data => {
+      var deferred = $q.defer();
+      const newValue = data + 1;
+      deferred.resolve(newValue);
+      return deferred.promise;
+    });
+    
+    // good
+    $http.get('/data')
+      .then(data => data + 1);
+  ```
+
+#### Prefer Promise chaining and `Promise.all()`/`$q.all()`, but use Bluebird if code becomes too complex
+  >  Why?  To maintain readability, Bluebird's coroutine method makes asynchronous code easier to work with.  When ES7 is finalized this will most likely be replaced with native Javascript async/await
+  
+  ```javascript
+  // bad, too much complex interdependence between async calls
+  
+  // first we get the user
+  $http.get('/user')  
+  
+    // then we get the permissions, but we need both the permissions and the user data later
+    // so getUserPermissions now must return both
+    .then(getUserPermissions)  
+    
+    // results now contains the user and his permissions, which are then passed to new methods
+    .then(results => $q.all([getUserPreferences(results.user), getUsersData(results.user), canUserSeeThisPage(results.permissions)]);
+    
+    // results now contains the user preferences, additional user data, and if they can see the page, 
+    // but not the original user user or permissions
+    .then(results => {
+      const [preferences, additionalData, canSeePage] = results;
+      // can't get the original user data or permissions, they weren't passed into or returned from $q.all
+    })
+    
+  // good, for complex interdependence that makes chaining difficult, use Bluebird coroutine
+  Promise.coroutine(function* (val) {
+  
+    // get any async data with the yield keyword
+    const user = yield $http.get('/user');
+    const permissions = yield getUserPermissions(user);
+    const preferences = yield getUserPreferences(user);
+    
+    // you can mix in synchronous data no problem, just don't use yield
+    const synchronousData = 10;
+    
+    const newData = getNewData(user, synchronousData);
+    const userData = yield getUsersData(user);
+    const canSeePage = yield canUserSeeThisPage(permissions);
+    
+  });
+  ```
+
+#### Using Bluebird with Angular
+  > If your promise chains have complex interdependence and you need to use Bluebird, you will need to tie it to Angular in your app's run block.  Otherwise Angular will not know when your promise has resolved.
+  
+  ```javascript
+  .run(() => {
+    Promise.setScheduler(function (cb) {
+      $rootScope.$evalAsync(cb);
+    });
+  });
+  ```
+
+**[⬆ back to top](#table-of-contents)**
