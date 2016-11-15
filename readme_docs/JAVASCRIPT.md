@@ -68,6 +68,29 @@ AirBnb ES6 Style Guide
   * [Use braces to create blocks in `case` and `default` clauses that contain lexical declarations](#use-braces-to-create-blocks-in-case-and-default-clauses-that-contain-lexical-declarations)
   * [Ternaries should not be nested and generally be single line expressions](#ternaries-should-not-be-nested-and-generally-be-single-line-expressions)
   * [Avoid unneeded ternary statements](#avoid-unneeded-ternary-statements)
+* [Blocks](#blocks)
+  * [Use braces with all multi-line blocks](#use-braces-with-all-multi-line-blocks)
+  * [Put `else` on the same line as your `if` block's closing brace](#put-else-on-the-same-line-as-your-if-blocks-closing-brace)
+* [Comments](#comments)
+  * [Use `/** ... */` for multi-line comments](#use-for-multi-line-comments)  
+  * [Use `//` for single line comments](#use-for-single-line-comments)
+  * [Start all comments with a space](#start-all-comments-with-a-space)
+  * [Use FIXME and TODO correctly](#use-fixme-and-todo-correctly)
+* [Whitespace](#whitespace)
+  * [Use soft tabs set to 2 spaces](#use-soft-tabs-set-to-2-spaces)
+  * [Place 1 space before the leading brace](#place-1-space-before-the-leading-brace)
+  * [Place 1 space before the opening parenthesis in control statements](#place-1-space-before-the-opening-parenthesis-in-control-statements)
+  * [Set off operators with spaces](#set-off-operators-with-spaces)
+  * [End files with a single newline character](#end-files-with-a-single-newline-character)
+  * [Use indentation when making long method chains](#use-indentation-when-making-long-method-chains)
+  * [Leave a blank line after blocks and before the next statement](#leave-a-blank-line-after-blocks-and-before-the-next-statement)
+  * [Use indentation when making long method chains](#use-indentation-when-making-long-method-chains)
+  * [Leave a blank line after blocks and before the next statement](#leave-a-blank-line-after-blocks-and-before-the-next-statement)
+  * [Do not pad your blocks with blank lines](#do-not-pad-your-blocks-with-blank-lines)
+  * [Do not add spaces inside parentheses](#do-not-add-spaces-inside-parentheses)
+  * [Do not add spaces inside brackets](#do-not-add-spaces-inside-brackets)
+  * [Add spaces inside curly braces](#add-spaces-inside-curly-braces)
+  * [Avoid having lines of code that are longer than 100 characters](#avoid-having-lines-of-code-that-are-longer-than-100-characters)
 
 ## Variables
 #### Prefer ```const```
@@ -1198,3 +1221,481 @@ AirBnb ES6 Style Guide
     const bar = !!c;
     const baz = !c;
     ```
+    
+## Blocks
+
+#### Use braces with all multi-line blocks
+
+    ```javascript
+    // bad
+    if (test)
+      return false;
+
+    // good
+    if (test) return false;
+
+    // good
+    if (test) {
+      return false;
+    }
+
+    // bad
+    function foo() { return false; }
+
+    // good
+    function bar() {
+      return false;
+    }
+    ```
+
+#### Put `else` on the same line as your `if` block's closing brace
+
+    ```javascript
+    // bad
+    if (test) {
+      thing1();
+      thing2();
+    }
+    else {
+      thing3();
+    }
+
+    // good
+    if (test) {
+      thing1();
+      thing2();
+    } else {
+      thing3();
+    }
+    ```
+    
+## Comments
+
+#### Use `/** ... */` for multi-line comments
+
+    ```javascript
+    // bad
+    // make() returns a new element
+    // based on the passed in tag name
+    //
+    // @param {String} tag
+    // @return {Element} element
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+
+    // good
+    /**
+     * make() returns a new element
+     * based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+    ```
+
+#### Use `//` for single line comments
+
+  > Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+
+    ```javascript
+    // bad
+    const active = true;  // is current tab
+
+    // good
+    // is current tab
+    const active = true;
+
+    // bad
+    function getType() {
+      console.log('fetching type...');
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // good
+    function getType() {
+      console.log('fetching type...');
+
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // also good
+    function getType() {
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+    ```
+
+#### Start all comments with a space
+
+  > Why? Makes comments easier to read
+
+    ```javascript
+    // bad
+    //is current tab
+    const active = true;
+
+    // good
+    // is current tab
+    const active = true;
+
+    // bad
+    /**
+     *make() returns a new element
+     *based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+
+    // good
+    /**
+     * make() returns a new element
+     * based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+    ```
+
+#### Use FIXME and TODO correctly
+
+  > Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+  
+## Whitespace
+
+#### Use soft tabs set to 2 spaces
+
+    ```javascript
+    // bad
+    function foo() {
+    ∙∙∙∙const name;
+    }
+
+    // bad
+    function bar() {
+    ∙const name;
+    }
+
+    // good
+    function baz() {
+    ∙∙const name;
+    }
+    ```
+
+#### Place 1 space before the leading brace
+
+    ```javascript
+    // bad
+    function test(){
+      console.log('test');
+    }
+
+    // good
+    function test() {
+      console.log('test');
+    }
+
+    // bad
+    dog.set('attr',{
+      age: '1 year',
+      breed: 'Bernese Mountain Dog',
+    });
+
+    // good
+    dog.set('attr', {
+      age: '1 year',
+      breed: 'Bernese Mountain Dog',
+    });
+    ```
+
+#### Place 1 space before the opening parenthesis in control statements
+
+  > Place no space between the argument list and the function name in function calls and declarations
+
+    ```javascript
+    // bad
+    if(isJedi) {
+      fight ();
+    }
+
+    // good
+    if (isJedi) {
+      fight();
+    }
+
+    // bad
+    function fight () {
+      console.log ('Swooosh!');
+    }
+
+    // good
+    function fight() {
+      console.log('Swooosh!');
+    }
+    ```
+
+#### Set off operators with spaces
+
+    ```javascript
+    // bad
+    const x=y+5;
+
+    // good
+    const x = y + 5;
+    ```
+
+#### End files with a single newline character
+
+    ```javascript
+    // bad
+    import { es6 } from './AirbnbStyleGuide';
+      // ...
+    export default es6;
+    ```
+
+    ```javascript
+    // bad
+    import { es6 } from './AirbnbStyleGuide';
+      // ...
+    export default es6;↵
+    ↵
+    ```
+
+    ```javascript
+    // good
+    import { es6 } from './AirbnbStyleGuide';
+      // ...
+    export default es6;↵
+    ```
+
+#### Use indentation when making long method chains
+
+  > Use when more than 2 method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement
+
+    ```javascript
+    // bad
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // bad
+    $('#items').
+      find('.selected').
+        highlight().
+        end().
+      find('.open').
+        updateCount();
+
+    // good
+    $('#items')
+      .find('.selected')
+        .highlight()
+        .end()
+      .find('.open')
+        .updateCount();
+
+    // bad
+    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+        .attr('width', (radius + margin) * 2).append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
+
+    // good
+    const leds = stage.selectAll('.led')
+        .data(data)
+      .enter().append('svg:svg')
+        .classed('led', true)
+        .attr('width', (radius + margin) * 2)
+      .append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
+
+    // good
+    const leds = stage.selectAll('.led').data(data);
+    ```
+
+#### Leave a blank line after blocks and before the next statement
+
+    ```javascript
+    // bad
+    if (foo) {
+      return bar;
+    }
+    return baz;
+
+    // good
+    if (foo) {
+      return bar;
+    }
+
+    return baz;
+
+    // bad
+    const obj = {
+      foo() {
+      },
+      bar() {
+      },
+    };
+    return obj;
+
+    // good
+    const obj = {
+      foo() {
+      },
+
+      bar() {
+      },
+    };
+
+    return obj;
+
+    // bad
+    const arr = [
+      function foo() {
+      },
+      function bar() {
+      },
+    ];
+    return arr;
+
+    // good
+    const arr = [
+      function foo() {
+      },
+
+      function bar() {
+      },
+    ];
+
+    return arr;
+    ```
+
+#### Do not pad your blocks with blank lines
+
+    ```javascript
+    // bad
+    function bar() {
+
+      console.log(foo);
+
+    }
+
+    // also bad
+    if (baz) {
+
+      console.log(qux);
+    } else {
+      console.log(foo);
+
+    }
+
+    // good
+    function bar() {
+      console.log(foo);
+    }
+
+    // good
+    if (baz) {
+      console.log(qux);
+    } else {
+      console.log(foo);
+    }
+    ```
+
+#### Do not add spaces inside parentheses
+
+    ```javascript
+    // bad
+    function bar( foo ) {
+      return foo;
+    }
+
+    // good
+    function bar(foo) {
+      return foo;
+    }
+
+    // bad
+    if ( foo ) {
+      console.log(foo);
+    }
+
+    // good
+    if (foo) {
+      console.log(foo);
+    }
+    ```
+
+#### Do not add spaces inside brackets
+
+    ```javascript
+    // bad
+    const foo = [ 1, 2, 3 ];
+    console.log(foo[ 0 ]);
+
+    // good
+    const foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
+#### Add spaces inside curly braces
+
+    ```javascript
+    // bad
+    const foo = {clark: 'kent'};
+
+    // good
+    const foo = { clark: 'kent' };
+    ```
+
+#### Avoid having lines of code that are longer than 100 characters
+
+**Note:** long strings are exempt from this rule, and should not be broken up
+
+  > Why? This ensures readability and maintainability.
+
+    ```javascript
+    // bad
+    const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
+
+    // bad
+    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+
+    // good
+    const foo = jsonData
+      && jsonData.foo
+      && jsonData.foo.bar
+      && jsonData.foo.bar.baz
+      && jsonData.foo.bar.baz.quux
+      && jsonData.foo.bar.baz.quux.xyzzy;
+
+    // good
+    $.ajax({
+      method: 'POST',
+      url: 'https://airbnb.com/',
+      data: { name: 'John' },
+    })
+      .done(() => console.log('Congratulations!'))
+      .fail(() => console.log('You have failed this city.'));
+    ```
+
