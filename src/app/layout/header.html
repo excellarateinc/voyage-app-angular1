@@ -1,50 +1,56 @@
-<!-- START Top Navbar-->
-<nav class="navbar topnavbar" role="navigation">
-    <!-- START navbar header-->
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#/">
-            <div class="brand-logo">
-                <img class="img-responsive" src="images/logo.png" alt="App Logo" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="javascript:void(0)">Brand<div class="ripple-container"></div></a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="javascript:void(0)">Active</a></li>
+                        <li><a href="javascript:void(0)">Link</a></li>
+                        <li class="dropdown">
+                            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                                <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)">Action</a></li>
+                                <li><a href="javascript:void(0)">Another action</a></li>
+                                <li><a href="javascript:void(0)">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Dropdown header</li>
+                                <li><a href="javascript:void(0)">Separated link</a></li>
+                                <li><a href="javascript:void(0)">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group is-empty">
+                            <input type="text" class="form-control col-md-8" placeholder="Search">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:void(0)">Link</a></li>
+                        <li class="dropdown">
+                            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown
+                                <b class="caret"></b><div class="ripple-container"></div></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)">Action</a></li>
+                                <li><a href="javascript:void(0)">Another action</a></li>
+                                <li><a href="javascript:void(0)">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="javascript:void(0)">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="brand-logo-collapsed">
-                <img class="img-responsive" src="images/logo.png" alt="App Logo" />
-            </div>
-        </a>
+        </div>
     </div>
-    <!-- END navbar header-->
-    <!-- START Nav wrapper-->
-    <div class="nav-wrapper">
-        <!-- START Left navbar-->
-        <ul class="nav navbar-nav">
-            <li>
-                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                <a class="hidden-xs" href="" trigger-resize="" ng-click="app.layout.isCollapsed = !app.layout.isCollapsed">
-                    <em class="fa fa-navicon"></em>
-                </a>
-                <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                <a class="visible-xs sidebar-toggle" href="" ng-click="app.asideToggled = !app.asideToggled">
-                    <em class="fa fa-navicon"></em>
-                </a>
-            </li>
-            <!-- START User avatar toggle-->
-            <li>
-                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                <a href="" ng-click="toggleUserBlock()">
-                    <em class="icon-user"></em>
-                </a>
-            </li>
-            <!-- END User avatar toggle-->
-            <!-- START lock screen-->
-            <li>
-                <a ui-sref="page.lock" title="Lock screen">
-                    <em class="icon-lock"></em>
-                </a>
-            </li>
-            <!-- END lock screen-->
-        </ul>
-        <!-- END Left navbar-->
+</div>
 
-    </div>
-    <!-- END Nav wrapper-->
-</nav>
-<!-- END Top Navbar-->
+

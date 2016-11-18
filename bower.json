@@ -21,7 +21,7 @@
     "font-awesome": "^4.7.0",
     "angular-bootstrap-material": "abm#^0.1.4",
     "bootstrap-material-design": "^4.0.2",
-    "angular-ui-bootstrap": "^2.2.0"
+    "angular-bootstrap": "^2.2.0"
   },
   "overrides": {
     "bootstrap": {

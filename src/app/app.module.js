@@ -4,6 +4,8 @@
   angular
     .module('launchpadApp.app', [
       'ui.router',
+      'ui.bootstrap',
+      'angularBootstrapMaterial',
       'launchpadApp.dashboard',
       'launchpadApp.layout',
       'launchpadApp.core',
