@@ -57,20 +57,15 @@ gulp.task('copy-images', function(done) {
     .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('concat', ["sass", "babel"], function(done) {
+gulp.task('concat', ["sass"], function(done) {
   return gulp.src(paths.html)
-    .pipe(useref({
-        transformPath: function(filePath) {          
-          if (filePath.indexOf('/node_modules/') === -1) {            
-            return filePath.replace('/src/', '/dist/')
-          }
-          return filePath;
-        }
-    }, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))    
+    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true }).pipe(babel)))
     .pipe(gulpif('*.js', uglify()))
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('dist'));
 });
+
+
 
 gulp.task('generate-constants', function() {
   var configJson = require('./src/app/environment-constants/environment-constants.config.json');
@@ -83,33 +78,6 @@ gulp.task('generate-constants', function() {
   })
 	.pipe(gulp.dest('./src/app/environment-constants'))
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 gulp.task('lint', function() {
@@ -161,7 +129,9 @@ gulp.task('sass', function() {
 });
 
 
-// inject bower components
+/**
+ * Uses wiredep to automatically insert script and css link tags for all Bower dependencies
+ */
 gulp.task('bower', function () {
   return gulp.src('src/index.html')
       .pipe(wiredep({
@@ -172,6 +142,17 @@ gulp.task('bower', function () {
 });
 
 
+/**
+ * Uses gulp-inject to insert script tags for all development JavaScript files (excluding tests) in the src folder.
+ * Handles including all development JavaScript so developers don't have to worry about the include order and remembering
+ * to include all of their JavaScript files.
+ *
+ * Takes the index.html file as the target, then gets all non-test JavaScript files in proper order via
+ * getOrderedJsFiles and injects them into index.html as script tags.  The gulp-inject plugin looks for
+ * <!-- inject:js --> and <!-- endinject --> in index.html and inserts the tags there.  We want the path in the tags to
+ * be the path relative to index.html, so { relative: true } is passed to gulp inject along with the sorted JavaScript
+ * files. The resulting index.html file is then written back into the src/ folder, overwriting the original one.
+ */
 gulp.task('inject-js', function() {
   var target = gulp.src('src/index.html');
   return target
@@ -180,6 +161,10 @@ gulp.task('inject-js', function() {
 
 });
 
+/**
+ * Take all files matching the patterns in config.js and order them by
+ * the order specified with the patterns in config.jsOrder
+ */
 function getOrderedJsFiles() {
   return gulp.src(config.js)
       .pipe(gulpOrder(config.jsOrder))
