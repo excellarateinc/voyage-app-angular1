@@ -5,9 +5,9 @@
     .module('launchpadApp.core')
     .factory('authorizationInterceptor', authorizationInterceptor);
 
-  authorizationInterceptor.$inject = ['authorizationService', '$state', '$q'];
+  authorizationInterceptor.$inject = ['authorizationService', '$q'];
 
-  function authorizationInterceptor(authorizationService, $state, $q) {
+  function authorizationInterceptor(authorizationService, $q) {
 
     return {
       request,
@@ -23,9 +23,9 @@
     }
 
     function responseError(response) {
-      if(response.status === 401) {
-        $state.go('login');
-      }
+      //  if(response.status === 401) {
+      //    $state.go('login');
+      //  }
       return $q.reject(response);
     }
   }

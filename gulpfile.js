@@ -18,6 +18,14 @@ var useref = require('gulp-useref');
 var lazypipe = require('lazypipe');
 var gulpif = require('gulp-if');
 var eslint = require('gulp-eslint');
+var browserSync = require('browser-sync').create();
+const gulpOrder = require('gulp-order');
+const gulpInject = require('gulp-inject');
+const debug = require('gulp-debug');
+const wiredep = require('wiredep').stream;
+
+const config = require('./gulp.config')();
+
 
 var paths = {
   html: ['./src/**/*.html'],
@@ -64,17 +72,6 @@ gulp.task('concat', ["sass", "babel"], function(done) {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass', ['clean'], function(done) {
-  return gulp.src(paths.sass)
-    .pipe(sass())
-    .on('error', sass.logError)
-    .pipe(gulp.dest('./dist/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(gulp.dest('./dist/css/'));
-});
-
 gulp.task('generate-constants', function() {
   var configJson = require('./src/app/environment-constants/environment-constants.config.json');
   var environmentConfig = configJson[process.env.NODE_ENV || 'development'];
@@ -86,6 +83,34 @@ gulp.task('generate-constants', function() {
   })
 	.pipe(gulp.dest('./src/app/environment-constants'))
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 gulp.task('lint', function() {
     // ESLint ignores files with "node_modules" paths. 
@@ -109,3 +134,53 @@ gulp.task('build', function(done) {
 });
 
 gulp.task('default', ['build']);
+
+// Static server
+gulp.task('browser-sync', ['sass'], function() {
+  browserSync.init({
+    server: {
+      baseDir: ['src/', 'src/.tmp/'],
+      routes: {
+        '/bower_components': 'bower_components'
+      }
+    }
+  });
+
+  gulp.watch(paths.js, ['lint']);
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.html).on('change', browserSync.reload);
+
+});
+
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+  return gulp.src('./src/scss/*.scss')
+      .pipe(sass())
+      .pipe(gulp.dest("./src/.tmp/styles"))
+      .pipe(browserSync.stream());
+});
+
+
+// inject bower components
+gulp.task('bower', function () {
+  return gulp.src('src/index.html')
+      .pipe(wiredep({
+        directory: 'bower_components',
+        ignorePath: '..'
+      }))
+      .pipe(gulp.dest('src/'));
+});
+
+
+gulp.task('inject-js', function() {
+  var target = gulp.src('src/index.html');
+  return target
+  .pipe(gulpInject(getOrderedJsFiles(), {relative: true}))
+  .pipe(gulp.dest('src/'));
+
+});
+
+function getOrderedJsFiles() {
+  return gulp.src(config.js)
+      .pipe(gulpOrder(config.jsOrder))
+}
