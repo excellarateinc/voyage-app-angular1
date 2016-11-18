@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "launchpad",
   "scripts": {
-    "server": " live-server --open=dist/",
+    "server": " live-server --open=src/",
     "start": "npm run server",
     "test": "karma start"
   },

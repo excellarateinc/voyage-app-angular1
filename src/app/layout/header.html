@@ -1,0 +1,50 @@
+<!-- START Top Navbar-->
+<nav class="navbar topnavbar" role="navigation">
+    <!-- START navbar header-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+            <div class="brand-logo">
+                <img class="img-responsive" src="images/logo.png" alt="App Logo" />
+            </div>
+            <div class="brand-logo-collapsed">
+                <img class="img-responsive" src="images/logo.png" alt="App Logo" />
+            </div>
+        </a>
+    </div>
+    <!-- END navbar header-->
+    <!-- START Nav wrapper-->
+    <div class="nav-wrapper">
+        <!-- START Left navbar-->
+        <ul class="nav navbar-nav">
+            <li>
+                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                <a class="hidden-xs" href="" trigger-resize="" ng-click="app.layout.isCollapsed = !app.layout.isCollapsed">
+                    <em class="fa fa-navicon"></em>
+                </a>
+                <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                <a class="visible-xs sidebar-toggle" href="" ng-click="app.asideToggled = !app.asideToggled">
+                    <em class="fa fa-navicon"></em>
+                </a>
+            </li>
+            <!-- START User avatar toggle-->
+            <li>
+                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                <a href="" ng-click="toggleUserBlock()">
+                    <em class="icon-user"></em>
+                </a>
+            </li>
+            <!-- END User avatar toggle-->
+            <!-- START lock screen-->
+            <li>
+                <a ui-sref="page.lock" title="Lock screen">
+                    <em class="icon-lock"></em>
+                </a>
+            </li>
+            <!-- END lock screen-->
+        </ul>
+        <!-- END Left navbar-->
+
+    </div>
+    <!-- END Nav wrapper-->
+</nav>
+<!-- END Top Navbar-->
