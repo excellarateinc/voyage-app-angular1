@@ -1,7 +1,5 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
-const request = require('request');
-const fs = require('fs');
 const lazypipe = require('lazypipe');
 const browserSync = require('browser-sync').create();
 const wiredep = require('wiredep').stream;
@@ -25,54 +23,39 @@ const paths = {
   ]
 };
 
-gulp.task('default', ['build']);
 
+// Default serve task for development, serves files directly from the src/ folder
+gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'watch'], serve);
+
+
+// Runs ESLint against JavaScript to check for best practices
+gulp.task('lint', lint);
+
+
+// Runs the build process, results in minified concatenated files written to the dist/ folder
 gulp.task('build', function(done) {
   runSequence("clean-dist", "copy-images", "copy-fonts", "sourcemaps-babel-concat-minify", done);
 });
 
-/**
- * Runs ESLint against JavaScript to check for best practices
- *
- * failAfterError is set to resolve with an error code if any error level best practices aren't met.
- */
-gulp.task('lint', function() {
-  return gulp.src(paths.js)
-      .pipe(plugins.eslint())
-      .pipe(plugins.eslint.format())
-      .pipe(plugins.eslint.failAfterError());
+
+// Generates environment constants like URL of the API
+gulp.task('generate-constants', generateConstants);
+
+
+// Simply starts a server in the dist folder, useful for testing builds or in older browsers.
+gulp.task('serve-dist', function() {
+  browserSync.init({
+    server: 'dist/'
+  });
 });
 
 
 /**
- * Generates environment constants like URL of the API
- *
- * Determines the environment by checking the NODE_ENV environment variable, but defaults to development
- * if none is found.  The template used here is the default template, just with a newline added at the
- * end to comply with the style guide.
+ * NOTE!  All tasks and functions below only exist to support the tasks above and shouldn't need to be run directly.
  */
-gulp.task('generate-constants', function() {
-  const configJson = require('./src/app/environment-constants/environment-constants.config.json');
-  const environmentConfig = configJson[process.env.NODE_ENV || 'development'];
-  return plugins.ngConstant({
-    name: 'launchpadApp.constants',
-    constants: environmentConfig,
-    wrap: false,
-    stream: true,
-    template:
-      'angular.module("<%- moduleName %>"<% if (deps) { %>, <%= JSON.stringify(deps) %><% } %>)\n'
-      + '<% constants.forEach(function(constant) { %>\n'
-      +  '.constant("<%- constant.name %>", <%= constant.value %>)\n'
-      +  '<% }) %>\n'
-      +  ';\n'
-  })
-    .pipe(plugins.rename('constants.module.js'))
-	  .pipe(gulp.dest('./src/app/environment-constants/'));
-});
+
 
 /**
- * Default serve task for development, serves files directly from the src/ folder
- *
  * Before starting the server, all bower dependencies and development javascript files are added as
  * script tags into index.hml, and sass is compiled to css.
  * The .tmp/ folder is also considered a base directory because while it's where the styles/ folder and css
@@ -81,7 +64,7 @@ gulp.task('generate-constants', function() {
  * The routes option lets you map a url as a key to a folder relative to the current directory as a value,
  * so we add the bower_components folder to the server here.
  */
-gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'watch'], function() {
+function serve() {
   browserSync.init({
     server: {
       baseDir: ['src/', 'src/.tmp/'],
@@ -90,16 +73,45 @@ gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'wat
       }
     }
   });
-});
+}
+
 
 /**
- * Simply starts a server in the dist folder, useful for testing builds or in older browsers.
+ * Takes all non-test JavaScript files and run ESLint on them with default formatting.
+ * failAfterError is set to resolve with an error code if any error level best practices aren't met.
  */
-gulp.task('serve-dist', function() {
-  browserSync.init({
-    server: 'dist/'
-  });
-});
+function lint() {
+  return gulp.src(paths.js)
+      .pipe(plugins.eslint())
+      .pipe(plugins.eslint.format())
+      .pipe(plugins.eslint.failAfterError());
+}
+
+
+/**
+ * Determines the environment by checking the NODE_ENV environment variable, but defaults to development
+ * if none is found.  The template used here is the default template, just with a newline added at the
+ * end to comply with the style guide.
+ */
+function generateConstants() {
+  const configJson = require('./src/app/environment-constants/environment-constants.config.json');
+  const environmentConfig = configJson[process.env.NODE_ENV || 'development'];
+  return plugins.ngConstant({
+    name: 'launchpadApp.constants',
+    constants: environmentConfig,
+    wrap: false,
+    stream: true,
+    template:
+    'angular.module("<%- moduleName %>"<% if (deps) { %>, <%= JSON.stringify(deps) %><% } %>)\n'
+    + '<% constants.forEach(function(constant) { %>\n'
+    +  '.constant("<%- constant.name %>", <%= constant.value %>)\n'
+    +  '<% }) %>\n'
+    +  ';\n'
+  })
+      .pipe(plugins.rename('constants.module.js'))
+      .pipe(gulp.dest('./src/app/environment-constants/'));
+}
+
 
 /**
  * Used with the dev serve task to watch for file changes and update the browser
@@ -126,6 +138,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.html).on('change', browserSync.reload);
 });
 
+
 /**
  * Takes all scss files, compiles them to css, and writes them to the .tmp/styles folder
  * Also sends the resulting css to browserSync so if it's running it can update the styles in the browser
@@ -136,6 +149,7 @@ gulp.task('sass', function() {
       .pipe(gulp.dest("./src/.tmp/styles"))
       .pipe(browserSync.stream());
 });
+
 
 /**
  * Takes all css and javascript referenced in index.html and concatenates each into single files.
@@ -166,6 +180,7 @@ gulp.task('sourcemaps-babel-concat-minify', ["sass"], function() {
   }
 });
 
+
 /**
  * Uses wiredep to automatically insert script and css link tags for all Bower dependencies
  *
@@ -194,7 +209,6 @@ gulp.task('clean-dist', function () {
       .pipe(plugins.clean());
 });
 
-
 gulp.task('copy-fonts', function() {
   return gulp.src('./src/fonts/*')
       .pipe(gulp.dest('./dist/fonts'));
@@ -205,6 +219,9 @@ gulp.task('copy-images', function() {
       .pipe(plugins.imagemin())
       .pipe(gulp.dest('./dist/img'));
 });
+
+gulp.task('default', ['build']);
+
 
 /** Takes the index.html file as the target, then gets all non-test JavaScript files in proper order via
 * getOrderedJsFiles and injects them into index.html as script tags.  The gulp-inject plugin looks for
@@ -218,6 +235,7 @@ function includeDevJs() {
       .pipe(plugins.inject(getOrderedJsFiles(), {relative: true}))
       .pipe(gulp.dest('src/'));
 }
+
 
 /**
  * Take all files matching the patterns in config.js and order them by
