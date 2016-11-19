@@ -1,14 +1,4 @@
 <div class="row">
-    <div class="col-md-12">
-        <!--<div class="alert alert-dismissible alert-info">-->
-            <!--<button type="button" class="close" data-dismiss="alert">×</button>-->
-            <!--<strong>Heads up!</strong> This-->
-            <!--<a href="javascript:void(0)" class="alert-link">alert needs your attention</a>, but it's not super important.-->
-        <!--</div>-->
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -48,6 +38,19 @@
                 <div class="progress progress-striped">
                     <div class="progress-bar progress-bar-info" style="width: 40%;"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Sales Trends (current year)</div>
+            <div class="panel-body">
+                <canvas id="line" class="chart chart-line" chart-data="vm.data" height="65"
+                        chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options">
+                </canvas>
             </div>
         </div>
     </div>

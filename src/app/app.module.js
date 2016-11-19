@@ -6,6 +6,7 @@
       'ui.router',
       'ui.bootstrap',
       'angularBootstrapMaterial',
+      'chart.js',
       'launchpadApp.dashboard',
       'launchpadApp.layout',
       'launchpadApp.core',

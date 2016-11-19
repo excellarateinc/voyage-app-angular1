@@ -3,3 +3,4 @@ dist
 coverage
 docs
 .idea
+bower_components

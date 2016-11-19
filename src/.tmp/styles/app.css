@@ -1,9 +1,6 @@
 * {
   border-radius: 0px !important; }
 
-.body {
-}
-
 .box {
   width: 70%;
   height: 200px;
@@ -18,11 +15,9 @@
   color: #c7254e; }
 
 .lp-sidebar {
-  display: none;
-}
+  display: none; }
 
-@media (min-width: 768px)
-{
+@media (min-width: 768px) {
   .lp-sidebar {
     position: fixed;
     top: 50px;
@@ -34,6 +29,4 @@
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #f5f5f5;
-    border-right: 1px solid lightgray;
-  }
-}
+    border-right: 1px solid lightgray; } }

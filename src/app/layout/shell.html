@@ -1,10 +1,15 @@
-<!-- top navbar-->
+<!--TODO: Migrate to named ui-views instead of ng-include-->
 <ng-include src="'app/layout/header.html'" ng-controller="HeaderController"></ng-include>
-<!-- sidebar-->
-<!--<aside ng-include="'app/layout/sidebar.html'" ng-controller="SidebarController"></aside>-->
-<!--&lt;!&ndash; Main section&ndash;&gt;-->
-<div class="container">
-    <ui-view></ui-view>
+
+<div class="container-fluid" style="margin-top:75px;">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 lp-sidebar">
+            <ng-include src="'app/layout/sidebar.html'" ng-controller="SidebarController"></ng-include>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+            <ui-view></ui-view>
+        </div>
+    </div>
 </div>
-<!--&lt;!&ndash; Page footer&ndash;&gt;-->
-<!--<footer ng-include="'app/layout/footer.html'"></footer>-->
+
+<!--Footer goes here-->
