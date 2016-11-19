@@ -14,7 +14,7 @@
     function login() {
       accountService.login(vm.username, vm.password)
         .then(() => {
-          $state.go('dashboard');
+          $state.go('app.dashboard');
         });
     }
   }

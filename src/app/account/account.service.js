@@ -17,7 +17,7 @@
     function login(username, password) {
       const content = `grant_type=password&username=${username}&password=${password}`;
 
-      return $http.post(`${API_URL}/Token`, content, {
+      return $http.post(`${API_URL}/v2/login`, content, {
         headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
       })
         .then(response => {
@@ -25,10 +25,12 @@
         });
     }
 
-    function register(email, password) {
+    function register(email, password, firstName, lastName) {
       const user = {
         email,
         password,
+        firstName,
+        lastName,
         confirmPassword: password
       };
 

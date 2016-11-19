@@ -3,11 +3,7 @@
 
   angular
     .module('launchpadApp.account')
-    .component('register', {
-      templateUrl: 'app/account/register.component.html',
-      controller: RegisterController,
-      controllerAs: 'vm'
-    });
+    .controller('RegisterController', RegisterController);
 
   RegisterController.$inject = ['accountService', '$state', 'errorService'];
 
@@ -17,10 +13,10 @@
 
     function register() {
       if(vm.password === vm.confirmPassword) {
-        accountService.register(vm.username, vm.password)
+        accountService.register(vm.username, vm.password, vm.firstName, vm.lastName)
           .then(() => {
             vm.registrationErrors = [];
-            $state.go('login');
+            $state.go('app.login');
           })
           .catch(failure => {
             const errors = errorService.getModelStateErrors(failure);
