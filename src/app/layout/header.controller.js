@@ -11,6 +11,7 @@
     const vm = this;
     vm.logout = logout;
     vm.authToken = authorizationService.getToken();
+    vm.isCollapsed = true;
 
     function logout() {
       authorizationService.setToken(null);

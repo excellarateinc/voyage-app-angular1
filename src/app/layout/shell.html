@@ -1,12 +1,9 @@
-<!--TODO: Migrate to named ui-views instead of ng-include-->
-<ng-include src="'app/layout/header.html'" ng-controller="HeaderController"></ng-include>
+<!--TODO: Migrate to named ui-views instead of ng-include. Remove inline styles. -->
+<ng-include src="'app/layout/header.html'" ng-controller="HeaderController as vm"></ng-include>
 
 <div class="container-fluid" style="margin-top:75px;">
     <div class="row">
-        <div class="col-sm-3 col-md-2 lp-sidebar">
-            <ng-include src="'app/layout/sidebar.html'" ng-controller="SidebarController"></ng-include>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+        <div class="col-md-12">
             <ui-view></ui-view>
         </div>
     </div>
