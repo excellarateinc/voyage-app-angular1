@@ -14,19 +14,21 @@
   background-color: #f9f2f4;
   color: #c7254e; }
 
-.lp-sidebar {
-  display: none; }
-
-@media (min-width: 768px) {
-  .lp-sidebar {
-    position: fixed;
-    top: 50px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #f5f5f5;
-    border-right: 1px solid lightgray; } }
+.row-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+}
+.row-table>[class*=col-] {
+  display: table-cell;
+  float: none;
+  table-layout: fixed;
+  vertical-align: middle;
+}
+.bb {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+.br {
+  border-right: 1px solid rgba(0,0,0,.12);
+}
