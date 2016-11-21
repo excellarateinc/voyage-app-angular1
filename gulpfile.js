@@ -3,6 +3,7 @@ const runSequence = require('run-sequence');
 const lazypipe = require('lazypipe');
 const browserSync = require('browser-sync').create();
 const wiredep = require('wiredep').stream;
+const KarmaServer = require('karma').Server;
 const plugins = require('gulp-load-plugins')();
 
 const paths = {
@@ -27,6 +28,8 @@ const paths = {
 // Default serve task for development, serves files directly from the src/ folder
 gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'watch'], serve);
 
+// Runs Karma tests
+gulp.task('test', test);
 
 // Runs ESLint against JavaScript to check for best practices
 gulp.task('lint', lint);
@@ -73,6 +76,17 @@ function serve() {
       }
     }
   });
+}
+
+/**
+ * Starts a new Karma server to run unit tests.
+ * @param done
+ */
+function test(done) {
+  new KarmaServer({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 }
 
 
@@ -167,7 +181,9 @@ gulp.task('sass', function() {
 gulp.task('sourcemaps-babel-concat-minify', ["sass"], function() {
   return gulp.src(paths.html)
       .pipe(plugins.useref({}, initializeSourceMapsThenRunBabel()))
+      .pipe(plugins.if('!*.html', plugins.rev()))
       .pipe(plugins.if('*.js', plugins.uglify()))
+      .pipe(plugins.revReplace())
       .pipe(plugins.sourcemaps.write('maps'))
       .pipe(gulp.dest('dist'));
 
