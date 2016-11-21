@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp')
+    .module('launchpadApp.app')
     .config(appConfig);
 
   appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
@@ -15,50 +15,14 @@
     // Configure default route
     $urlRouterProvider.otherwise('/login');
 
-    // TODO: Move state configuration to individual modules.
-    // Configure ui states
-    const states = [
-      {
-        name: 'login',
-        url: '/login',
-        views: {
-          content: {
-            // Using component: instead of template:
-            component: 'login'
-          },
-          header: {
-            component: 'header'
-          }
-        }
-      },
-      {
-        name: 'register',
-        url: '/register',
-        views: {
-          content: {
-            // Using component: instead of template:
-            component: 'register'
-          },
-          header: {
-            component: 'header'
-          }
-        }
-      },
-      {
-        name: 'dashboard',
-        url: '/dashboard',
-        views: {
-          content: {
-            component: 'dashboard'
-          },
-          header: {
-            component: 'header'
-          }
-        }
-      }];
+    $stateProvider
 
-    // Loop over the state definitions and register them
-    states.forEach(state => $stateProvider.state(state));
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'vm'
+      });
   }
 
 }());

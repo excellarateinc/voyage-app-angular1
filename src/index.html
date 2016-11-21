@@ -2,49 +2,55 @@
     <head>
         <meta charset="UTF-8">
         <title>Launchpad</title>
-        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">      
+        <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">
 
-        <!-- build:css css/vendor.css -->        
-        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"> 
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
         <!-- endbuild -->
-        
-        <!-- build:css css/combined.css -->        
-        <link href="css/app.css" rel="stylesheet"> 
+        <!-- build:css(src/.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/app.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="launchpadApp">
+    <body ng-app="launchpadApp.app">
         <div class="container body-content">
-        	<app>Loading</app>
-	        <hr />
+            <ui-view>
+                <app>Loading</app>
+                <hr />
+            </ui-view>
 	        <footer></footer>
-    	</div>    	
+    	</div>
 
-        <!-- build:js scripts/vendor.js -->
-        <script src="../node_modules/angular/angular.js"></script>        
-        <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script> 
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js scripts/combined.js -->
+        <!-- build:js(src/) scripts/combined.js -->
+        <!-- inject:js -->
         <script src="app/app.module.js"></script>
-        <script src="app/app.component.js"></script>
-        <script src="app/app.config.js"></script>        
-
         <script src="app/account/account.module.js"></script>
+        <script src="app/core/core.module.js"></script>
+        <script src="app/dashboard/dashboard.module.js"></script>
+        <script src="app/environment-constants/constants.module.js"></script>
+        <script src="app/layout/layout.module.js"></script>
         <script src="app/account/account.service.js"></script>
         <script src="app/account/login.component.js"></script>
         <script src="app/account/register.component.js"></script>
-
-        <script src="app/core/core.module.js"></script>
-        <script src="app/core/constants.js"></script>
+        <script src="app/app.config.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
+        <script src="app/core/constants.js"></script>
         <script src="app/core/error.service.js"></script>
-
-        <script src="app/dashboard/dashboard.module.js"></script>
-        <script src="app/dashboard/dashboard.component.js"></script>    
-
-        <script src="app/layout/layout.module.js"></script>
+        <script src="app/dashboard/dashboard.controller.js"></script>
         <script src="app/layout/header.component.js"></script>
+        <!-- endinject-->
         <!-- endbuild -->
     </body>
 </html>

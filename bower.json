@@ -1,0 +1,32 @@
+{
+  "name": "launchpad",
+  "description": "launchpad",
+  "main": "",
+  "authors": [
+    "roblouie <rlouie@lssinc.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lssinc/launchpad-angular1-client",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
+    }
+  }
+}
