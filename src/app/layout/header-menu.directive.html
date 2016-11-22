@@ -1,17 +1,21 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-           
             <span class="navbar-brand">Launchpad</span>
-            
             <ul class="nav navbar-nav">
                 <li ng-if="!vm.authToken">
                 	<a ui-sref="register">Register</a>
             	</li>
-                <button ng-if="vm.authToken" type="button" class="btn btn-default navbar-btn" ng-click="vm.logout()">
-                	Logout
-                </button>
+                <li>
+                    <a href="#">Users</a>
+                </li>
+                <li>
+                    <a href="#">Roles</a>
+                </li>
             </ul>
+            <button ng-if="vm.authToken" type="button" class="btn btn-default navbar-btn" ng-click="vm.logout()">
+                Logout
+            </button>
         </div>
     </div>
 </div>

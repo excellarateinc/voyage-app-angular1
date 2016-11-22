@@ -14,6 +14,7 @@
         <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp.app">
+        <header-menu></header-menu>
         <div class="container body-content">
             <ui-view>
                 <app>Loading</app>
@@ -38,18 +39,25 @@
         <script src="app/account/account.module.js"></script>
         <script src="app/core/core.module.js"></script>
         <script src="app/dashboard/dashboard.module.js"></script>
-        <script src="app/environment-constants/constants.module.js"></script>
         <script src="app/layout/layout.module.js"></script>
+        <script src="app/role/role.module.js"></script>
+        <script src="app/user/user.module.js"></script>
         <script src="app/account/account.service.js"></script>
         <script src="app/account/login.component.js"></script>
         <script src="app/account/register.component.js"></script>
         <script src="app/app.config.js"></script>
+        <script src="app/app.routes.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
         <script src="app/core/constants.js"></script>
         <script src="app/core/error.service.js"></script>
+        <script src="app/dashboard/dashboard-menu.directive.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
-        <script src="app/layout/header.component.js"></script>
+        <script src="app/layout/header-menu.directive.js"></script>
+        <script src="app/role/role.routes.js"></script>
+        <script src="app/role/role.service.js"></script>
+        <script src="app/user/user.routes.js"></script>
+        <script src="app/user/user.service.js"></script>
         <!-- endinject-->
         <!-- endbuild -->
     </body>
