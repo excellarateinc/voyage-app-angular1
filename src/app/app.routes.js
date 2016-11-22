@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.app')
+    .module('launchpadApp')
     .config(appConfig);
 
   appConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -10,7 +10,7 @@
   function appConfig($stateProvider, $urlRouterProvider) {
 
     // Configure default route
-    $urlRouterProvider.otherwise('/login');
+    //$urlRouterProvider.otherwise('/login');
 
     $stateProvider
 

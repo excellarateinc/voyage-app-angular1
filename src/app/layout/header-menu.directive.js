@@ -11,8 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/layout/header-menu.directive.html',
       scope: {
-        title: '@',
-        categories: '='
+        title: '@'
       },
       link: function (scope) {
       }

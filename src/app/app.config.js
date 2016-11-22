@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.app')
+    .module('launchpadApp')
     .config(appConfig);
 
   appConfig.$inject = ['$httpProvider'];
