@@ -17,10 +17,13 @@
         <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp">
-        <div class="container">
-            <header-menu></header-menu>
-            <ui-view></ui-view>
-            <footer></footer>
+        <header-menu></header-menu>
+        <div class="container-fluid" style="margin-top:75px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <ui-view></ui-view>
+                </div>
+            </div>
         </div>
 
         <!-- build:js(.) scripts/vendor.js -->
@@ -44,9 +47,10 @@
         <script src="app/layout/layout.module.js"></script>
         <script src="app/role/role.module.js"></script>
         <script src="app/user/user.module.js"></script>
+        <script src="app/account/account.routes.js"></script>
         <script src="app/account/account.service.js"></script>
-        <script src="app/account/login.component.js"></script>
-        <script src="app/account/register.component.js"></script>
+        <script src="app/account/login.controller.js"></script>
+        <script src="app/account/register.controller.js"></script>
         <script src="app/app.config.js"></script>
         <script src="app/app.routes.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
@@ -58,6 +62,7 @@
         <script src="app/layout/header-menu.directive.js"></script>
         <script src="app/role/role.routes.js"></script>
         <script src="app/role/role.service.js"></script>
+        <script src="app/user/user.controller.js"></script>
         <script src="app/user/user.routes.js"></script>
         <script src="app/user/user.service.js"></script>
         <!-- endinject-->

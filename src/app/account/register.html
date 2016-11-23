@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+                <div class="panel-body">
+                    <form ng-submit="vm.register()">
+                        <div class="form-group form-group-small" abm-form-group>
+                            <label class="control-label" type="floating" abm-label>First Name</label>
+                            <input class="form-control" type="text" abm-form-control ng-model="vm.firstName">
+                        </div>
+                        <div class="form-group form-group-small" abm-form-group>
+                            <label class="control-label" type="floating" abm-label>Last Name</label>
+                            <input class="form-control" type="text" abm-form-control ng-model="vm.lastName">
+                        </div>
+                        <div class="form-group form-group-small" abm-form-group>
+                            <label class="control-label" type="floating" abm-label>Email</label>
+                            <input class="form-control" type="text" abm-form-control ng-model="vm.username">
+                        </div>
+                        <div class="form-group form-group-small" abm-form-group>
+                            <label class="control-label" type="floating" abm-label>Password</label>
+                            <input class="form-control" type="password" abm-form-control ng-model="vm.password">
+                        </div>
+                        <div class="form-group form-group-small" abm-form-group>
+                            <label class="control-label" type="floating" abm-label>Confirm Password</label>
+                            <input class="form-control" type="password" abm-form-control
+                                   ng-model="vm.confirmPassword">
+                        </div>
+                        <button type="submit" href="" class="btn btn-primary pull-right" abm-component>
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

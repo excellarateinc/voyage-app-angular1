@@ -13,6 +13,8 @@
       .state('user', {
         url: '/user',
         templateUrl: 'app/user/user.list.html',
+        controller: 'UserController',
+        controllerAs: 'vm'
       });
   }
 

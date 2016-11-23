@@ -1,8 +1,6 @@
 {
-  "development": { "API_URL": "http://localhost:3000", "PREVIEW_MODE": false },
-  "preview": { "API_URL": "https://doapp.bluecrossmn.com", "PREVIEW_MODE": true },
-  "previewqa": { "API_URL": "https://doapp.qa.bluecrossmn.com", "PREVIEW_MODE": true },
-  "qa": { "API_URL": "http://bcbsqa.lssinc.com:3000", "PREVIEW_MODE": false },
-  "uat": { "API_URL": "http://bcbsuat.lssinc.com:3000", "PREVIEW_MODE": false },
-  "production": { "API_URL": "https://doapp.bluecrossmn.com", "PREVIEW_MODE": false }
+  "development": { "API_URL": "http://54.196.167.24"},
+  "qa": { "API_URL": "http://54.196.167.24"},
+  "uat": { "API_URL": "http://54.196.167.24"},
+  "production": { "API_URL": "http://54.196.167.24"}
 }
