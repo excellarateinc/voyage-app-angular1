@@ -14,7 +14,7 @@
     };
 
     function list() {
-      return $http.get(`${API_URL}/v2/users`)
+      return $http.get(`${API_URL}/v1/users`)
         .then(response => response.data);
     }
 
