@@ -18,7 +18,10 @@
     "angular-sanitize": "^1.5.8",
     "angular-ui-router": "^0.3.2",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "angular-bootstrap-material": "abm#^0.1.4",
+    "bootstrap-material-design": "^4.0.2",
+    "angular-bootstrap": "^2.2.0"
   },
   "overrides": {
     "bootstrap": {

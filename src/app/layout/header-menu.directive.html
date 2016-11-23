@@ -1,21 +1,18 @@
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <span class="navbar-brand">Launchpad</span>
-            <ul class="nav navbar-nav">
-                <li ng-if="!vm.authToken">
-                	<a ui-sref="register">Register</a>
-            	</li>
-                <li>
-                    <a href="#user">Users</a>
-                </li>
-                <li>
-                    <a href="#role">Roles</a>
-                </li>
-            </ul>
-            <button ng-if="vm.authToken" type="button" class="btn btn-default navbar-btn" ng-click="vm.logout()">
-                Logout
-            </button>
-        </div>
+<div class="navbar navbar-primary navbar-fixed-top" abm-component>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" ng-click="vm.isCollapsed = !vm.isCollapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a ui-sref="app.dashboard" class="navbar-brand">Launchpad</a>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse" uib-collapse="vm.isCollapsed">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a ui-sref="register">Register</a></li>
+            <li> <a href="#user">Users</a></li>
+            <li><a href="#role">Roles</a></li>
+        </ul>
     </div>
 </div>
