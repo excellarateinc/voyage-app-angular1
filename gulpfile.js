@@ -4,6 +4,7 @@ const lazypipe = require('lazypipe');
 const browserSync = require('browser-sync').create();
 const wiredep = require('wiredep').stream;
 const plugins = require('gulp-load-plugins')();
+const rename = require('gulp-rename');
 
 const paths = {
   app: './src/app/',
@@ -11,6 +12,7 @@ const paths = {
   data: ['./src/**/*.json'],
   images: ['./src/img/**/*'],
   sass: ['./src/scss/*.scss'],
+  styles : ['./src/sass/'],
   js: [
     './src/app/**/*.module.js',
     './src/app/**/*.js',
@@ -23,9 +25,16 @@ const paths = {
   ]
 };
 
+var source = {
+  styles: {
+    app: [paths.styles + '*.*'],
+    themes: [paths.styles + 'themes/*']
+  }
+};
+
 
 // Default serve task for development, serves files directly from the src/ folder
-gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'watch'], serve);
+gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'styles:app', 'styles:themes', 'watch'], serve);
 
 
 // Runs ESLint against JavaScript to check for best practices
@@ -132,7 +141,7 @@ gulp.task('watch', function() {
   });
 
   // Sass
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.sass, ['styles:app', 'styles:themes']);
 
   // html
   gulp.watch(paths.html).on('change', browserSync.reload);
@@ -244,4 +253,25 @@ function includeDevJs() {
 function getOrderedJsFiles() {
   return gulp.src(paths.js)
       .pipe(plugins.order(paths.jsOrder))
+}
+
+// APP LESS
+gulp.task('styles:app', function() {
+  return gulp.src(source.styles.app)
+    .pipe(plugins.sass())
+    .pipe(gulp.dest(paths.app + 'css'))
+    .pipe(browserSync.stream());
+});
+
+// LESS THEMES
+gulp.task('styles:themes', function() {
+  return gulp.src(source.styles.themes)
+    .pipe(plugins.sass())
+    .pipe(gulp.dest(paths.app + 'css'))
+    .pipe(browserSync.stream());
+});
+
+// Error handler
+function handleError(err) {
+  this.emit('end');
 }

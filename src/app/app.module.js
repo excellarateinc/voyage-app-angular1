@@ -5,7 +5,7 @@
     .module('launchpadApp', [
       'ui.router',
       'ui.bootstrap',
-      'angularBootstrapMaterial',
+      'toaster',
       'launchpadApp.dashboard',
       'launchpadApp.layout',
       'launchpadApp.core',

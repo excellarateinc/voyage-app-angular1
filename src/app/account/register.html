@@ -1,36 +1,52 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form ng-submit="vm.register()">
-                        <div class="form-group form-group-small" abm-form-group>
-                            <label class="control-label" type="floating" abm-label>First Name</label>
-                            <input class="form-control" type="text" abm-form-control ng-model="vm.firstName">
-                        </div>
-                        <div class="form-group form-group-small" abm-form-group>
-                            <label class="control-label" type="floating" abm-label>Last Name</label>
-                            <input class="form-control" type="text" abm-form-control ng-model="vm.lastName">
-                        </div>
-                        <div class="form-group form-group-small" abm-form-group>
-                            <label class="control-label" type="floating" abm-label>Email</label>
-                            <input class="form-control" type="text" abm-form-control ng-model="vm.username">
-                        </div>
-                        <div class="form-group form-group-small" abm-form-group>
-                            <label class="control-label" type="floating" abm-label>Password</label>
-                            <input class="form-control" type="password" abm-form-control ng-model="vm.password">
-                        </div>
-                        <div class="form-group form-group-small" abm-form-group>
-                            <label class="control-label" type="floating" abm-label>Confirm Password</label>
-                            <input class="form-control" type="password" abm-form-control
-                                   ng-model="vm.confirmPassword">
-                        </div>
-                        <button type="submit" href="" class="btn btn-primary pull-right" abm-component>
-                            Register
+<div class="row">
+    <div class="col-xs-10 col-sm-10 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-4">
+        <div class="card">
+            <div class="card-heading bg-info">
+                <div class="card-title">Register</div>
+            </div>
+            <div class="card-body">
+                <form ng-submit="vm.register()">
+                    <div class="mda-form-group float-label mb mda-input-group">
+                        <input class="mda-form-control ng-pristine ng-untouched ng-valid ng-empty" type="text" ng-model="vm.firstName" aria-invalid="false">
+                        <label>First Name</label>
+                        <span class="mda-input-group-addon">
+                            <em class="icon-user-follow fa-lg"></em>
+                        </span>
+                    </div>
+                    <div class="mda-form-group float-label mda-input-group">
+                        <input class="mda-form-control ng-pristine ng-untouched ng-valid ng-empty" type="text" ng-model="vm.lastName" aria-invalid="false">
+                        <label>Last Name</label>
+                        <span class="mda-input-group-addon">
+                            <em class="fa fa-phone text-primary fa-lg"></em>
+                        </span>
+                    </div>
+                    <div class="mda-form-group float-label mda-input-group">
+                        <input class="mda-form-control ng-pristine ng-untouched ng-valid ng-empty" type="text" ng-model="vm.username" aria-invalid="false">
+                        <label>Email</label>
+                        <span class="mda-input-group-addon">
+                            <em class="fa fa-phone text-primary fa-lg"></em>
+                        </span>
+                    </div>
+                    <div class="mda-form-group float-label mda-input-group">
+                        <input class="mda-form-control ng-pristine ng-untouched ng-valid ng-empty" type="password" ng-model="vm.password" aria-invalid="false">
+                        <label>Password</label>
+                        <span class="mda-input-group-addon">
+                            <em class="fa fa-phone text-primary fa-lg"></em>
+                        </span>
+                    </div>
+                    <div class="mda-form-group float-label mda-input-group">
+                        <input class="mda-form-control ng-pristine ng-untouched ng-valid ng-empty" type="password" ng-model="vm.confirmPassword" aria-invalid="false">
+                        <label>Confirm Password</label>
+                        <span class="mda-input-group-addon">
+                            <em class="fa fa-phone text-primary fa-lg"></em>
+                        </span>
+                    </div>
+                    <div class="mda-form-group mb mda-input-group">
+                        <button type="submit" href="" class="btn btn-primary pull-right">
+                            Login
                         </button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
