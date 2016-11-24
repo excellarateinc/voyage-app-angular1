@@ -4,3 +4,4 @@ coverage
 docs
 .idea
 bower_components
+src/.tmp

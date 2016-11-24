@@ -13,10 +13,11 @@
         <!--TODO: Use bower instead of hot linking -->
         <link rel="stylesheet" href="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/css/bootstrap-material-design.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/css/ripples.min.css" />
+
         <!-- endbower -->
         <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="/src/.tmp/styles/app.css">
+        <!-- build:css(src/.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/app.css">
         <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp.app">
@@ -27,6 +28,7 @@
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="/bower_components/angular-messages/angular-messages.js"></script>
         <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
         <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -36,18 +38,18 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js scripts/combined.js -->
+        <!-- build:js(src/) scripts/combined.js -->
         <!-- inject:js -->
         <script src="app/app.module.js"></script>
         <script src="app/account/account.module.js"></script>
         <script src="app/core/core.module.js"></script>
         <script src="app/dashboard/dashboard.module.js"></script>
+        <script src="app/environment-constants/constants.module.js"></script>
         <script src="app/layout/layout.module.js"></script>
         <script src="app/account/account.service.js"></script>
-        <script src="app/account/register.controller.js"></script>
+        <script src="app/account/login.component.js"></script>
+        <script src="app/account/register.component.js"></script>
         <script src="app/app.config.js"></script>
-        <script src="app/layout/layout.config.js"></script>
-        <script src="app/account/account.config.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
         <script src="app/core/constants.js"></script>

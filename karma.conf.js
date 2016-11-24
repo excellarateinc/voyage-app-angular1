@@ -35,9 +35,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../node_modules/angular/angular.js',
-      '../node_modules/angular-ui-router/release/angular-ui-router.js',
-      '../node_modules/angular-mocks/angular-mocks.js',
+      '../bower_components/angular/angular.js',
+      '../bower_components/angular-ui-router/release/angular-ui-router.js',
+      '../bower_components/angular-mocks/angular-mocks.js',
       'app/app.module.js',
       'app/**/*.module.js',
       'app/**/*.js'
