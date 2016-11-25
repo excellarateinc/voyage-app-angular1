@@ -1,20 +1,20 @@
 ## Overview
 A Google AngularJS v1.5 app that implements the fundamental features found in most business applications.
 
-This app has been constructed for the following audiences:
+__Intended Audiences:__
 * Businesses that wish to get their app out to market faster by "buying off the shelf" and extending
 * Businesses that want to avoid the high risk of failure when rewriting or building a new app
 * Development teams that want to leap forward in their technology stacks by leveraging an existing platform they can extend
 * Development teams that want to follow and adopt a standard of development and best practices
 * Developers that wish to learn new technology by reading good documentation and extending code that tightly follows the reference documentation. 
 
-The technology decisions implemented into this app follow these core tenants:
+__Development Core Tenants__
 * Keep it simple
 * Build for the "now". Don't build features for a future that is unclear
 * Follow defacto standards & best practices of the tech stacks chosen
 * Memorialize team decisions in Markdown (.md) files and store in the repo for future developers (ie this doc)
 
-Features:
+__App Features__
 * User Login w/ Password Recovery
 * User Account Management
 * User Admin Console
@@ -23,7 +23,7 @@ Features:
 * Responsive UI for Desktop, Tablet, Mobile
 * Integrates with Launchpad API for all data
 
-Technology Stack:
+__Technology Stack__
 * Reference AngularJS 1.5 implementation
 * Bootstrap v3 for responsive UI
 * Angular Material components
