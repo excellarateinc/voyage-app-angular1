@@ -3,23 +3,24 @@
         <div class="card-title">Users</div>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in vm.users">
-                        <td>{{user.email}}</td>
-                        <td>{{user.firstName}}</td>
-                        <td>{{user.lastName}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-xs-12 col-md-3"  ng-repeat="user in vm.users">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="pull-right">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                    <div class="panel-body text-center">
+                        <img class="center-block img-responsive img-circle thumb64" src="http://1.bp.blogspot.com/-mcPpsEnl7oo/UwnGgc2cHeI/AAAAAAAABL4/JwSrmErlGVI/s1600/Untitled.png" alt="Contact">
+                        <h4>{{user.firstName}} {{user.lastName}}</h4>
+                        <p>
+                            {{user.email}}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
