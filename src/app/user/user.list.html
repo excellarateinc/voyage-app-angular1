@@ -1,19 +1,17 @@
 <div class="card">
-    <div class="card-heading bg-info">
-        <div class="card-title">Users</div>
-    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-xs-12 col-md-3"  ng-repeat="user in vm.users">
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading">
+                        {{user.firstName}} {{user.lastName}}
                         <a class="pull-right">
-                            <i class="fa fa-edit"></i>
+                            <i class="fa fa-edit text-default"></i>
+                            <i class="fa fa-trash text-default"></i>
                         </a>
                     </div>
                     <div class="panel-body text-center">
                         <img class="center-block img-responsive img-circle thumb64" src="http://1.bp.blogspot.com/-mcPpsEnl7oo/UwnGgc2cHeI/AAAAAAAABL4/JwSrmErlGVI/s1600/Untitled.png" alt="Contact">
-                        <h4>{{user.firstName}} {{user.lastName}}</h4>
                         <p>
                             {{user.email}}
                         </p>
