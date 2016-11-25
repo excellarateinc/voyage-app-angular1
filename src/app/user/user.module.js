@@ -1,4 +1,5 @@
 angular
   .module('launchpadApp.user', [
-    'ui.router'
+    'ui.router',
+    'ngAnimate'
   ]);
