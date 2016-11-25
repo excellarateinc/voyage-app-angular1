@@ -4,8 +4,8 @@ This guide represents best practices when writing ES6 / ES2015 JavaScript, speci
 Wherever possible these best practices are enforced with ESLint.  Violations that are likely to result in bugs are marked as **errors**, and code style / consistency violations are marked as **warnings**.
 
 ## References
-[AirBnb ES6 Style Guide](https://github.com/airbnb/javascript/blob/master/README.md#table-of-contents)
-[MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+* [AirBnb ES6 Style Guide](https://github.com/airbnb/javascript/blob/master/README.md#table-of-contents)
+* [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 
 ## Table of Contents
 * [Variables](#variables)
