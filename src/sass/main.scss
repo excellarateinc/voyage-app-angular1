@@ -13,3 +13,13 @@
 .text-default {
   color : #fff;
 }
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    margin: 100px auto;
+  }
+}
+.btn {
+  margin-right:5px;
+  margin-left:5px;
+}
