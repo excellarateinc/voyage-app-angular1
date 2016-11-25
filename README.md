@@ -1,30 +1,49 @@
-Fork of https://github.com/sJhonny-e/extended-angular-starter
+## Overview
+A Google AngularJS v1.5 app that implements the fundamental features found in most business applications.
 
-**Things I've added / changed:**
+This app has been constructed for the following audiences:
+* Businesses that wish to get their app out to market faster by "buying off the shelf" and extending
+* Businesses that want to avoid the high risk of failure when rewriting or building a new app
+* Development teams that want to leap forward in their technology stacks by leveraging an existing platform they can extend
+* Development teams that want to follow and adopt a standard of development and best practices
+* Developers that wish to learn new technology by reading good documentation and extending code that tightly follows the reference documentation. 
 
-* Changed directory structure and components declarations to better align with Todd Motto's [style guide](https://github.com/toddmotto/angular-styleguide)
-* Switched to using [ui-router](https://github.com/angular-ui/ui-router)
-* Added a more advanced example of a component and service, with testing (see `home` component)
-* Using [ng-annotate](https://github.com/olov/ng-annotate/)
-* Added uglification and minification to production build
-* Added linting
-* Changed karma reporting to 'spec' style
-* Added ability to debug tests in firefox
- 
-See below for the original project's list of features:  
+The technology decisions implemented into this app follow these core tenants:
+* Keep it simple
+* Build for the "now". Don't build features for a future that is unclear
+* Follow defacto standards & best practices of the tech stacks chosen
+* Memorialize team decisions in Markdown (.md) files and store in the repo for future developers (ie this doc)
 
-# Introduction
+Features:
+* User Login w/ Password Recovery
+* User Account Management
+* User Admin Console
+* User Settings
+* Alerts & Notifications
+* Responsive UI for Desktop, Tablet, Mobile
+* Integrates with Launchpad API for all data
 
-* Heavily commented webpack configuration with reasonable defaults.
-* ES6, and ES7 support with babel.
-* Source maps included in all builds.
-* Development server with live reload.
-* Production builds with cache busting.
-* Testing environment using karma to run tests and jasmine as the framework.
-* Code coverage when tests are run.
-* No gulp and no grunt, just npm scripts.
+Technology Stack:
+* Reference AngularJS 1.5 implementation
+* Bootstrap v3 for responsive UI
+* Angular Material components
+* SASS 
+* Gulp + Bower build scripting
+* JSLint enforcement of Javascript best practices
+* 
 
->Warning: Make sure you're using the latest version of Node.js and NPM
+
+> NOTE: If you are extending this codebase to build a new app, then replace this section with a detailed overview of the new app. Include as much or as little detail as necessary to convey to the developers what this project is about. Often times less is more. 
+
+## Table of Contents
+* [Quick Start](#quick-start)
+* Features
+* Best Practices
+* Development
+
+## Quick Start
+Describe the bare minimum steps to download, install, configure, and run the app locally
+
 
 ### Quick start
 
