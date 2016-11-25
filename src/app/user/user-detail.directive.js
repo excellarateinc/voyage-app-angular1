@@ -44,6 +44,7 @@
                 }
 
                 function performDelete() {
+                    console.log(scope.index)
                     if (isNewUser()) {
                         scope.onDelete(scope.index);
                     } else {

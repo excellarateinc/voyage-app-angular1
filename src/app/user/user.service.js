@@ -5,13 +5,14 @@
     .module('launchpadApp.user')
     .factory('userService', userService);
 
-  userService.$inject = ['$http', 'API_URL'];
+  userService.$inject = ['$http', 'API_URL', '$q'];
 
-  function userService($http, API_URL) {
+  function userService($http, API_URL, $q) {
 
     return  {
       list,
-      save
+      save,
+      deleteUser
     };
 
     function list() {
@@ -19,19 +20,19 @@
         .then(response => response.data);
     }
 
-    function save(email, password, firstName, lastName) {
-      const user = {
-        email,
-        password,
-        firstName,
-        lastName,
-        confirmPassword: password
-      };
-
-      return $http.post(`${API_URL}/v1/account/register`, user)
+    function save(user) {
+      return $http.post(`${API_URL}/v1/users`, user)
         .then(response => response.data)
         .catch(failure => $q.reject(failure.data));
     }
+
+    function deleteUser(userId) {
+      console.log(userId)
+      return $http.delete(`${API_URL}/v1/users/${userId}`)
+        .then(response => response.data)
+        .catch(failure => $q.reject(failure.data));
+    }
+
 
   }
 }());

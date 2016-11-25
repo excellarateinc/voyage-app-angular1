@@ -1,25 +1,23 @@
 .brand-logo {
-  color: #fff;
-}
+  color: #fff; }
 
 .topnavbar .navbar-header .brand-logo {
-  padding: 22px 15px;
-}
+  padding: 22px 15px; }
 
 .card .card-heading {
-  padding: 8px 20px;
-}
+  padding: 8px 20px; }
 
 .text-default {
-  color: #fff;
-}
+  color: #fff; }
 
 .modal-dialog {
   padding-bottom: 100px;
-  padding-top: 100px;
+  padding-top: 100px; }
+
+.modal-dialog .panel {
+  box-shadow: none;
 }
 
 .btn {
-  margin-right:5px;
-  margin-left:5px;
-}
+  margin-right: 5px;
+  margin-left: 5px; }

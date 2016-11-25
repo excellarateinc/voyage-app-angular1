@@ -5,11 +5,11 @@
     .module('launchpadApp.user')
     .controller('UserController', UserController);
 
-  UserController.$inject = ['userService', 'modalService', '$scope'];
+  UserController.$inject = ['userService', 'modalService', '$scope', 'toaster'];
 
-  function UserController(userService, modalService, $scope) {
+  function UserController(userService, modalService, $scope, toaster) {
     const vm = this;
-    vm.saveUer = saveUser;
+    vm.saveUser = saveUser;
     vm.deleteUser = deleteUser;
     vm.closeModal = closeModal;
     vm.editUser = editUser;
@@ -34,8 +34,9 @@
       }
     }
 
-    function deleteUser() {
+    function deleteUser(index) {
       vm.users.splice(index, 1);
+      showDeleteMessage();
     }
 
     function userCreationSuccess(savedUser) {
@@ -72,6 +73,10 @@
       vm.user = user;
       modalService.showModal(modalDefaults, {});
 
+    }
+
+    function showDeleteMessage() {
+      toaster.pop('success', 'Delete', 'User has been deleted successfully');
     }
 
   }
