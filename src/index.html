@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" class="cssanimations csscalc csstransforms supports csstransforms3d csstransitions">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,30 +9,28 @@
         <!-- bower:css -->
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
-
         <!--TODO: Use bower instead of hot linking -->
+        <!--<link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/bootstrap-material-design.css" />-->
         <link rel="stylesheet" href="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/css/bootstrap-material-design.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/css/ripples.min.css" />
-
+        <link rel="stylesheet" href="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/css/ripples.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(src/.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/app.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="launchpadApp.app">
-        <ui-view></ui-view>
+    <body ng-app="launchpadApp.app" class="layout-fixed" ng-class="{'aside-toggled': sidebarToggled}">
+        <div class="wrapper" ui-view="" data-autoscroll="false"></div>
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/bower_components/tether/dist/js/tether.js"></script>
         <script src="/bower_components/angular-messages/angular-messages.js"></script>
-        <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="/bower_components/angular-bootstrap-material/dist/angular-bootstrap-material.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="/bower_components/chart.js/dist/Chart.js"></script>
         <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
         <!-- endbower -->
@@ -44,11 +42,11 @@
         <script src="app/account/account.module.js"></script>
         <script src="app/core/core.module.js"></script>
         <script src="app/dashboard/dashboard.module.js"></script>
-        <script src="app/environment-constants/constants.module.js"></script>
         <script src="app/layout/layout.module.js"></script>
+        <script src="app/account/account.config.js"></script>
         <script src="app/account/account.service.js"></script>
-        <script src="app/account/login.component.js"></script>
-        <script src="app/account/register.component.js"></script>
+        <script src="app/account/login.controller.js"></script>
+        <script src="app/account/register.controller.js"></script>
         <script src="app/app.config.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
@@ -56,9 +54,9 @@
         <script src="app/core/error.service.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
         <script src="app/layout/header.controller.js"></script>
+        <script src="app/layout/layout.config.js"></script>
         <script src="app/layout/shell.controller.js"></script>
         <script src="app/layout/sidebar.controller.js"></script>
-        <script src="app/account/login.controller.js"></script>
         <!-- endinject-->
         <!-- endbuild -->
     </body>

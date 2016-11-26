@@ -1,31 +1,40 @@
-<div class="navbar navbar-primary navbar-fixed-top" abm-component>
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" ng-click="vm.isCollapsed = !vm.isCollapsed">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a ui-sref="app.dashboard" class="navbar-brand">Launchpad</a>
-        </div>
-
-        <div class="collapse navbar-collapse navbar-right" uib-collapse="vm.isCollapsed">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                        Actions<b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ui-sref="app.login">Login</a></li>
-                        <li class="divider"></li>
-                        <li><a ui-sref="app.register">Register</a></li>
-                        <li class="divider"></li>
-                        <li><a ui-sref="app.dashboard">Dashboard</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar topnavbar" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+            <div class="brand-logo">
+                <div style="font-size:24px; margin-top:3px;">Launchpad</div>
+                <!--<img class="img-responsive" src="images/logo.png" alt="App Logo" />-->
+            </div>
+            <div class="brand-logo-collapsed">
+                <!--<img class="img-responsive" src="images/logo-single.png" alt="App Logo" />-->
+            </div>
+        </a>
     </div>
-</div>
-
-
+    <div class="nav-wrapper">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                <a class="visible-xs sidebar-toggle" href="" trigger-resize="" ng-click="vm.toggleSidebar()">
+                    <em class="fa fa-navicon"></em>
+                </a>
+                <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                <!--<a class="visible-xs sidebar-toggle" href="" ng-click="app.asideToggled = !app.asideToggled">-->
+                    <!--<em class="fa fa-navicon"></em>-->
+                <!--</a>-->
+            </li>
+            <li>
+                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                <a href="" ng-click="vm.toggleAvatar()">
+                    <em class="fa fa-user"></em>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="" ng-click="vm.toggleAvatar()">
+                    <em class="icon-notebook"></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,12 +1,11 @@
 <!--TODO: Migrate to named ui-views instead of ng-include. Remove inline styles. -->
-<ng-include src="'app/layout/header.html'" ng-controller="HeaderController as vm"></ng-include>
+<header class="topnavbar-wrapper" ng-include="'app/layout/header.html'" ng-controller="HeaderController as vm"></header>
 
-<div class="container-fluid" style="margin-top:75px;">
-    <div class="row">
-        <div class="col-md-12">
-            <ui-view></ui-view>
-        </div>
-    </div>
-</div>
+<aside class="aside" ng-include="'app/layout/sidebar.html'" ng-controller="SidebarController as vm"></aside>
 
-<!--Footer goes here-->
+<section style="height:inherit;">
+    <!-- Page content-->
+    <div class="content-wrapper" ui-view autoscroll="false"></div>
+</section>
+
+<footer ng-include="'app/layout/footer.html'"></footer>

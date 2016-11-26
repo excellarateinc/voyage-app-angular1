@@ -1,7 +1,57 @@
-<div>
-    <ul class="nav nav-sidebar">
-        <li><a ui-sref="app.login">Login</a></li>
-        <li><a ui-sref="app.register">Register</a></li>
-        <li><a ui-sref="app.dashboard">Dashboard</a></li>
-    </ul>
+<div class="aside-inner">
+    <nav class="sidebar">
+        <ul class="nav">
+            <li class="has-user-block">
+                <div uib-collapse="!vm.avatarVisible">
+                    <div class="item user-block">
+                        <div class="user-block-picture">
+                            <div class="user-block-status">
+                                <img src="images/developer-avatar.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                                <div class="circle circle-success circle-lg"></div>
+                            </div>
+                        </div>
+                        <div class="user-block-info">
+                            <span class="user-block-name">Hello, Avatar</span>
+                            <span class="user-block-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-heading ">
+                <span data-localize="sidebar.heading.HEADER">Main Navigation</span>
+            </li>
+            <li class="active">
+                <a href="#dashboard" title="Dashboard" data-toggle="collapse" class="" aria-expanded="true">
+                    <div class="pull-right label label-info">3</div>
+                    <em class="icon-speedometer"></em>
+                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                </a>
+                <ul id="dashboard" class="nav sidebar-subnav collapse in" aria-expanded="true">
+                    <li class="sidebar-subnav-header">Dashboard</li>
+                </ul>
+            </li>
+            <li>
+                <a href="widgets.html" title="Widgets">
+                    <div class="pull-right label label-success">30</div>
+                    <em class="icon-grid"></em>
+                    <span data-localize="sidebar.nav.WIDGETS">Widgets</span>
+                </a>
+            </li>
+            <li class="nav-heading ">
+                <span data-localize="sidebar.heading.MORE">More</span>
+            </li>
+            <li>
+                <a href="#pages" title="Pages" data-toggle="collapse">
+                    <em class="icon-doc"></em>
+                    <span data-localize="sidebar.nav.pages.PAGES">Pages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#extras" title="Extras" data-toggle="collapse">
+                    <em class="icon-cup"></em>
+                    <span data-localize="sidebar.nav.extra.EXTRA">Extras</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>

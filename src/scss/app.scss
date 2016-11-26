@@ -1,18 +1,42 @@
-* {
-  border-radius: 0px !important; }
 
-.body {
+// Bootstrap
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_mixins";
+
+// Override bootstrap variables
+@import "angleFramework/_variables";
+
+// Global definition of media queries
+@import "angleFramework/_media-queries";
+
+// Utilities
+@import "angleFramework/_utils-definitions";
+
+// Layout
+@import "angleFramework/_layout";
+@import "angleFramework/_top-navbar";
+@import "angleFramework/_sidebar";
+@import "angleFramework/_offsidebar";
+
+@import "angleFramework/animate";
+@import "angleFramework/user-block";
+
+@import "angleFramework/theme-a";
+
+.row-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
 }
-
-.box {
-  width: 70%;
-  height: 200px;
-  background: #FFF;
-  margin: 40px auto; }
-
-.sheet {
-  box-shadow: 0 10px 6px -6px #777; }
-
-.ng-invalid {
-  background-color: #f9f2f4;
-  color: #c7254e; }
+.row-table>[class*=col-] {
+  display: table-cell;
+  float: none;
+  table-layout: fixed;
+  vertical-align: middle;
+}
+.bb {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+.br {
+  border-right: 1px solid rgba(0,0,0,.12);
+}

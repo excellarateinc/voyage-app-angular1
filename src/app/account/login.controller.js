@@ -3,7 +3,7 @@
 
   angular
     .module('launchpadApp.account')
-    .controller('LoginController', LoginController)
+    .controller('LoginController', LoginController);
 
   LoginController.$inject = ['accountService', '$state'];
 

@@ -7,7 +7,5 @@
 
   ShellController.$inject = [];
 
-  function ShellController() {
-
-  }
+  function ShellController() { }
 }());
