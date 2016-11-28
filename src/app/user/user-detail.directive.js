@@ -19,6 +19,7 @@
                 index: '=',
             },
             link: function (scope) {
+                console.log(scope.user);
                 scope.deleteUser = deleteUser;
                 scope.editUser = editUser;
                 scope.cancel = cancel;

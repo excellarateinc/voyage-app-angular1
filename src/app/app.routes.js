@@ -10,7 +10,7 @@
   function appConfig($stateProvider, $urlRouterProvider) {
 
     // Configure default route
-    //$urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
 

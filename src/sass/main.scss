@@ -25,3 +25,17 @@
   margin-right:5px;
   margin-left:5px;
 }
+
+.user-card .fade {
+  transition: 1s linear all;
+  -webkit-transition: 1s linear all;
+  opacity: 1;
+}
+
+.user-card .fade.ng-leave {
+  opacity: 1;
+}
+
+.user-card .fade.ng-leave.ng-leave-active {
+  opacity: 0;
+}
