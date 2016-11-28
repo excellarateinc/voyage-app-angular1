@@ -12,11 +12,11 @@
     };
 
     function getModelStateErrors(failure) {
-      /*let errors = [];
+      let errors = [];
       if(failure.modelState) {
         errors = Object.keys(failure.modelState).map(key => failure.modelState[key]);
+        return errors;
       }
-      return errors;*/
       return failure.data.error_description;
     }
   }

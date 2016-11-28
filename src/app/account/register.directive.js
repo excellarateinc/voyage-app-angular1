@@ -4,11 +4,11 @@
   angular.module('launchpadApp.account')
     .directive("register", Register);
 
-  Register.$inject = ['accountService', '$state', 'errorService'];
+  Register.$inject = ['accountService', '$state', 'errorService', 'toaster'];
 
   //////////////
 
-  function Register(accountService, $state, errorService) {
+  function Register(accountService, $state, errorService, toaster) {
     return {
       restrict: 'E',
       templateUrl: 'app/account/register.directive.html',
@@ -22,16 +22,17 @@
           if(scope.user.password === scope.user.confirmPassword) {
             accountService.register(scope.user.username, scope.user.password, scope.user.firstName, scope.user.lastName)
               .then(() => {
-                vm.registrationErrors = [];
+                toaster.pop('success', 'Logout', 'You have Registered successfully');
                 $state.go('app.login');
               })
               .catch(failure => {
                   const errors = errorService.getModelStateErrors(failure);
-                  vm.registrationErrors = errors;
+                  toaster.pop('error', 'Registration failure', errors.join(","));
                 }
               );
           } else {
-            vm.registrationErrors = ['Passwords must match'];
+            scope.registrationErrors = ['Passwords must match'];
+            toaster.pop('error', 'Registration failure', 'Passwords must match');
           }
         }
       }
