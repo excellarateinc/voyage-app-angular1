@@ -66,7 +66,7 @@ $ bower install
 $ gulp serve
 ```
 
-Go to [http://localhost:8080](http://localhost:8080) in your browser.
+The app will open in your browser.
 
 # Table of Contents
 
