@@ -1,0 +1,60 @@
+<div class="sidebar-mask" ng-show="userOpened" ng-click="toggleSidenav()"></div>
+
+<div id="sidebar" ng-show="userOpened  || lockedOpen" ng-class="{'locked-open': lockedOpen}">
+
+  <div class="profile-section-wrapper">
+    <ls-logo></ls-logo>
+
+    <div class="profile-section">
+      <div>
+        <div class="profile-icon"></div>
+        <div class="username">Rob Louie</div>
+        <div>rlouie@lssinc.com</div>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="nav-item-container">
+    <i class="material-icons">dashboard</i>
+    Dashboard
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">poll</i>
+    Data
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">notifications</i>
+    Notifications
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">chat</i>
+    Chat
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">supervisor_account</i>
+    User Admin
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">assignment_ind</i>
+    Role Admin
+  </a>
+
+  <div class="nav-section-divider"></div>
+
+  <a class="nav-item-container">
+    <i class="material-icons">settings</i>
+    Settings
+  </a>
+
+  <a class="nav-item-container">
+    <i class="material-icons">help</i>
+    Help & feedback
+  </a>
+</div>
+

@@ -1,27 +1,28 @@
+@import 'media-queries';
+@import 'theme-variables';
 
-* {
-  border-radius: 0px !important;
+#body-content {
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
 }
 
-.container-fluid {
-  padding: 0px;
+#main-view {
+  width: 100%;
+  margin-top: 70px;
+  margin-left: 15px;
+  transition: all ease-in-out 0.3s;
 }
 
-.box {
-  width: 70%;
-  height: 200px;
-  background: #FFF;
-  margin: 40px auto;
+.navbar .dropdown-menu li>a:focus, .navbar .dropdown-menu li>a:hover, .navbar.navbar-default .dropdown-menu li>a:focus, .navbar.navbar-default .dropdown-menu li>a:hover {
+  color: $dropdown-hover-color;
 }
 
-.sheet {
-  box-shadow: 0 10px 6px -6px #777;
+@include for-desktop-up {
+  #main-view {
+    margin-left: 15px + $sidebar-width-desktop;
+  }
 }
 
-
-body { padding-top: 70px; }
-
-.ng-invalid{
-    background-color: #f9f2f4;
-    color: #c7254e;
-}
+@import '../app/main-navigation/navbar/navbar';
+@import '../app/main-navigation/sidebar/sidebar';

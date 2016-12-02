@@ -1,0 +1,129 @@
+sidebar {
+
+  #sidebar {
+    z-index: 10;
+    position: fixed;
+    height: 100%;
+    width: $sidebar-width-mobile;
+    background-color: $sidebar-background-color;
+    color: $sidebar-color;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform ease-in-out 0.3s;
+  }
+
+  #sidebar.ng-hide {
+    transform: translate3d(-$sidebar-width-mobile, 0, 0);
+  }
+
+  #sidebar.locked-open-add, #sidebar.locked-open-remove {
+    width: $sidebar-width-desktop;
+    padding-top: 80px;
+    z-index: 1;
+  }
+
+  .profile-section-wrapper {
+    overflow: hidden;
+    height: 120px;
+    margin-bottom: 15px;
+    background-color: $sidebar-profile-section-background-color;
+  }
+
+  .profile-section-wrapper svg {
+    height: 200px;
+    fill: $sidebar-profile-section-color;
+    display: block;
+    margin-left: 90px;
+  }
+
+  .profile-section {
+    position: absolute;
+    top: 0;
+    height: 120px;
+    color: white;
+    padding: 10px;
+    width: $sidebar-width-mobile;
+    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.60) 100%);
+  }
+
+  .profile-icon {
+    width: 55px;
+    min-width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-image: url('../img/profile-resize.jpg');
+    background-size: cover;
+    margin-bottom: 10px;
+  }
+
+  .username {
+    font-weight: bold;
+  }
+
+  .nav-item-container {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0;
+    font-size: 14px;
+    color: #212121;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 24px;
+    text-decoration: none;
+    outline: none;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nav-item-container:hover {
+    background-color: #eee;
+  }
+
+  .nav-item-container i {
+    margin-right: 30px;
+    margin-left: 26px;
+    color: #616161;
+  }
+
+  .nav-section-divider {
+    margin: 12px 0 12px 0;
+    border-bottom: 1px solid #dedede;
+  }
+
+  .sidebar-mask {
+    position: fixed!important;
+    top: 0!important;
+    left: 0!important;
+    width: 100vw!important;
+    height: 100vh!important;
+    opacity: 0.2;
+    background-image: none!important;
+    background-color: #000;
+    transition: opacity linear 0.2s;
+    z-index: 10;
+  }
+
+  .sidebar-mask.ng-hide {
+    opacity: 0;
+  }
+
+  @include for-desktop-up {
+
+    #sidebar {
+      width: $sidebar-width-desktop;
+      padding-top: 80px;
+      display: block;
+      z-index: 1;
+    }
+
+    #sidebar.ng-hide {
+      transform: translate3d(-$sidebar-width-desktop, 0, 0);
+    }
+
+    .sidebar-mask {
+      display: none;
+    }
+  }
+}

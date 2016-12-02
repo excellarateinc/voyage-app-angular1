@@ -11,7 +11,7 @@ const paths = {
   html: ['./src/**/*.html'],
   data: ['./src/**/*.json'],
   images: ['./src/img/**/*'],
-  sass: ['./src/scss/*.scss'],
+  sass: ['./src/scss/*.scss', './src/app/**/*.scss'],
   js: [
     './src/app/**/*.module.js',
     './src/app/**/*.js',
