@@ -56,14 +56,17 @@ $ git clone https://github.com/sJhonny-e/extended-angular-starter.git my-app
 # change directory to your app
 $ cd my-app
 
-# install the dependencies with npm
+# install development dependencies with npm
 $ npm install
 
+# install ui dependencies with bower
+$ bower install
+
 # start the server
-$ npm start
+$ gulp serve
 ```
 
-Go to [http://localhost:8080](http://localhost:8080) in your browser.
+The app will open in your browser.
 
 # Table of Contents
 
