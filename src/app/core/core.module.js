@@ -5,6 +5,7 @@
     .module('launchpadApp.core', [
       'ngTouch',
       'ngAnimate',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'launchpadApp.constants'
     ]);
 }());

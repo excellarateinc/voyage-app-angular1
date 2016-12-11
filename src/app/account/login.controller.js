@@ -3,11 +3,7 @@
 
   angular
     .module('launchpadApp.account')
-    .component('login', {
-      templateUrl: 'app/account/login.component.html',
-      controller: LoginController,
-      controllerAs: 'vm'
-    });
+    .controller('LoginController', LoginController);
 
   LoginController.$inject = ['accountService', '$state'];
 

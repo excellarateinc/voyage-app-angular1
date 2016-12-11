@@ -18,16 +18,8 @@
         <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp.app">
-        <navbar></navbar>
+        <ui-view></ui-view>
 
-        <div id="body-content" class="container">
-            <sidebar></sidebar>
-            <ui-view id="main-view">
-                <app>Loading</app>
-                <hr />
-            </ui-view>
-	        <footer></footer>
-    	  </div>
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
@@ -50,15 +42,16 @@
         <script src="app/layout/layout.module.js"></script>
         <script src="app/main-navigation/main-navigation.module.js"></script>
         <script src="app/account/account.service.js"></script>
-        <script src="app/account/login.component.js"></script>
-        <script src="app/account/register.component.js"></script>
+        <script src="app/account/login.controller.js"></script>
+        <script src="app/account/register.controller.js"></script>
         <script src="app/app.config.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
         <script src="app/core/error.service.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
         <script src="app/layout/header.component.js"></script>
-        <script src="app/logo/logo.directive.js"></script>
+        <script src="app/logo/ls-logo.directive.js"></script>
+        <script src="app/main-navigation/main-navigation.controller.js"></script>
         <script src="app/main-navigation/navbar/navbar.directive.js"></script>
         <script src="app/main-navigation/sidebar/sidebar.directive.js"></script>
         <script src="app/main-navigation/sidebar/sidebar.service.js"></script>

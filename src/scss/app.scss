@@ -1,6 +1,10 @@
 @import 'media-queries';
 @import 'theme-variables';
 
+.btn:focus,.btn:active {
+  outline: none !important;
+}
+
 #body-content {
   margin-left: 0;
   padding-left: 0;
@@ -14,8 +18,23 @@
   transition: all ease-in-out 0.3s;
 }
 
+.panel-view {
+  margin-top: 10%;
+}
+
 .navbar .dropdown-menu li>a:focus, .navbar .dropdown-menu li>a:hover, .navbar.navbar-default .dropdown-menu li>a:focus, .navbar.navbar-default .dropdown-menu li>a:hover {
   color: $dropdown-hover-color;
+}
+
+.panel-default>.panel-heading, .panel:not([class*=panel-])>.panel-heading {
+  color: $panel-header-color;
+}
+.panel.panel-default>.panel-heading, .panel>.panel-heading {
+  background-color: $panel-header-background-color;
+}
+
+.btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
+  color: $button-default-color;
 }
 
 @include for-desktop-up {
@@ -26,3 +45,4 @@
 
 @import '../app/main-navigation/navbar/navbar';
 @import '../app/main-navigation/sidebar/sidebar';
+@import '../app/account/login';

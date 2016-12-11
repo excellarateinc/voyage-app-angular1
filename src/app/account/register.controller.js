@@ -3,15 +3,11 @@
 
   angular
     .module('launchpadApp.account')
-    .component('register', {
-      templateUrl: 'app/account/register.component.html',
-      controller: RegisterController,
-      controllerAs: 'vm'
-    });
+    .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['accountService', '$state', 'errorService'];
+  RegisterController.$inject = ['$state', 'accountService', 'errorService'];
 
-  function RegisterController(accountService, $state, errorService) {
+  function RegisterController($state, accountService, errorService) {
     const vm = this;
     vm.register = register;
 

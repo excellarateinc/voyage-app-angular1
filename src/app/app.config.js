@@ -13,14 +13,35 @@
     $httpProvider.interceptors.push('authorizationInterceptor');
 
     // Configure default route
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/account/login');
 
     $stateProvider
 
-      .state('dashboard', {
+      .state('main', {
+        abstract: true,
+        templateUrl: 'app/main-navigation/main-navigation.html',
+        controller: 'MainNavigationController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',
+        controllerAs: 'vm'
+      })
+
+      .state('login', {
+        url: '/account/login',
+        templateUrl: 'app/account/login.html',
+        controller: 'LoginController',
+        controllerAs: 'vm'
+      })
+
+      .state('register', {
+        url: '/account/register',
+        templateUrl: 'app/account/register.html',
+        controller: 'RegisterController',
         controllerAs: 'vm'
       });
   }

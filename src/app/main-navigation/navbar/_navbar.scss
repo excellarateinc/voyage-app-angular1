@@ -15,6 +15,7 @@ navbar {
   }
 
   .navbar, .navbar.navbar-default {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     background-color: $navbar-background-color;
     color: $navbar-color;
   }

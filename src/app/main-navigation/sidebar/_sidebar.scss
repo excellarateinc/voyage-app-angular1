@@ -28,6 +28,10 @@ sidebar {
     background-color: $sidebar-profile-section-background-color;
   }
 
+  #sidebar.locked-open-add .profile-section-wrapper, #sidebar.locked-open-remove .profile-section-wrapper {
+    display: none;
+  }
+
   .profile-section-wrapper svg {
     height: 200px;
     fill: $sidebar-profile-section-color;
@@ -123,6 +127,10 @@ sidebar {
     }
 
     .sidebar-mask {
+      display: none;
+    }
+
+    .profile-section-wrapper {
       display: none;
     }
   }
