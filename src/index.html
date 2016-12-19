@@ -1,12 +1,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Launchpad</title>
         <link rel="icon" type="image/x-icon" href="resources/img/favicon.ico">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(src/.tmp) styles/main.css -->
@@ -14,21 +18,17 @@
         <!-- endbuild -->
     </head>
     <body ng-app="launchpadApp.app">
-        <div class="container body-content">
-            <ui-view>
-                <app>Loading</app>
-                <hr />
-            </ui-view>
-	        <footer></footer>
-    	</div>
+        <ui-view></ui-view>
+
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="/bower_components/jquery/dist/jquery.js"></script>
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-touch/angular-touch.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -40,16 +40,21 @@
         <script src="app/dashboard/dashboard.module.js"></script>
         <script src="app/environment-constants/constants.module.js"></script>
         <script src="app/layout/layout.module.js"></script>
+        <script src="app/main-navigation/main-navigation.module.js"></script>
         <script src="app/account/account.service.js"></script>
-        <script src="app/account/login.component.js"></script>
-        <script src="app/account/register.component.js"></script>
+        <script src="app/account/login.controller.js"></script>
+        <script src="app/account/register.controller.js"></script>
         <script src="app/app.config.js"></script>
         <script src="app/core/authorization-interceptor.service.js"></script>
         <script src="app/core/authorization.service.js"></script>
-        <script src="app/core/constants.js"></script>
         <script src="app/core/error.service.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
         <script src="app/layout/header.component.js"></script>
+        <script src="app/logo/ls-logo.directive.js"></script>
+        <script src="app/main-navigation/main-navigation.controller.js"></script>
+        <script src="app/main-navigation/navbar/navbar.directive.js"></script>
+        <script src="app/main-navigation/sidebar/sidebar.directive.js"></script>
+        <script src="app/main-navigation/sidebar/sidebar.service.js"></script>
         <!-- endinject-->
         <!-- endbuild -->
     </body>

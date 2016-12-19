@@ -1,0 +1,66 @@
+navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+
+  .navbar ls-logo {
+    fill: $navbar-logo-color;
+    display: block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 10px 20px;
+    transition: all ease-in-out 0.3s;
+  }
+
+  .navbar, .navbar.navbar-default {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    background-color: $navbar-background-color;
+    color: $navbar-color;
+  }
+
+  .navbar-brand {
+    padding: 10px 15px;
+    transition: all ease-in-out 0.3s;
+  }
+
+  #sidebar-toggle {
+    position: relative;
+    float: right;
+    padding: 11px 10px;
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+
+  .btn-group {
+    margin: 13px 21px;
+  }
+
+  .btn.profile-icon {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-image: url('../img/profile-resize.jpg');
+    background-size: cover;
+    padding: 0;
+  }
+
+  @include for-desktop-up {
+    #sidebar-toggle {
+      display: none;
+    }
+
+    .navbar .navbar-brand {
+      height: 60px;
+      line-height: 30px;
+      padding: 15px 15px;
+    }
+
+
+    .navbar ls-logo {
+      margin: 15px 0 15px 20px;
+    }
+  }
+}

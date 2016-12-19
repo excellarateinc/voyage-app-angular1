@@ -1,0 +1,17 @@
+// Media queries for use throughout the app, matches Bootstrap 3's breakpoints
+
+@mixin for-phone-only {
+  @media (max-width: 767px) { @content; }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: 768px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 992px) { @content; }
+}
+
+@mixin for-wide-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}

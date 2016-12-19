@@ -1,27 +1,48 @@
+@import 'media-queries';
+@import 'theme-variables';
 
-* {
-  border-radius: 0px !important;
+.btn:focus,.btn:active {
+  outline: none !important;
 }
 
-.container-fluid {
-  padding: 0px;
+#body-content {
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
 }
 
-.box {
-  width: 70%;
-  height: 200px;
-  background: #FFF;
-  margin: 40px auto;
+#main-view {
+  width: 100%;
+  margin-top: 70px;
+  margin-left: 15px;
+  transition: all ease-in-out 0.3s;
 }
 
-.sheet {
-  box-shadow: 0 10px 6px -6px #777;
+.panel-view {
+  margin-top: 10%;
 }
 
-
-body { padding-top: 70px; }
-
-.ng-invalid{
-    background-color: #f9f2f4;
-    color: #c7254e;
+.navbar .dropdown-menu li>a:focus, .navbar .dropdown-menu li>a:hover, .navbar.navbar-default .dropdown-menu li>a:focus, .navbar.navbar-default .dropdown-menu li>a:hover {
+  color: $dropdown-hover-color;
 }
+
+.panel-default>.panel-heading, .panel:not([class*=panel-])>.panel-heading {
+  color: $panel-header-color;
+}
+.panel.panel-default>.panel-heading, .panel>.panel-heading {
+  background-color: $panel-header-background-color;
+}
+
+.btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
+  color: $button-default-color;
+}
+
+@include for-desktop-up {
+  #main-view {
+    margin-left: 15px + $sidebar-width-desktop;
+  }
+}
+
+@import '../app/main-navigation/navbar/navbar';
+@import '../app/main-navigation/sidebar/sidebar';
+@import '../app/account/login';
