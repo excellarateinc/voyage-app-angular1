@@ -9,8 +9,7 @@
 
   function appConfig($stateProvider, $urlRouterProvider, $httpProvider) {
 
-    // Configure http interceptors
-    $httpProvider.interceptors.push('authorizationInterceptor');
+
 
     // Configure default route
     $urlRouterProvider.otherwise('/account/login');
@@ -33,14 +32,14 @@
 
       .state('login', {
         url: '/account/login',
-        templateUrl: 'app/account/login.html',
+        templateUrl: 'app/account/login/login.html',
         controller: 'LoginController',
         controllerAs: 'vm'
       })
 
       .state('register', {
         url: '/account/register',
-        templateUrl: 'app/account/register.html',
+        templateUrl: 'app/account/register/register.html',
         controller: 'RegisterController',
         controllerAs: 'vm'
       });

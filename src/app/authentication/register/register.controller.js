@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.account')
+    .module('launchpadApp.authentication')
     .controller('RegisterController', RegisterController);
 
   RegisterController.$inject = ['$state', 'accountService', 'errorService'];
@@ -13,7 +13,7 @@
 
     function register() {
       if(vm.password === vm.confirmPassword) {
-        accountService.register(vm.username, vm.password)
+        accountService.register(vm.email, vm.firstName, vm.lastName, vm.password, vm.confirmPassword)
           .then(() => {
             vm.registrationErrors = [];
             $state.go('login');

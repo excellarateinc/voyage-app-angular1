@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('launchpadApp.account')
+    .module('launchpadApp.authentication')
     .factory('accountService', accountService);
 
-  accountService.$inject = ['$http', 'authorizationService', '$q', 'API_URL'];
+  accountService.$inject = ['$http', '$q', 'authorizationService', 'API_URL'];
 
-  function accountService($http, authorizationService, $q, API_URL) {
+  function accountService($http, $q, authorizationService, API_URL) {
 
     return  {
       login,
@@ -17,22 +17,24 @@
     function login(username, password) {
       const content = `grant_type=password&username=${username}&password=${password}`;
 
-      return $http.post(`${API_URL}/Token`, content, {
+      return $http.post(`${API_URL}/login`, content, {
         headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
       })
         .then(response => {
-          authorizationService.setToken(response.data.access_token);
+          authorizationService.setToken(response.data);
         });
     }
 
-    function register(email, password) {
+    function register(email, firstName, lastName, password, confirmPassword) {
       const user = {
         email,
+        firstName,
+        lastName,
         password,
-        confirmPassword: password
+        confirmPassword
       };
 
-      return $http.post(`${API_URL}/v1/account/register`, user)
+      return $http.post(`${API_URL}/account/register`, user)
         .then(response => response.data)
         .catch(failure => $q.reject(failure.data));
     }

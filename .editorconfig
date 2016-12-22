@@ -18,6 +18,11 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 
+# Indentation override for all JS under lib directory
+[*.{html}]
+indent_style = space
+indent_size = 2
+
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
 indent_style = space
