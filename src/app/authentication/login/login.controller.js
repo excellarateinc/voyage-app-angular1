@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.account')
+    .module('launchpadApp.authentication')
     .controller('LoginController', LoginController);
 
   LoginController.$inject = ['accountService', '$state'];
@@ -14,7 +14,7 @@
     function login() {
       accountService.login(vm.username, vm.password)
         .then(() => {
-          $state.go('dashboard');
+          $state.go('main.dashboard');
         });
     }
   }

@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('launchpadApp.core')
-    .factory('authorizationInterceptor', authorizationInterceptor);
+    .module('launchpadApp.authentication')
+    .factory('authenticationInterceptor', authenticationInterceptor);
 
-  authorizationInterceptor.$inject = ['authorizationService', '$q'];
+  authenticationInterceptor.$inject = ['tokenService', '$q'];
 
-  function authorizationInterceptor(authorizationService, $q) {
+  function authenticationInterceptor(tokenService, $q) {
 
     return {
       request,
@@ -15,7 +15,7 @@
     };
 
     function request(config) {
-      const token = authorizationService.getToken();
+      const token = tokenService.getToken();
       if(token) {
         config.headers.Authorization = `bearer ${token}`;
       }
