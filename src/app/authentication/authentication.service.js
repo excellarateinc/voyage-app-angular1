@@ -3,15 +3,16 @@
 
   angular
     .module('launchpadApp.authentication')
-    .factory('accountService', accountService);
+    .factory('authenticationService', authenticationService);
 
-  accountService.$inject = ['$http', '$q', 'authorizationService', 'API_URL'];
+  authenticationService.$inject = ['$http', '$q', '$state', 'tokenService', 'API_URL'];
 
-  function accountService($http, $q, authorizationService, API_URL) {
+  function authenticationService($http, $q, $state, tokenService, API_URL) {
 
-    return  {
+    return {
       login,
-      register
+      register,
+      logout
     };
 
     function login(username, password) {
@@ -21,7 +22,7 @@
         headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
       })
         .then(response => {
-          authorizationService.setToken(response.data);
+          tokenService.setToken(response.data);
         });
     }
 
@@ -37,6 +38,11 @@
       return $http.post(`${API_URL}/account/register`, user)
         .then(response => response.data)
         .catch(failure => $q.reject(failure.data));
+    }
+
+    function logout() {
+      tokenService.deleteToken();
+      $state.go('login');
     }
   }
 }());

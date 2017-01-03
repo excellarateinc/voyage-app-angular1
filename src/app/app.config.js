@@ -5,14 +5,11 @@
     .module('launchpadApp.app')
     .config(appConfig);
 
-  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+  appConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function appConfig($stateProvider, $urlRouterProvider, $httpProvider) {
+  function appConfig($stateProvider, $urlRouterProvider) {
 
-
-
-    // Configure default route
-    $urlRouterProvider.otherwise('/account/login');
+    $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
 
@@ -27,20 +24,6 @@
         url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',
-        controllerAs: 'vm'
-      })
-
-      .state('login', {
-        url: '/account/login',
-        templateUrl: 'app/account/login/login.html',
-        controller: 'LoginController',
-        controllerAs: 'vm'
-      })
-
-      .state('register', {
-        url: '/account/register',
-        templateUrl: 'app/account/register/register.html',
-        controller: 'RegisterController',
         controllerAs: 'vm'
       });
   }

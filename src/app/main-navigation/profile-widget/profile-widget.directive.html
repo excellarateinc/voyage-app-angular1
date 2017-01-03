@@ -1,0 +1,35 @@
+<div id="profile-section" ng-if="!showCompact">
+  <div class="profile-section-wrapper" ng-click="toggleMenu()">
+    <ls-logo></ls-logo>
+
+    <div class="profile-section">
+      <div class="profile-icon"></div>
+      <div class="username">Rob Louie</div>
+      <div>rlouie@lssinc.com</div>
+    </div>
+  </div>
+
+  <a class="profile-menu-item" ng-show="menuOpen">
+    Profile
+  </a>
+
+  <a class="profile-menu-item" ng-show="menuOpen">
+    Settings
+  </a>
+
+  <a ng-click="logout()" class="profile-menu-item" ng-show="menuOpen">
+    Logout
+  </a>
+
+  <div class="nav-section-divider" ng-show="menuOpen"></div>
+</div>
+
+<div ng-if="showCompact" class="btn-group navbar-right hidden-xs hidden-sm" uib-dropdown>
+  <button type="button" class="btn profile-icon" uib-dropdown-toggle></button>
+  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a href="#">Profile</a></li>
+    <li role="menuitem"><a href="#">Settings</a></li>
+    <li class="divider"></li>
+    <li role="menuitem"><a ng-click="logout()" href="#">Logout</a></li>
+  </ul>
+</div>
