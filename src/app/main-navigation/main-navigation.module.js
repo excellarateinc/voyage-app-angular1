@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('launchpadApp.mainNavigation', []);
+    .module('launchpadApp.mainNavigation', [
+      'launchpadApp.authentication'
+    ]);
 
 }());

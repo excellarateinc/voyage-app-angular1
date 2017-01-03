@@ -5,9 +5,9 @@
     .module('launchpadApp.authentication')
     .factory('authenticationInterceptor', authenticationInterceptor);
 
-  authenticationInterceptor.$inject = ['tokenService', '$q'];
+  authenticationInterceptor.$inject = ['$location', 'tokenService', '$q'];
 
-  function authenticationInterceptor(tokenService, $q) {
+  function authenticationInterceptor($location, tokenService, $q) {
 
     return {
       request,
@@ -23,9 +23,9 @@
     }
 
     function responseError(response) {
-      //  if(response.status === 401) {
-      //    $state.go('login');
-      //  }
+      if(response.status === 401) {
+        $location.url('/account/login');
+      }
       return $q.reject(response);
     }
   }

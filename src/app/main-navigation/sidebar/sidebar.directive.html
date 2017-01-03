@@ -2,18 +2,7 @@
 
 <div id="sidebar" ng-show="userOpened  || lockedOpen" ng-class="{'locked-open': lockedOpen}">
 
-  <div class="profile-section-wrapper">
-    <ls-logo></ls-logo>
-
-    <div class="profile-section">
-      <div>
-        <div class="profile-icon"></div>
-        <div class="username">Rob Louie</div>
-        <div>rlouie@lssinc.com</div>
-      </div>
-    </div>
-
-  </div>
+  <profile-widget ng-show="userOpened"></profile-widget>
 
   <a class="nav-item-container">
     <i class="material-icons">dashboard</i>
