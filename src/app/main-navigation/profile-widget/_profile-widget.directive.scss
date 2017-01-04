@@ -1,10 +1,10 @@
 profile-widget {
 
   .profile-section-wrapper {
-    overflow: hidden;
+    background-color: $sidebar-profile-section-background-color;
     height: 120px;
     margin-bottom: 15px;
-    background-color: $sidebar-profile-section-background-color;
+    overflow: hidden;
   }
 
   #sidebar.locked-open-add .profile-section-wrapper, #sidebar.locked-open-remove .profile-section-wrapper {
@@ -12,31 +12,31 @@ profile-widget {
   }
 
   .profile-section-wrapper svg {
-    height: 200px;
-    fill: $sidebar-profile-section-color;
     display: block;
+    fill: $sidebar-profile-section-color;
+    height: 200px;
     margin-left: 90px;
   }
 
   .profile-section {
+    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, .60) 100%);
+    color: #ffffff;
     cursor: pointer;
+    height: 120px;
+    padding: 10px;
     position: absolute;
     top: 0;
-    height: 120px;
-    color: white;
-    padding: 10px;
     width: $sidebar-width-mobile;
-    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.60) 100%);
   }
 
   .profile-icon {
-    width: 55px;
-    min-width: 55px;
-    height: 55px;
-    border-radius: 50%;
     background-image: url('../img/profile-resize.jpg');
     background-size: cover;
+    border-radius: 50%;
+    height: 55px;
     margin-bottom: 10px;
+    min-width: 55px;
+    width: 55px;
   }
 
   .username {
@@ -44,11 +44,11 @@ profile-widget {
   }
 
   .profile-menu-item {
-    font-weight: 500;
-    color: #212121;
-    height: 48px;
-    display: flex;
     align-items: center;
+    color: #212121;
+    display: flex;
+    font-weight: 500;
+    height: 48px;
     padding-left: 40px;
   }
 

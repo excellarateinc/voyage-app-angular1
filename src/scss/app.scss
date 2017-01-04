@@ -1,39 +1,48 @@
 @import 'media-queries';
 @import 'theme-variables';
 
-.btn:focus,.btn:active {
-  outline: none !important;
+.btn:focus,
+.btn:active {
+  // Required to remove Bootstrap's default blue glow button outline
+  outline: none !important; // sass-lint:disable-line no-important
 }
 
 #body-content {
+  display: flex;
   margin-left: 0;
   padding-left: 0;
-  display: flex;
 }
 
 #main-view {
-  width: 100%;
-  margin-top: 70px;
   margin-left: 15px;
-  transition: all ease-in-out 0.3s;
+  margin-top: 70px;
+  width: 100%;
+  transition: all ease-in-out .3s;
 }
 
 .panel-view {
   margin-top: 10%;
 }
 
-.navbar .dropdown-menu li>a:focus, .navbar .dropdown-menu li>a:hover, .navbar.navbar-default .dropdown-menu li>a:focus, .navbar.navbar-default .dropdown-menu li>a:hover {
+.navbar .dropdown-menu li>a:focus,
+.navbar .dropdown-menu li>a:hover,
+.navbar.navbar-default .dropdown-menu li>a:focus,
+.navbar.navbar-default .dropdown-menu li>a:hover {
   color: $dropdown-hover-color;
 }
 
-.panel-default>.panel-heading, .panel:not([class*=panel-])>.panel-heading {
+.panel-default>.panel-heading,
+.panel:not([class*="panel-"])>.panel-heading {
   color: $panel-header-color;
 }
-.panel.panel-default>.panel-heading, .panel>.panel-heading {
+
+.panel.panel-default>.panel-heading,
+.panel>.panel-heading {
   background-color: $panel-header-background-color;
 }
 
-.btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
+.btn:not(.btn-raised).btn-primary,
+.input-group-btn .btn:not(.btn-raised).btn-primary {
   color: $button-default-color;
 }
 

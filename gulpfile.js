@@ -32,18 +32,18 @@ gulp.task('serve', ['include-bower-dependencies', 'include-dev-js', 'sass', 'wat
 gulp.task('test', test);
 
 // Runs ESLint against JavaScript to check for best practices
-gulp.task('lint', lint);
+gulp.task('es-lint', esLint);
 
+// Runs Sass Lint against Sass to check for best practices
+gulp.task('sass-lint', sassLint);
 
 // Runs the build process, results in minified concatenated files written to the dist/ folder
 gulp.task('build', function(done) {
   runSequence("clean-dist", "copy-images", "copy-fonts", "sourcemaps-babel-concat-minify", done);
 });
 
-
 // Generates environment constants like URL of the API
 gulp.task('generate-constants', generateConstants);
-
 
 // Simply starts a server in the dist folder, useful for testing builds or in older browsers.
 gulp.task('serve-dist', function() {
@@ -60,7 +60,7 @@ gulp.task('serve-dist', function() {
 
 /**
  * Before starting the server, all bower dependencies and development javascript files are added as
- * script tags into index.hml, and sass is compiled to css.
+ * script tags into index.html, and sass is compiled to css.
  * The .tmp/ folder is also considered a base directory because while it's where the styles/ folder and css
  * live during development, when built and deployed the styles folder will be right in the base directory,
  * so the path in index.html is just styles/app.css.
@@ -94,11 +94,18 @@ function test(done) {
  * Takes all non-test JavaScript files and run ESLint on them with default formatting.
  * failAfterError is set to resolve with an error code if any error level best practices aren't met.
  */
-function lint() {
+function esLint() {
   return gulp.src(paths.js)
       .pipe(plugins.eslint())
       .pipe(plugins.eslint.format())
       .pipe(plugins.eslint.failAfterError());
+}
+
+function sassLint() {
+  return gulp.src(paths.sass)
+    .pipe(plugins.sassLint())
+    .pipe(plugins.sassLint.format())
+    .pipe(plugins.sassLint.failOnError())
 }
 
 
@@ -138,7 +145,7 @@ function generateConstants() {
  */
 gulp.task('watch', function() {
   // JavaScript
-  gulp.watch(paths.js, ['lint']).on('change', function(event) {
+  gulp.watch(paths.js, ['es-lint']).on('change', function(event) {
     if (event.type === 'added' || event.type === 'deleted' || event.type === 'renamed') {
       includeDevJs();
     }
@@ -146,7 +153,7 @@ gulp.task('watch', function() {
   });
 
   // Sass
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.sass, ['sass-lint', 'sass']);
 
   // html
   gulp.watch(paths.html).on('change', browserSync.reload);
