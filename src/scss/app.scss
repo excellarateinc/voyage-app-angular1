@@ -1,48 +1,73 @@
 @import 'media-queries';
 @import 'theme-variables';
 
-.btn:focus,.btn:active {
-  outline: none !important;
+.btn {
+  &:active,
+  &:focus {
+    // Required to remove Bootstrap's default blue glow button outline
+    outline: none !important; // sass-lint:disable-line no-important
+  }
 }
 
-#body-content {
+.body-content {
+  display: flex;
   margin-left: 0;
   padding-left: 0;
-  display: flex;
 }
 
-#main-view {
-  width: 100%;
-  margin-top: 70px;
+.main-view {
   margin-left: 15px;
-  transition: all ease-in-out 0.3s;
+  margin-top: 70px;
+  transition: margin ease-in-out .3s;
+  width: 100%;
 }
 
 .panel-view {
   margin-top: 10%;
 }
 
-.navbar .dropdown-menu li>a:focus, .navbar .dropdown-menu li>a:hover, .navbar.navbar-default .dropdown-menu li>a:focus, .navbar.navbar-default .dropdown-menu li>a:hover {
-  color: $dropdown-hover-color;
+.navbar .dropdown-menu li>a {
+  &:focus,
+  &:hover {
+    color: $dropdown-hover-color;
+  }
 }
 
-.panel-default>.panel-heading, .panel:not([class*=panel-])>.panel-heading {
-  color: $panel-header-color;
+.navbar.navbar-default .dropdown-menu li>a {
+  &:focus,
+  &:hover {
+    color: $dropdown-hover-color;
+  }
 }
-.panel.panel-default>.panel-heading, .panel>.panel-heading {
+
+.panel-default>.panel-heading,
+.panel {
+  color: $panel-header-color;
+
+  &:not([class*='panel-'])>.panel-heading {
+    color: $panel-header-color;
+  }
+}
+
+.panel.panel-default>.panel-heading,
+.panel>.panel-heading {
   background-color: $panel-header-background-color;
 }
 
-.btn:not(.btn-raised).btn-primary, .input-group-btn .btn:not(.btn-raised).btn-primary {
-  color: $button-default-color;
+.btn,
+.input-group-btn .btn {
+  &:not(.btn-raised).btn-primary,
+  &:not(.btn-raised).btn-primary {
+    color: $button-default-color;
+  }
 }
 
 @include for-desktop-up {
-  #main-view {
+  .main-view {
     margin-left: 15px + $sidebar-width-desktop;
   }
 }
 
 @import '../app/main-navigation/navbar/navbar';
 @import '../app/main-navigation/sidebar/sidebar';
-@import '../app/main-navigation/profile-widget/profile-widget.directive';
+@import '../app/main-navigation/profile-widget/profile-widget';

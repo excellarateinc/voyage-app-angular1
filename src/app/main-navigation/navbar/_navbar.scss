@@ -1,36 +1,37 @@
 navbar {
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 10;
 
-  .navbar ls-logo {
-    fill: $navbar-logo-color;
+  ls-logo {
     display: block;
+    fill: $navbar-logo-color;
     float: left;
-    width: 30px;
     height: 30px;
     margin: 10px 0 10px 20px;
-    transition: all ease-in-out 0.3s;
+    transition: margin ease-in-out .3s;
+    width: 30px;
   }
 
-  .navbar, .navbar.navbar-default {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  .navbar,
+  .navbar.navbar-default {
     background-color: $navbar-background-color;
+    box-shadow: $navbar-drop-shadow;
     color: $navbar-color;
   }
 
   .navbar-brand {
     padding: 10px 15px;
-    transition: all ease-in-out 0.3s;
+    transition: padding ease-in-out .3s;
   }
 
-  #sidebar-toggle {
-    position: relative;
-    float: right;
-    padding: 11px 10px;
+  .sidebar-toggle {
     background-color: transparent;
     border: 1px solid transparent;
+    float: right;
+    padding: 11px 10px;
+    position: relative;
   }
 
   .btn-group {
@@ -38,28 +39,28 @@ navbar {
   }
 
   .btn.profile-icon {
-    width: 35px;
-    min-width: 35px;
-    height: 35px;
-    border-radius: 50%;
     background-image: url('../img/profile-resize.jpg');
     background-size: cover;
+    border-radius: 50%;
+    height: 35px;
+    min-width: 35px;
     padding: 0;
+    width: 35px;
   }
 
   @include for-desktop-up {
-    #sidebar-toggle {
+    .sidebar-toggle {
       display: none;
     }
 
     .navbar .navbar-brand {
       height: 60px;
       line-height: 30px;
-      padding: 15px 15px;
+      padding: 15px;
     }
 
 
-    .navbar ls-logo {
+    ls-logo {
       margin: 15px 0 15px 20px;
     }
   }

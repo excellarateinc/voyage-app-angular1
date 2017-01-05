@@ -1,18 +1,33 @@
+
+
 // Navbar
-$navbar-background-color: #F15E2B;
-$navbar-color: rgba(255,255,255,.84);
-$navbar-logo-color: rgba(255,255,255,.84);
+$navbar-background-color: #f15e2b;
+$navbar-color: rgba(255, 255, 255, .84);
+$navbar-logo-color: rgba(255, 255, 255, .84);
+$navbar-drop-shadow: 0 2px 5px rgba(0, 0, 0, .26);
 
 // Sidebar
-$sidebar-background-color: #FFF;
+$sidebar-background-color: #fff;
 $sidebar-color: #333;
 $sidebar-profile-section-background-color: $navbar-background-color;
 $sidebar-profile-section-color: $navbar-logo-color;
 $sidebar-width-desktop: 256px;
 $sidebar-width-mobile: 300px;
+$sidebar-drop-shadow: 2px 2px 4px rgba(0, 0, 0, .15);
+$sidebar-section-divider: 1px solid #dedede;
+$sidebar-item-color: #212121;
+$sidebar-item-icon-color: #616161;
+$sidebar-item-background-color-hover: #eee;
+$sidebar-mask-color: #000;
+
+// Profile Widget
+$profile-widget-background-color: rgba(0, 0, 0, .6);
+$profile-widget-background-overlay: linear-gradient(to bottom, transparent 75%, $profile-widget-background-color 100%);
+$profile-widget-color: #fff;
+$profile-widget-dropdown-item-color: #212121;
 
 // Dropdowns
-$dropdown-hover-color: #F15E2B;
+$dropdown-hover-color: #f15e2b;
 
 // Panels
 $panel-header-background-color: $navbar-background-color;
