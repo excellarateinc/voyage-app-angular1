@@ -4,29 +4,29 @@ navbar {
   width: 100%;
   z-index: 10;
 
-  .navbar ls-logo {
+  ls-logo {
     display: block;
     fill: $navbar-logo-color;
     float: left;
     height: 30px;
     margin: 10px 0 10px 20px;
-    transition: all ease-in-out .3s;
+    transition: margin ease-in-out .3s;
     width: 30px;
   }
 
   .navbar,
   .navbar.navbar-default {
     background-color: $navbar-background-color;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    box-shadow: $navbar-drop-shadow;
     color: $navbar-color;
   }
 
   .navbar-brand {
     padding: 10px 15px;
-    transition: all ease-in-out .3s;
+    transition: padding ease-in-out .3s;
   }
 
-  #sidebar-toggle {
+  .sidebar-toggle {
     background-color: transparent;
     border: 1px solid transparent;
     float: right;
@@ -49,7 +49,7 @@ navbar {
   }
 
   @include for-desktop-up {
-    #sidebar-toggle {
+    .sidebar-toggle {
       display: none;
     }
 
@@ -60,7 +60,7 @@ navbar {
     }
 
 
-    .navbar ls-logo {
+    ls-logo {
       margin: 15px 0 15px 20px;
     }
   }

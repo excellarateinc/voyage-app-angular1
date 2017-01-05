@@ -7,7 +7,8 @@ profile-widget {
     overflow: hidden;
   }
 
-  #sidebar.locked-open-add .profile-section-wrapper, #sidebar.locked-open-remove .profile-section-wrapper {
+  .sidebar.locked-open-add .profile-section-wrapper,
+  .sidebar.locked-open-remove .profile-section-wrapper {
     display: none;
   }
 
@@ -19,8 +20,8 @@ profile-widget {
   }
 
   .profile-section {
-    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, .60) 100%);
-    color: #ffffff;
+    background: $profile-widget-background-overlay;
+    color: $profile-widget-color;
     cursor: pointer;
     height: 120px;
     padding: 10px;
@@ -45,7 +46,7 @@ profile-widget {
 
   .profile-menu-item {
     align-items: center;
-    color: #212121;
+    color: $profile-widget-dropdown-item-color;
     display: flex;
     font-weight: 500;
     height: 48px;
@@ -53,7 +54,8 @@ profile-widget {
   }
 
   @include for-desktop-up {
-    .profile-section-wrapper, #profile-section {
+    .profile-section-wrapper,
+    .profile-sidebar {
       display: none;
     }
   }

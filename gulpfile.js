@@ -101,9 +101,19 @@ function esLint() {
       .pipe(plugins.eslint.failAfterError());
 }
 
+
+/**
+ * Takes all Sass files and runs Sass Lint on them with default formatting.
+ * The force element nesting rule is disabled because to override bootstrap styles we often need really specific
+ * element nesting, and nesting them inside each other will violate the nesting depth rule, which is more important.
+ */
 function sassLint() {
   return gulp.src(paths.sass)
-    .pipe(plugins.sassLint())
+    .pipe(plugins.sassLint({
+        rules: {
+          'force-element-nesting': 0
+        }
+      }))
     .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
 }
