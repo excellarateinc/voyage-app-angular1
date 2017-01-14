@@ -1,4 +1,6 @@
 {
   "development": { "API_URL": "http://localhost/api/v1" },
-  "qa": { "API_URL": "http://54.196.167.24/api/v1" }
+  "qa": { "API_URL": "http://qa-api.voyageframework.com/api/v1" },
+  "qa-ms": { "API_URL": "http://qa-api-ms.voyageframework.com/api/v1" },
+  "qa-java": { "API_URL": "http://qa-api-java.voyageframework.com/api/v1" }
 }
