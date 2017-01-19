@@ -5,24 +5,35 @@
     .module('launchpadApp.authentication')
     .factory('authenticationService', authenticationService);
 
-  authenticationService.$inject = ['$http', '$q', '$state', 'tokenService', 'API_URL'];
+  authenticationService.$inject = ['$http', '$location', '$q', '$state', '$log', 'tokenService', 'API_URL', 'SERVER_URL'];
 
-  function authenticationService($http, $q, $state, tokenService, API_URL) {
+  function authenticationService($http, $location, $q, $state, $log, tokenService, API_URL, SERVER_URL) {
 
     return {
-      login,
+      initialize,
+      loginWithVoyage,
       register,
       logout
     };
 
-    function login(username, password) {
-      const content = `grant_type=password&username=${username}&password=${password}`;
+    function initialize() {
+      redirectToLoginIfNoToken();
+      handleEntryFromOauthRedirect();
+      placeTokenOnHttpHeader();
+    }
 
-      return $http.post(`${API_URL}/login`, content, {
-        headers: { 'Content-Type' :  'application/x-www-form-urlencoded'  }
+    // JavaScript initialized oauth login, currently not working but here for testing / future use
+    function loginWithVoyage() {
+      const content = 'client_id=client-super&redirect_uri=http://localhost:3000/#/oauth';
+
+      $http.post(`${SERVER_URL}/oauth/authorize`, content, {
+        headers: { 'Content-Type' : 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin' : '*' }
       })
         .then(response => {
-          tokenService.setToken(response.data);
+          $log(response);
+        })
+        .catch(error => {
+          $log(error);
         });
     }
 
@@ -43,6 +54,33 @@
     function logout() {
       tokenService.deleteToken();
       $state.go('login');
+    }
+
+    function redirectToLoginIfNoToken() {
+      if (!$location.search().access_token && !tokenService.getToken()) {
+        $state.go('login');
+      }
+    }
+
+    function handleEntryFromOauthRedirect() {
+      const accessToken = $location.search().access_token;
+
+      if (accessToken) {
+        const expiresIn = parseInt($location.search().expires_in);
+        const expirationDate = convertExpiresInSecondsToExpirationDate(expiresIn);
+        tokenService.setToken(accessToken, expirationDate);
+      }
+    }
+
+    function placeTokenOnHttpHeader() {
+      const token = tokenService.getToken();
+      $http.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
+
+    function convertExpiresInSecondsToExpirationDate(expiresIn) {
+      const expirationDate = new Date();
+      expirationDate.setSeconds(expirationDate.getSeconds() + expiresIn);
+      return expirationDate;
     }
   }
 }());

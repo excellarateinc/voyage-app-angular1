@@ -5,8 +5,14 @@
     .module('launchpadApp.dashboard')
     .controller('DashboardController', DashboardController);
 
-  function DashboardController($http, API_URL) {
-    $http.get(`${API_URL}/users`); // Temporary test for authentication
+  DashboardController.$inject = ['$http', '$log', 'API_URL'];
+
+  function DashboardController($http, $log, API_URL) {
+
+    // Hit the users API and log results to console for authentication testing only
+    // TODO: Remove once authentication is tested and complete
+    $http.get(`${API_URL}/users`)
+      .then($log);
   }
 
 }());

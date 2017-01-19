@@ -63,7 +63,7 @@
     "no-iterator": "warn",
     "no-restricted-syntax": "warn",
     "dot-notation": "warn",
-    "one-var": "warn",
+    "one-var": ["error", "never"],
     "no-case-declarations": "warn",
     "no-unneeded-ternary": "warn",
     "brace-style": "warn",

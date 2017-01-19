@@ -7,15 +7,13 @@
 
   LoginController.$inject = ['authenticationService', '$state'];
 
-  function LoginController(authenticationService, $state) {
+  function LoginController(authenticationService) {
     const vm = this;
-    vm.login = login;
+    vm.loginWithVoyage = loginWithVoyage;
 
-    function login() {
-      authenticationService.login(vm.username, vm.password)
-        .then(() => {
-          $state.go('main.dashboard');
-        });
+
+    function loginWithVoyage() {
+      authenticationService.loginWithVoyage();
     }
   }
 }());
