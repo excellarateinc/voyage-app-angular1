@@ -1,6 +1,18 @@
 {
-  "development": { "API_URL": "http://localhost/api/v1" },
-  "qa": { "API_URL": "http://qa-api.voyageframework.com/api/v1" },
-  "qa-ms": { "API_URL": "http://qa-api-ms.voyageframework.com/api/v1" },
-  "qa-java": { "API_URL": "http://qa-api-java.voyageframework.com/api/v1" }
+  "development": {
+    "API_URL": "http://localhost:8080/api/v1",
+    "SERVER_URL": "http://localhost:8080"
+  },
+  "qa": {
+    "API_URL": "http://qa-api.voyageframework.com/api/v1",
+    "SERVER_URL": "http://qa-api.voyageframework.com"
+  },
+  "qa-ms": {
+    "API_URL": "http://qa-api-ms.voyageframework.com/api/v1",
+    "SERVER_URL": "http://qa-api-ms.voyageframework.com"
+  },
+  "qa-java": {
+    "API_URL": "http://qa-api-java.voyageframework.com/api/v1",
+    "SERVER_URL": "http://qa-api-java.voyageframework.com"
+  }
 }

@@ -20,8 +20,8 @@
       return $cookies.get(TOKEN_ID);
     }
 
-    function setToken(tokenData) {
-      $cookies.put(TOKEN_ID, tokenData.access_token, { expires: tokenData[".expires"] });
+    function setToken(accessToken, expirationDate) {
+      $cookies.put(TOKEN_ID, accessToken, { expires: expirationDate });
     }
 
     function deleteToken() {

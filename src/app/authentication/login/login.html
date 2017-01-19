@@ -3,23 +3,21 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="panel">
                 <div class="panel-heading">Login</div>
-                <div class="panel-body">
+                <div class="panel-body text-center">
 
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label">User</label>
-                            <div class="col-sm-10">
-                                <input id="username" type="text" name="username" ng-model="vm.username" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                                <input id="password" name="password" type="password" class="form-control" ng-model="vm.password" />
-                            </div>
-                        </div>
-                        <button type="button" ng-click="vm.login()" class="btn btn-primary pull-right">Login</button>
+                    <form method="POST" action="http://localhost:8080/oauth/authorize">
+
+                        <input id="client_id" type="hidden" name="client_id" value="client-super" />
+
+                        <input id="redirect_uri" type="hidden" name="redirect_uri" value="http://localhost:3000/#/authentication/oauth?fix=1" />
+                        <input id="response_type" type="hidden" name="response_type" value="token"/>
+                        <input id="state" type="hidden" name="state" value="test" />
+
+                        <input type="submit" class="btn btn-primary" value="Login with Voyage" />
+
                     </form>
+
+                    <button ng-click="vm.loginWithVoyage()" class="btn btn-primary">Test JavaScript Login</button>
 
                 </div>
             </div>

@@ -2,12 +2,10 @@ angular
     .module('launchpadApp.authentication')
     .run(appRun);
 
-function appRun($location, routerHelper, tokenService) {
+function appRun(routerHelper, authenticationService) {
   routerHelper.configureStates(getStates());
+  authenticationService.initialize();
 
-  if (!tokenService.getToken()) {
-    $location.path('/account/login');
-  }
 }
 
 function getStates() {
@@ -15,7 +13,7 @@ function getStates() {
     {
       state: 'login',
       config: {
-        url: '/account/login',
+        url: '/authentication/login',
         templateUrl: 'app/authentication/login/login.html',
         controller: 'LoginController',
         controllerAs: 'vm'
@@ -25,7 +23,7 @@ function getStates() {
     {
       state: 'register',
       config: {
-        url: '/account/register',
+        url: '/authentication/register',
         templateUrl: 'app/authentication/register/register.html',
         controller: 'RegisterController',
         controllerAs: 'vm'
