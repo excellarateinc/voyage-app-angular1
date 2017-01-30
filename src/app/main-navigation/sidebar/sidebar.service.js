@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('launchpadApp.mainNavigation')
+  angular.module('voyage.mainNavigation')
     .factory('sidebarService', sidebarService);
 
   function sidebarService() {

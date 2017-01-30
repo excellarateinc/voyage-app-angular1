@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.dashboard')
+    .module('voyage.dashboard')
     .controller('DashboardController', DashboardController);
 
   DashboardController.$inject = ['$http', '$log', 'API_URL'];
@@ -12,7 +12,9 @@
     // Hit the users API and log results to console for authentication testing only
     // TODO: Remove once authentication is tested and complete
     $http.get(`${API_URL}/users`)
-      .then($log);
+      .then($log.log);
+
+
   }
 
 }());

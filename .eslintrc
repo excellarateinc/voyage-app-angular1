@@ -85,7 +85,7 @@
     "angular/controller-as": "error",
     "angular/angularelement": "error",
     "angular/no-jquery-angularelement": "error",
-    "angular/file-name": ["warn", {"nameStyle": "dash", "ignoreTypeSuffix": true, "ignorePrefix": "launchpadApp.", "typeSeparator":"dot"}],
+    "angular/file-name": ["warn", {"nameStyle": "dash", "ignoreTypeSuffix": true, "ignorePrefix": "voyage.", "typeSeparator":"dot"}],
     "angular/di-unused": "warn",
     "angular/directive-restrict": "warn",
     "angular/empty-controller": "error",

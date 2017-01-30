@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.core')
+    .module('voyage.core')
     .factory('errorService', errorService);
 
   function errorService() {

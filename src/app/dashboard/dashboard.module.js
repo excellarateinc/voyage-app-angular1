@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('launchpadApp.dashboard', []);
+    .module('voyage.dashboard', ['chart.js']);
 
 }());

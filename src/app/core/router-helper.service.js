@@ -1,37 +1,41 @@
-angular
-    .module('launchpadApp.core')
-    .provider('routerHelper', routerHelperProvider);
+(function () {
+  'use strict';
 
-routerHelperProvider.$inject = ['$stateProvider', '$urlRouterProvider'];
+  angular
+      .module('voyage.core')
+      .provider('routerHelper', routerHelperProvider);
 
-function routerHelperProvider($stateProvider, $urlRouterProvider) {
-  /* jshint validthis:true */
-  this.$get = RouterHelper;
+  routerHelperProvider.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  RouterHelper.$inject = ['$state'];
+  function routerHelperProvider($stateProvider, $urlRouterProvider) {
+    /* jshint validthis:true */
+    this.$get = RouterHelper;
 
-  function RouterHelper($state) {
-    let hasOtherwise = false;
+    RouterHelper.$inject = ['$state'];
 
-    const service = {
-      configureStates,
-      getStates
-    };
+    function RouterHelper($state) {
+      let hasOtherwise = false;
 
-    return service;
+      const service = {
+        configureStates,
+        getStates
+      };
+
+      return service;
 
 
-    function configureStates(states, otherwisePath) {
-      states.forEach(state => $stateProvider.state(state.state, state.config));
+      function configureStates(states, otherwisePath) {
+        states.forEach(state => $stateProvider.state(state.state, state.config));
 
-      if (otherwisePath && !hasOtherwise) {
-        hasOtherwise = true;
-        $urlRouterProvider.otherwise(otherwisePath);
+        if (otherwisePath && !hasOtherwise) {
+          hasOtherwise = true;
+          $urlRouterProvider.otherwise(otherwisePath);
+        }
+      }
+
+      function getStates() {
+        return $state.get();
       }
     }
-
-    function getStates() {
-      return $state.get();
-    }
   }
-}
+}());

@@ -48,5 +48,8 @@
     "run-sequence": "^1.2.2",
     "shelljs": "^0.3.0",
     "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "gulp-ngdocs": "^0.3.0"
   }
 }

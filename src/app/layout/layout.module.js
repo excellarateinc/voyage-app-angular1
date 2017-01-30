@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('launchpadApp.layout', []);
+    .module('voyage.layout', []);
 
 }());

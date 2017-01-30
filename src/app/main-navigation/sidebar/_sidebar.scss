@@ -11,6 +11,10 @@ sidebar {
     z-index: 10;
   }
 
+  .voyage-logo {
+    margin: 20px 20px 20px 20px;
+  }
+
   .sidebar.ng-hide {
     transform: translate3d(-$sidebar-width-mobile, 0, 0);
   }
@@ -76,6 +80,10 @@ sidebar {
       padding-top: 80px;
       width: $sidebar-width-desktop;
       z-index: 1;
+    }
+
+    .voyage-logo {
+      margin: 0 20px 20px 20px;
     }
 
     .sidebar.ng-hide {

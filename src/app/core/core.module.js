@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('launchpadApp.core', [
+    .module('voyage.core', [
       'ui.router',
       'ngTouch',
       'ngAnimate',
       'ngCookies',
       'ui.bootstrap',
-      'launchpadApp.constants'
+      'voyage.constants'
     ]);
 }());

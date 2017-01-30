@@ -2,12 +2,13 @@
   'use strict';
 
   angular
-    .module('launchpadApp.app', [
-      'launchpadApp.mainNavigation',
-      'launchpadApp.dashboard',
-      'launchpadApp.layout',
-      'launchpadApp.core',
-      'launchpadApp.authentication'
+    .module('voyage.app', [
+      'voyage.mainNavigation',
+      'voyage.dashboard',
+      'voyage.layout',
+      'voyage.core',
+      'voyage.authentication',
+      'voyage.examples'
     ]);
 }());
 

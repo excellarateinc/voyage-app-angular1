@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.authentication')
+    .module('voyage.authentication')
     .controller('RegisterController', RegisterController);
 
   RegisterController.$inject = ['$state', 'authenticationService', 'errorService'];

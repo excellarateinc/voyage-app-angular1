@@ -52,6 +52,20 @@ gulp.task('serve-dist', function() {
   });
 });
 
+/**
+ * Generates ngDocs documentation
+ */
+gulp.task('ngdocs', [], function () {
+  var options = {
+    html5Mode: true,
+    title: "Voyage Angular Docs"
+  };
+
+  return gulp.src(paths.js)
+      .pipe(plugins.ngdocs.process(options))
+      .pipe(gulp.dest('./docs'));
+});
+
 
 /**
  * NOTE!  All tasks and functions below only exist to support the tasks above and shouldn't need to be run directly.
@@ -128,7 +142,7 @@ function generateConstants() {
   const configJson = require('./src/app/environment-constants/environment-constants.config.json');
   const environmentConfig = configJson[process.env.NODE_ENV || 'development'];
   return plugins.ngConstant({
-    name: 'launchpadApp.constants',
+    name: 'voyage.constants',
     constants: environmentConfig,
     wrap: false,
     stream: true,

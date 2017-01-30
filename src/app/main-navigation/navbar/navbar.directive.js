@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('launchpadApp.mainNavigation')
+  angular.module('voyage.mainNavigation')
     .directive("navbar", navbar);
 
   navbar.$inject = ['sidebarService'];

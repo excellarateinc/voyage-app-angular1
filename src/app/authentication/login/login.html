@@ -4,21 +4,7 @@
             <div class="panel">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body text-center">
-
-                    <form method="POST" action="http://localhost:8080/oauth/authorize">
-
-                        <input id="client_id" type="hidden" name="client_id" value="client-super" />
-
-                        <input id="redirect_uri" type="hidden" name="redirect_uri" value="http://localhost:3000/#/authentication/oauth?fix=1" />
-                        <input id="response_type" type="hidden" name="response_type" value="token"/>
-                        <input id="state" type="hidden" name="state" value="test" />
-
-                        <input type="submit" class="btn btn-primary" value="Login with Voyage" />
-
-                    </form>
-
-                    <button ng-click="vm.loginWithVoyage()" class="btn btn-primary">Test JavaScript Login</button>
-
+                    <button ng-click="vm.oauthLogin()" class="btn btn-primary">Login with Voyage</button>
                 </div>
             </div>
         </div>

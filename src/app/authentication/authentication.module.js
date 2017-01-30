@@ -1,8 +1,12 @@
 (function () {
   'use strict';
 
+  /**
+   * Oauth 2 authentication module for Voyage
+   * @module voyage.authentication
+   */
   angular
-    .module('launchpadApp.authentication', [
-      'launchpadApp.core'
+    .module('voyage.authentication', [
+      'voyage.core'
     ]);
 }());
