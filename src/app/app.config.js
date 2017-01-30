@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.app')
+    .module('voyage.app')
     .config(appConfig);
 
   appConfig.$inject = ['$stateProvider', '$urlRouterProvider'];

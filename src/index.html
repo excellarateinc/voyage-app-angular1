@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="styles/app.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="launchpadApp.app">
+    <body ng-app="voyage.app">
         <ui-view></ui-view>
 
 
@@ -30,6 +30,8 @@
         <script src="/bower_components/angular-animate/angular-animate.js"></script>
         <script src="/bower_components/angular-touch/angular-touch.js"></script>
         <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="/bower_components/chart.js/dist/Chart.js"></script>
+        <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -40,6 +42,7 @@
         <script src="app/core/core.module.js"></script>
         <script src="app/dashboard/dashboard.module.js"></script>
         <script src="app/environment-constants/constants.module.js"></script>
+        <script src="app/examples/examples.module.js"></script>
         <script src="app/layout/layout.module.js"></script>
         <script src="app/main-navigation/main-navigation.module.js"></script>
         <script src="app/app.config.js"></script>
@@ -51,8 +54,11 @@
         <script src="app/authentication/register/register.controller.js"></script>
         <script src="app/authentication/token.service.js"></script>
         <script src="app/core/error.service.js"></script>
+        <script src="app/core/platform-helper.service.js"></script>
         <script src="app/core/router-helper.service.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
+        <script src="app/examples/example-dashboard.directive.js"></script>
+        <script src="app/examples/hsa-balances.directive.js"></script>
         <script src="app/layout/header.component.js"></script>
         <script src="app/logo/ls-logo.directive.js"></script>
         <script src="app/main-navigation/main-navigation.controller.js"></script>

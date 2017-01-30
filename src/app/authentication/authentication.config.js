@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-      .module('launchpadApp.authentication')
+      .module('voyage.authentication')
       .config(config);
 
   config.$inject = ['$httpProvider'];

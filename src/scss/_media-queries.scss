@@ -1,5 +1,6 @@
 // Media queries for use throughout the app, matches Bootstrap 3's breakpoints
 
+// Since we are mobile first, this size should never need to be explicitly used, default css should be for this size
 @mixin for-phone-only {
   @media (max-width: 767px) { @content; }
 }

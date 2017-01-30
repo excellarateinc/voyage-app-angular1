@@ -19,7 +19,8 @@
   margin-left: 15px;
   margin-top: 70px;
   transition: margin ease-in-out .3s;
-  width: 100%;
+  width: calc(100% - 15px);
+  max-width: 1350px;
 }
 
 .panel-view {
@@ -40,8 +41,7 @@
   }
 }
 
-.panel-default>.panel-heading,
-.panel {
+.panel-primary>.panel-heading {
   color: $panel-header-color;
 
   &:not([class*='panel-'])>.panel-heading {
@@ -49,7 +49,7 @@
   }
 }
 
-.panel.panel-default>.panel-heading,
+.panel.panel-primary>.panel-heading,
 .panel>.panel-heading {
   background-color: $panel-header-background-color;
 }
@@ -65,6 +65,7 @@
 @include for-desktop-up {
   .main-view {
     margin-left: 15px + $sidebar-width-desktop;
+    width: calc(100% - #{15px + $sidebar-width-desktop});
   }
 }
 

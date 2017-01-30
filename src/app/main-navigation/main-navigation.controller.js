@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.mainNavigation')
+    .module('voyage.mainNavigation')
     .controller('MainNavigationController', MainNavigationController);
 
   function MainNavigationController() {}

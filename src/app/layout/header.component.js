@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('launchpadApp.layout')
+    .module('voyage.layout')
     .component('header', {
       templateUrl: 'app/layout/header.component.html',
       controller: HeaderController,

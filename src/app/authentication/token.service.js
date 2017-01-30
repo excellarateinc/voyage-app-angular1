@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-      .module('launchpadApp.authentication')
+      .module('voyage.authentication')
       .factory('tokenService', tokenService);
 
   tokenService.$inject = ['$cookies'];

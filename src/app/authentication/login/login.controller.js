@@ -2,20 +2,16 @@
   'use strict';
 
   angular
-    .module('launchpadApp.authentication')
+    .module('voyage.authentication')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['authenticationService', '$state'];
+  LoginController.$inject = ['authenticationService'];
 
   function LoginController(authenticationService) {
     const vm = this;
-    vm.loginWithVoyage = loginWithVoyage;
-
-
-    function loginWithVoyage() {
-      authenticationService.loginWithVoyage();
-    }
+    vm.oauthLogin = authenticationService.goToOauthLogin;
   }
+
 }());
 
 
