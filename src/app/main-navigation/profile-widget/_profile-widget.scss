@@ -7,16 +7,11 @@ profile-widget {
     overflow: hidden;
   }
 
-  .sidebar.locked-open-add .profile-section-wrapper,
-  .sidebar.locked-open-remove .profile-section-wrapper {
-    display: none;
-  }
-
   .profile-section-wrapper svg {
     display: block;
     fill: $sidebar-profile-section-color;
     height: 200px;
-    margin-left: 90px;
+    margin-left: 115px;
   }
 
   .profile-section {

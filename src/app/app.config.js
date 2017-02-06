@@ -15,14 +15,14 @@
 
       .state('main', {
         abstract: true,
-        templateUrl: 'app/main-navigation/main-navigation.html',
+        templateUrl: '/app/main-navigation/main-navigation.html',
         controller: 'MainNavigationController',
         controllerAs: 'vm'
       })
 
       .state('main.dashboard', {
         url: '/dashboard',
-        templateUrl: 'app/dashboard/dashboard.html',
+        templateUrl: '/app/dashboard/dashboard.html',
         controller: 'DashboardController',
         controllerAs: 'vm'
       });

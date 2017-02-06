@@ -1,0 +1,29 @@
+{
+  "name": "Voyage",
+  "short_name": "Voyage",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "img/favicons/favicon-128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "img/favicons/mstile-144x144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "img/favicons/apple-touch-icon-152x152.png",
+    "sizes": "152x152",
+    "type": "image/png"
+  }, {
+    "src": "img/favicons/favicon-196x196.png",
+    "sizes": "196x196",
+    "type": "image/png"
+  }, {
+    "src": "img/favicons/icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#c0c9ce",
+  "theme_color": "#c0c9ce"
+}

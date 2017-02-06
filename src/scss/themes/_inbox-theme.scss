@@ -1,0 +1,42 @@
+// Theme colors
+$primary-color-1: #4285f4;
+$primary-color-2: #4e4e4e;
+
+// Navbar
+$navbar-background-color: $primary-color-1;
+$navbar-color: #eee;
+$navbar-logo-color: #eee;
+$navbar-drop-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+
+// Sidebar
+$sidebar-background-color: #eee;
+$sidebar-color: #666;
+$sidebar-profile-section-background-color: $navbar-background-color;
+$sidebar-profile-section-color: $navbar-logo-color;
+$sidebar-width-desktop: 256px;
+$sidebar-width-mobile: 300px;
+$sidebar-drop-shadow: none;
+$sidebar-section-divider: 1px solid #ccc;
+$sidebar-item-color: $sidebar-color;
+$sidebar-item-icon-color: $sidebar-color;
+$sidebar-item-background-color-hover: #ddd;
+$sidebar-mask-color: #000;
+
+// Profile Widget
+$profile-widget-background-color: rgba(0, 0, 0, .38);
+$profile-widget-background-overlay: linear-gradient(to bottom, transparent 99%, $profile-widget-background-color 100%);
+$profile-widget-color: #fff;
+$profile-widget-dropdown-item-color: #212121;
+
+// Dropdowns
+$dropdown-hover-color: $primary-color-1;
+
+// Panels
+$panel-primary-header-background-color: $navbar-background-color;
+$panel-primary-header-color: $navbar-color;
+$panel-default-header-background-color: #fff;
+$panel-default-header-color: #333;
+$panel-default-border-bottom: 1px solid #ddd;
+
+// Buttons
+$button-default-color: $navbar-background-color;

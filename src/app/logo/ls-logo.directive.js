@@ -7,7 +7,7 @@
   function lsLogo() {
     return {
       restrict: 'E',
-      templateUrl: 'app/logo/ls-logo.directive.svg',
+      templateUrl: 'app/logo/voyage-logo-horiz.svg',
       scope: {
       },
       link() {

@@ -8,10 +8,8 @@ navbar {
     display: block;
     fill: $navbar-logo-color;
     float: left;
-    height: 30px;
-    margin: 10px 0 10px 20px;
     transition: margin ease-in-out .3s;
-    width: 30px;
+    width: 100px;
   }
 
   .navbar,
@@ -56,12 +54,11 @@ navbar {
     .navbar .navbar-brand {
       height: 60px;
       line-height: 30px;
-      padding: 15px;
+      padding: 12px 0 12px 20px;
     }
 
-
     ls-logo {
-      margin: 15px 0 15px 20px;
+      width: 120px;
     }
   }
 }

@@ -1,20 +1,18 @@
 <div class="sidebar-mask" ng-show="userOpened" ng-click="toggleSidenav()"></div>
 
-<div class="sidebar" ng-show="userOpened  || lockedOpen" ng-class="{'locked-open': lockedOpen}">
+<div ng-cloak class="ng-cloak ng-hide sidebar" ng-show="userOpened || lockedOpen" ng-class="{'locked-open': lockedOpen}">
 
-  <!--<profile-widget ng-show="userOpened"></profile-widget>-->
-  <div class="voyage-logo">
-    <img style="width: 100%;" src="../../../img/voyage-horizontal.png"/>
-  </div>
+  <profile-widget></profile-widget>
 
   <a class="nav-item-container">
-    <i class="material-icons">dashboard</i>
-    Dashboard
+    <i class="material-icons">show_chart</i>
+    Balances
   </a>
 
   <a class="nav-item-container">
-    <i class="material-icons">poll</i>
-    Data
+    <i class="material-icons">attach_money
+    </i>
+    Deposit
   </a>
 
   <a class="nav-item-container">

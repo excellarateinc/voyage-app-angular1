@@ -5,6 +5,8 @@
     .module('voyage.authentication')
     .run(appRun);
 
+  appRun.$inject = ['routerHelper', 'authenticationService'];
+
   function appRun(routerHelper, authenticationService) {
     routerHelper.configureStates(getStates());
     authenticationService.initialize();

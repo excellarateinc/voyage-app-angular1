@@ -8,7 +8,7 @@ const plugins = require('gulp-load-plugins')();
 
 const paths = {
   app: './src/app/',
-  html: ['./src/**/*.html'],
+  html: ['./src/**/*.html', './src/**/*.svg'],
   data: ['./src/**/*.json'],
   images: ['./src/img/**/*'],
   sass: ['./src/scss/*.scss', './src/app/**/*.scss'],
@@ -39,7 +39,7 @@ gulp.task('sass-lint', sassLint);
 
 // Runs the build process, results in minified concatenated files written to the dist/ folder
 gulp.task('build', function(done) {
-  runSequence("clean-dist", "copy-images", "copy-fonts", "sourcemaps-babel-concat-minify", done);
+  runSequence("clean-dist", "copy-images", "copy-fonts", "copy-markup", "sourcemaps-babel-concat-minify", done);
 });
 
 // Generates environment constants like URL of the API
@@ -111,8 +111,7 @@ function test(done) {
 function esLint() {
   return gulp.src(paths.js)
       .pipe(plugins.eslint())
-      .pipe(plugins.eslint.format())
-      .pipe(plugins.eslint.failAfterError());
+      .pipe(plugins.eslint.format());
 }
 
 
@@ -128,8 +127,7 @@ function sassLint() {
           'force-element-nesting': 0
         }
       }))
-    .pipe(plugins.sassLint.format())
-    .pipe(plugins.sassLint.failOnError())
+    .pipe(plugins.sassLint.format());
 }
 
 
@@ -213,7 +211,7 @@ gulp.task('sass', function() {
  * sourcemaps, and finally write the index.html file into the dist folder.
  */
 gulp.task('sourcemaps-babel-concat-minify', ["sass"], function() {
-  return gulp.src(paths.html)
+  return gulp.src('src/index.html')
       .pipe(plugins.useref({}, initializeSourceMapsThenRunBabel()))
       .pipe(plugins.if('!index.html', plugins.rev()))
       .pipe(plugins.if('*.js', plugins.uglify()))
@@ -268,6 +266,12 @@ gulp.task('copy-images', function() {
   return gulp.src(paths.images)
       .pipe(plugins.imagemin())
       .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('copy-markup', function(done) {
+  gulp.src(paths.html)
+      .pipe(gulp.dest('./dist'))
+      .on('end', done);
 });
 
 gulp.task('default', ['build']);
