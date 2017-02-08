@@ -17,9 +17,9 @@
 
 .main-view {
   margin-left: 15px;
-  margin-top: 70px;
+  margin-top: 50px;
   max-width: 1350px;
-  transition: margin ease-in-out .3s;
+  // transition: margin ease-in-out .3s;
   width: calc(100% - 15px);
 }
 
@@ -76,10 +76,26 @@
   }
 }
 
+.btn-group-raised .btn.btn-primary,
+.btn-group-raised .input-group-btn .btn.btn-primary,
+.btn.btn-fab.btn-primary,
+.btn.btn-raised.btn-primary,
+.input-group-btn .btn.btn-fab.btn-primary,
+.input-group-btn .btn.btn-raised.btn-primary {
+  background-color: $button-default-color;
+  color: rgba(255,255,255,.84);
+}
+
 @include for-desktop-up {
   .main-view {
     margin-left: 15px + $sidebar-width-desktop;
     width: calc(100% - #{15px + $sidebar-width-desktop});
+  }
+}
+
+@include for-tablet-up {
+  .main-view {
+    margin-top: 70px;
   }
 }
 
@@ -90,6 +106,12 @@
   }
 }
 
+.form-group-lg select.form-control {
+  height: 50px;
+  line-height: 44px;
+}
+
 @import '../app/main-navigation/navbar/navbar';
 @import '../app/main-navigation/sidebar/sidebar';
 @import '../app/main-navigation/profile-widget/profile-widget';
+@import '../app/authentication/authentication';

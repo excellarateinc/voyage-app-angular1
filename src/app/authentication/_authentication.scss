@@ -1,0 +1,50 @@
+.login-template {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  ls-logo {
+    display: block;
+    fill: $navbar-logo-color;
+    float: left;
+    transition: margin ease-in-out .3s;
+    width: 100px;
+  }
+
+  .login-logo {
+    margin: 0 60px 00px 60px;
+  }
+
+  .navbar,
+  .navbar.navbar-default {
+    background-color: $navbar-background-color;
+    box-shadow: $navbar-drop-shadow;
+    color: $navbar-color;
+  }
+
+  .navbar-brand {
+    padding: 10px 15px;
+    transition: padding ease-in-out .3s;
+  }
+
+  @include for-desktop-up {
+    .sidebar-toggle {
+      display: none;
+    }
+
+    .navbar .navbar-brand {
+      height: 60px;
+      line-height: 30px;
+      padding: 12px 0 12px 20px;
+    }
+
+    .login-logo {
+      margin: 0 80px 0px 80px;
+    }
+
+    ls-logo {
+      width: 120px;
+    }
+  }
+}

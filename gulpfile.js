@@ -87,7 +87,8 @@ function serve() {
       baseDir: ['src/', 'src/.tmp/'],
       routes: {
         '/bower_components': 'bower_components'
-      }
+      },
+      tunnel: true
     }
   });
 }

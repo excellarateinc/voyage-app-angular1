@@ -52,8 +52,7 @@
         <!-- endbuild -->
     </head>
     <body ng-app="voyage.app">
-        <ui-view></ui-view>
-
+        <div ui-view></div>
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
@@ -91,8 +90,11 @@
         <script src="app/core/platform-helper.service.js"></script>
         <script src="app/core/router-helper.service.js"></script>
         <script src="app/dashboard/dashboard.controller.js"></script>
+        <script src="app/examples/deposit/deposit.controller.js"></script>
         <script src="app/examples/example-dashboard.directive.js"></script>
+        <script src="app/examples/examples.routes.js"></script>
         <script src="app/examples/hsa-balances.directive.js"></script>
+        <script src="app/examples/profile/profile.controller.js"></script>
         <script src="app/layout/header.component.js"></script>
         <script src="app/logo/ls-logo.directive.js"></script>
         <script src="app/main-navigation/main-navigation.controller.js"></script>
@@ -102,5 +104,8 @@
         <script src="app/main-navigation/sidebar/sidebar.service.js"></script>
         <!-- endinject-->
         <!-- endbuild -->
+
+
+
     </body>
 </html>
