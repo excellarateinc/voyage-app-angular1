@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <a class="profile-menu-item" ng-show="menuOpen">
+  <a class="profile-menu-item" ng-show="menuOpen" href="#/examples/profile">
     Profile
   </a>
 
@@ -27,7 +27,7 @@
 <div ng-if="showCompact" class="btn-group navbar-right hidden-xs hidden-sm" uib-dropdown>
   <button type="button" class="btn profile-icon" uib-dropdown-toggle></button>
   <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-    <li role="menuitem"><a href="#">Profile</a></li>
+    <li role="menuitem"><a href="#/examples/profile">Profile</a></li>
     <li role="menuitem"><a href="#">Settings</a></li>
     <li class="divider"></li>
     <li role="menuitem"><a ng-click="logout()" href="#">Logout</a></li>

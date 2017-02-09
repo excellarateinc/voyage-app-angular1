@@ -1,10 +1,32 @@
-﻿<div class="container">
-    <div class="row panel-view">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="panel">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body text-center">
-                    <button ng-click="vm.oauthLogin()" class="btn btn-primary">Login with Voyage</button>
+﻿<div class="login-template">
+    <nav class="navbar navbar-default">
+        <a class="navbar-brand" href="#">
+            <ls-logo></ls-logo>
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel">
+
+                    <div class="panel-body">
+                        <img class="login-logo" src="../img/voyage-logo-vert.svg">
+
+                            <div class="form-group">
+                                <label for="i6" class="control-label">Username</label>
+                                <input type="email" class="form-control" id="i6">
+                                <span class="help-block">Please enter a valid email address</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="i6" class="control-label">Password</label>
+                                <input type="password" class="form-control" id="i6" value="555-123-4567">
+                                <span class="help-block">Please enter a valid email address</span>
+                            </div>
+
+                        <button ng-click="vm.oauthLogin()" class="btn btn-raised btn-primary" style="margin-left: auto; margin-right: auto; display: block; margin-top: 20px;">Login</button>
+                    </div>
                 </div>
             </div>
         </div>

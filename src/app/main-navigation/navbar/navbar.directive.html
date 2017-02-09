@@ -1,10 +1,53 @@
 <nav class="navbar navbar-default">
   <!--<ls-logo></ls-logo>-->
-  <a class="navbar-brand" href="#">Voyage</a>
+  <a class="navbar-brand" href="#">
+    <ls-logo></ls-logo>
+  </a>
 
   <button class="sidebar-toggle" type="button" ng-click="toggleSidenav()">
     <i class="material-icons">menu</i>
   </button>
 
+  <div ng-click="vm.showNotifications = !vm.showNotifications" class="hidden-sm hidden-xs" style="position: absolute; right: 90px; top: 15px; cursor: pointer;">
+    <i class="material-icons" style="font-size: 32px;">notifications</i>
+    <span class="badge" style="margin-top: -46px; margin-left: -10px; background-color: #F44336;">3</span>
+  </div>
+
+
   <profile-widget compact-mode></profile-widget>
 </nav>
+
+<div ng-show="vm.showNotifications" class="list-group" style="background-color: white; position: absolute; right: 120px; top: 52px; border: 1px solid #eee; box-shadow: 1px 1px 13px #999;">
+  <div class="list-group-item">
+    <div class="row-picture">
+      <img class="circle" src="http://lssinc.com/files/original/headshot-tim1.png" alt="icon">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Tim M.</h4>
+
+      <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-picture">
+      <img class="circle" src="http://lssinc.com/files/original/headshot-eric1.png" alt="icon">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Eric S.</h4>
+
+      <p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-picture">
+      <img class="circle" src="http://lssinc.com/files/original/headshot-mike1.png" alt="icon">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Mike D</h4>
+
+      <p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
+    </div>
+  </div>
+</div>

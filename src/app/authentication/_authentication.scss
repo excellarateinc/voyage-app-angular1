@@ -1,4 +1,4 @@
-navbar {
+.login-template {
   position: fixed;
   top: 0;
   width: 100%;
@@ -10,6 +10,10 @@ navbar {
     float: left;
     transition: margin ease-in-out .3s;
     width: 100px;
+  }
+
+  .login-logo {
+    margin: 0 60px 00px 60px;
   }
 
   .navbar,
@@ -24,28 +28,6 @@ navbar {
     transition: padding ease-in-out .3s;
   }
 
-  .sidebar-toggle {
-    background-color: transparent;
-    border: 1px solid transparent;
-    float: right;
-    padding: 11px 10px;
-    position: relative;
-  }
-
-  .btn-group {
-    margin: 13px 21px;
-  }
-
-  .btn.profile-icon {
-    background-image: url('../img/profile-resize.jpg');
-    background-size: cover;
-    border-radius: 50%;
-    height: 35px;
-    min-width: 35px;
-    padding: 0;
-    width: 35px;
-  }
-
   @include for-desktop-up {
     .sidebar-toggle {
       display: none;
@@ -55,6 +37,10 @@ navbar {
       height: 60px;
       line-height: 30px;
       padding: 12px 0 12px 20px;
+    }
+
+    .login-logo {
+      margin: 0 80px 0px 80px;
     }
 
     ls-logo {

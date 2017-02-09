@@ -4,15 +4,15 @@ sidebar {
     background-color: $sidebar-background-color;
     box-shadow: $sidebar-drop-shadow;
     color: $sidebar-color;
-    height: 100%;
+    height: 110%; // set larger than viewport to remove stutter when address bar hidden in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=428132
     position: fixed;
-    transition: transform ease-in-out .3s;
     width: $sidebar-width-mobile;
     z-index: 10;
   }
 
-  .voyage-logo {
-    margin: 20px 20px 20px 20px;
+  .sidebar.ng-hide-add,
+  .sidebar.ng-hide-remove {
+    transition: transform ease-in-out .3s;
   }
 
   .sidebar.ng-hide {
@@ -24,6 +24,14 @@ sidebar {
     padding-top: 80px;
     width: $sidebar-width-desktop;
     z-index: 1;
+  }
+
+  .sidebar.locked-open-remove profile-widget {
+    display: none;
+  }
+
+  .voyage-logo {
+    margin: 20px;
   }
 
   .nav-item-container {
@@ -59,9 +67,10 @@ sidebar {
 
   .sidebar-mask {
     background: $sidebar-mask-color none;
-    height: 100vh;
+    height: 110vh; // set larger than viewport to remove stutter when address bar hidden in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=428132
     left: 0 ;
     opacity: .2;
+    overflow: hidden;
     position: fixed;
     top: 0;
     transition: opacity linear .2s;
@@ -83,7 +92,7 @@ sidebar {
     }
 
     .voyage-logo {
-      margin: 0 20px 20px 20px;
+      margin: 0 20px 20px;
     }
 
     .sidebar.ng-hide {

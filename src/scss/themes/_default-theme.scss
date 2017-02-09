@@ -24,7 +24,7 @@ $sidebar-mask-color: #000;
 
 // Profile Widget
 $profile-widget-background-color: rgba(0, 0, 0, .6);
-$profile-widget-background-overlay: linear-gradient(to bottom, transparent 75%, $profile-widget-background-color 100%);
+$profile-widget-background-overlay: linear-gradient(to bottom, transparent 99%, $profile-widget-background-color 100%);
 $profile-widget-color: #fff;
 $profile-widget-dropdown-item-color: #212121;
 
@@ -32,8 +32,11 @@ $profile-widget-dropdown-item-color: #212121;
 $dropdown-hover-color: #f15e2b;
 
 // Panels
-$panel-header-background-color: $navbar-background-color;
-$panel-header-color: $navbar-color;
+$panel-primary-header-background-color: $navbar-background-color;
+$panel-primary-header-color: $navbar-color;
+$panel-default-header-background-color: #eee;
+$panel-default-header-color: #333;
+$panel-default-border-bottom: none;
 
 // Buttons
 $button-default-color: $navbar-background-color;
