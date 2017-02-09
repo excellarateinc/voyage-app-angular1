@@ -1,4 +1,4 @@
-![Voyage Logo](./readme_docs/voyage-logo-horiz-color.svg)
+![Voyage Logo](https://github.com/lssinc/voyage-app-angular1/blob/master/readme_docs/voyage-logo-horiz-color.svg)
 
 ## Overview
 A Google AngularJS v1.5 app that implements the fundamental features found in most business applications.
