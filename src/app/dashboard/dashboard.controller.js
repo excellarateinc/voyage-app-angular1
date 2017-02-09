@@ -11,8 +11,8 @@
 
     // Hit the users API and log results to console for authentication testing only
     // TODO: Remove once authentication is tested and complete
-    //$http.get(`${API_URL}/users`)
-    //  .then($log.log);
+    $http.get(`${API_URL}/users`)
+      .then($log.log);
 
 
   }
