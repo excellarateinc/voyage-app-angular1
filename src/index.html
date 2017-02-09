@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Voyage</title>
+        <base href="/">
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png" />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png" />
@@ -30,13 +31,13 @@
         <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-152x152.png" />
         <link rel="manifest" href="manifest.json">
 
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(function() { console.log('service worker installed') })
-                    .catch(function(err) { console.log('Error', err) });
-            }
-        </script>
+        <!--<script>-->
+            <!--if ('serviceWorker' in navigator) {-->
+                <!--navigator.serviceWorker.register('service-worker.js')-->
+                    <!--.then(function() { console.log('service worker installed') })-->
+                    <!--.catch(function(err) { console.log('Error', err) });-->
+            <!--}-->
+        <!--</script>-->
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">

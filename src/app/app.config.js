@@ -5,9 +5,10 @@
     .module('voyage.app')
     .config(appConfig);
 
-  appConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function appConfig($stateProvider, $urlRouterProvider) {
+  function appConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/dashboard');
 

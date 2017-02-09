@@ -53,7 +53,7 @@
      */
     function goToOauthLogin() {
       const RESPONSE_TYPE = 'token';
-      const oauthUrl = `${ SERVER_URL }/oauth/authorize?client_id=${ OAUTH_CLIENT_ID }&redirect_uri=${ encodeURIComponent(OAUTH_REDIRECT_URL) }&response_type=${ RESPONSE_TYPE }`;
+      const oauthUrl = `${ SERVER_URL }/oauth/authorize?client_id=${ OAUTH_CLIENT_ID }&redirect_uri=${ encodeURIComponent(OAUTH_REDIRECT_URL) }&response_type=${ RESPONSE_TYPE }&scope=email`;
 
       if (platformHelper.isRunningAsMobileApp()) {
         const onLoadStart = $rootScope.$on('$cordovaInAppBrowser:loadstart', ionicOnOauthCallbackStoreToken); // eslint-disable-line no-unused-vars
@@ -111,7 +111,17 @@
     }
 
     function handleEntryFromOauthRedirect() {
-      const accessToken = $location.search().access_token;
+      let accessToken = $location.search().access_token;
+
+      // FIXME: The following if block is a temporary fix to handle the fact that java returns the access token as a query parameter '?'
+      // but the .net version returns the access token as a url fragment '#'.  We should unify the API side so this isn't necessary.
+      if (!accessToken) {
+        const tokenIndex = $location.path().indexOf('access_token');
+        if (tokenIndex !== -1) {
+          const paramLength = 'access_token='.length;
+          accessToken = $location.path().substring(tokenIndex + paramLength, $location.path().indexOf('&'));
+        }
+      }
 
       if (accessToken) {
         const expiresIn = parseInt($location.search().expires_in);
