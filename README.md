@@ -32,19 +32,9 @@ __Technology Stack__
 * SASS 
 * Gulp + Bower build scripting
 * JSLint enforcement of Javascript best practices
-* 
 
 
 > NOTE: If you are extending this codebase to build a new app, then replace this section with a detailed overview of the new app. Include as much or as little detail as necessary to convey to the developers what this project is about. Often times less is more. 
-
-## Table of Contents
-* [Quick Start](#quick-start)
-* Features
-* Best Practices
-* Development
-
-## Quick Start
-Describe the bare minimum steps to download, install, configure, and run the app locally
 
 
 ### Quick start
@@ -53,10 +43,10 @@ Describe the bare minimum steps to download, install, configure, and run the app
 
 ```bash
 # clone repo
-$ git clone https://github.com/sJhonny-e/extended-angular-starter.git my-app
+$ git clone https://github.com/lssinc/voyage-app-angular1.git voyage-angularjs
 
 # change directory to your app
-$ cd my-app
+$ cd voyage-angularjs
 
 # install development dependencies with npm
 $ npm install
@@ -75,9 +65,11 @@ The app will open in your browser.
 * [Getting Started](#getting-started)
     * [Dependencies](#dependencies)
     * [Installing](#installing)
+    * [Generate constants](#generate-constants)
     * [Running the app](#running-the-app)
     * [Developing](#developing)
     * [Testing](#testing)
+* [Developer Recipes](./readme_docs/RECIPES.md)
 * [JavaScript Best Practices](./readme_docs/JAVASCRIPT.md)
 * [Angular Best Practices](./readme_docs/ANGULAR.md)
 
@@ -86,34 +78,40 @@ The app will open in your browser.
 ## Dependencies
 
 What you need to run this app:
-* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+* `node`, `npm`, and `bower`
 * Ensure you're running Node (`v4.1.x`+) and NPM (`2.14.x`+)
 
 ## Installing
 
 * `clone` this repo
-* `npm install` to install all dependencies
+* `npm install` to install npm dependencies
+* `bower install` to install bower dependencies
+
+## Generate constants
+
+Voyage relies on certain constants that may change based on project or environment, things like the api url or the client id for oauth.  These constants are configured in environment-constants/environment-constants.json.
+
+To generate the actual Angular constants from this config, run `gulp generate-constants`.  You're now ready to run the app.
+
 
 ## Running the app
 
 After you have installed all dependencies you can now run the app with:
 ```bash
-npm start
+gulp serve
 ```
 
-It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:8080`.
+It will start a local server using browsersync which will watch and reload for you. The port will be displayed to you as `http://localhost:3000`.
 
 ## Developing
 
 ### Build files
 
-* single run: `npm run build`
-* build files and watch: `npm run watch`
+* single run: `gulp build`
+* build files and serve minified / 'built' files: `gulp serve-dist`
 
 ## Testing
 
 #### 1. Unit Tests
 
-* single run: `npm test`
-* live mode (TDD style): `npm run test-watch`
-* live mode in firefox (for debugging): `npm run test:firefox`
+* single run: `gulp test`
