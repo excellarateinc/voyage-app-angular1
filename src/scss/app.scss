@@ -86,6 +86,25 @@
   color: rgba(255,255,255,.84);
 }
 
+.btn-group-raised .btn:not(.btn-link).active.btn-primary,
+.btn-group-raised .btn:not(.btn-link):active.btn-primary,
+.btn-group-raised .btn:not(.btn-link):focus.btn-primary,
+.btn-group-raised .btn:not(.btn-link):hover.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-primary,
+.btn.btn-raised:not(.btn-link).active.btn-primary,
+.btn.btn-raised:not(.btn-link):active.btn-primary,
+.btn.btn-raised:not(.btn-link):focus.btn-primary,
+.btn.btn-raised:not(.btn-link):hover.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-primary {
+  background-color: lighten($button-default-color, 5%)
+}
+
 @include for-desktop-up {
   .main-view {
     margin-left: 15px + $sidebar-width-desktop;
