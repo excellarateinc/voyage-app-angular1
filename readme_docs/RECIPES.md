@@ -328,7 +328,7 @@ Remember to import your partial at the bottom of app.scss:
 
 ## Maintaining and refactoring a module
 
-As you work with your module be mindful of the folder structure and number of files.  Part of our _LIFT_ coding principal is keeping our structure **F**lat, but when you start having around 7 files, consider creating sub folders.
+As you work with your module be mindful of the folder structure and number of files.  Part of our _LI**F**T_ coding principal is keeping our structure **F**lat, but when you start having around 7 files, consider creating sub folders.
 
 Currently our folder and file structure is
 
@@ -346,7 +346,7 @@ Currently our folder and file structure is
   _user-active.directive.scss
 ```
 
-When the file count starts growin to this level, start separating your sub-features into different folders.  One suggestion would be:
+When the file count starts growing to this level, start separating your sub-features into different folders.  One suggestion would be:
 
 ```
 /user-admin
