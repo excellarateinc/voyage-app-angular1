@@ -1,3 +1,5 @@
+// sass-lint:disable-all
+
 @import 'media-queries';
 @import 'themes/inbox-theme';
 
@@ -19,7 +21,6 @@
   margin-left: 15px;
   margin-top: 50px;
   max-width: 1350px;
-  // transition: margin ease-in-out .3s;
   width: calc(100% - 15px);
 }
 
@@ -83,7 +84,7 @@
 .input-group-btn .btn.btn-fab.btn-primary,
 .input-group-btn .btn.btn-raised.btn-primary {
   background-color: $button-default-color;
-  color: rgba(255,255,255,.84);
+  color: rgba(255, 255, 255, .84);
 }
 
 .btn-group-raised .btn:not(.btn-link).active.btn-primary,
@@ -102,7 +103,7 @@
 .input-group-btn .btn.btn-raised:not(.btn-link):active.btn-primary,
 .input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-primary,
 .input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-primary {
-  background-color: lighten($button-default-color, 5%)
+  background-color: lighten($button-default-color, 5%);
 }
 
 @include for-desktop-up {
